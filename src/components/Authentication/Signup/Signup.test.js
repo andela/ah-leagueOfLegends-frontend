@@ -1,23 +1,23 @@
-import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import Enzyme, {shallow} from "enzyme/build";
+import Enzyme from 'enzyme/build';
+
 Enzyme.configure({ adapter: new Adapter() });
 
-//signup
+// signup
 describe('Signup', () => {
-    it('redirects after signup', () => {
+  it('redirects after signup', () => {
 
-    });
+  });
 });
-//signup form
+// signup form
 describe('<SignupForm />', () => {
-    it('render signup form without crashing', () => {
+  it('render signup form without crashing', () => {
 
-    });
-    it('renders error fields ', () => {
+  });
+  it('renders error fields ', () => {
 
-    });
-    it('renders input fields and a button', () => {
+  });
+  it('renders input fields and a button', () => {
 
-    });
+  });
 });

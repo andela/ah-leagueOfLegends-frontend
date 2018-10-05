@@ -1,34 +1,34 @@
-import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import Enzyme, {shallow} from "enzyme/build";
+import Enzyme from 'enzyme/build';
+
 Enzyme.configure({ adapter: new Adapter() });
 
-//logout
+// logout
 describe('Logout', () => {
-    it('check local storage token does not exist', () => {
+  it('check local storage token does not exist', () => {
 
-    });
-    it('redirects after logout', () => {
+  });
+  it('redirects after logout', () => {
 
-    });
+  });
 });
-//login
+// login
 describe('Login', () => {
-    it('check local storage token exists', () => {
+  it('check local storage token exists', () => {
 
-    });
-    it('redirects after login', () => {
+  });
+  it('redirects after login', () => {
 
-    });
+  });
 });
-//login form
+// login form
 describe('<LoginForm />', () => {
-    it('render login form without crashing', () => {
+  it('render login form without crashing', () => {
 
-    });
-    it('renders error fields ', () => {
+  });
+  it('renders error fields ', () => {
 
-    });
-    it('renders input fields of type button ', () => {
-    });
+  });
+  it('renders input fields of type button ', () => {
+  });
 });
