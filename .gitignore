@@ -21,6 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 /.vscode
 .env
+.idea/
 /src/styles/css/
 **css.map
 .idea/
