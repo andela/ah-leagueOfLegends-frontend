@@ -1,0 +1,66 @@
+.articles-landing{
+  margin-top: 20px;
+  float: left;
+  margin-left: 50px;
+  width: 55%;
+  height: 350px;
+}
+
+.article-aside {
+  float: right;
+  margin: 20px 2%;
+  width: 35%;
+}
+
+.article-default {
+  float: left;
+  margin:50px 0 5px 50px;
+  width: 55%;
+}
+.asideArticle{
+  position: absolute;
+  top: 60%;
+  right: 2%;
+  width: 35%;
+}
+.articlesComponent {
+}
+
+.aside-number{
+  float: left;
+  padding:  1rem;
+  font-size: 24px;
+}
+.author-info {
+  display: flex;
+  margin-bottom: 20px;
+}
+.avatar-small {
+  height:50px;
+  width:50px;
+  border-radius: 50%;
+}
+.article-time--details {
+  display: flex;
+  color: #aaa;
+  font-size: 14px;
+}
+.r-l-spacer {
+  padding-right: 10px;;
+  padding-left: 10px;;
+}
+.article-title{
+    font-family: Lato;
+      font-weight: bolder;
+
+}
+.card-action ul{
+  padding:0px;
+  margin: 0px;
+}
+.card-action ul li {
+  display: inline;
+   font-family:Lato;
+   font-size: 0.8em;
+   padding:0px 10px;
+}
