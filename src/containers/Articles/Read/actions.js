@@ -1,6 +1,6 @@
 import { BACKEND_URL } from '../../../utils/config';
 
-export  function getArticles() {
+export default function getArticles() {
   return async (dispatch) => {
     const apiUrl = ` ${BACKEND_URL}api/articles`;
     const res = await fetch(apiUrl);
