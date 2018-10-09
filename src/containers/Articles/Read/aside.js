@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import { getArticles } from './actions';
-import '../../../styles/styles.css';
 import PropTypes from 'prop-types';
+
+import getArticles from './actions';
+import '../../../styles/styles.css';
 
 
 class Aside extends Component {
   componentDidMount() {
-    const { getArticles } = this.props;
-    getArticles();
+    const { getAllArticles } = this.props;
+    getAllArticles();
   }
 
   render() {
     const { articles } = this.props;
 
-    const aside = articles.sort((a, b) => a.like < b.like).slice(0, 3);
-    const asideDiv = aside.map((aside, index) =>(
+    const asideComp = articles.sort((a, b) => a.like < b.like).slice(0, 3);
+    const asideDiv = asideComp.map((aside, index) => (
       <div key={aside.slug} className="hoverable card-content articlesComponent">
         <div className="aside-number">
           {0 + index + 1}
@@ -27,8 +27,8 @@ class Aside extends Component {
       </div>
     ));
     return (
-      <div className=" card asideArticle">
-        <h5 style={{ textAlign:'center' }}>Popular On Authors Haven</h5>
+      <div className=" card aside-article">
+        <h5 style={{ textAlign: 'center' }}>Popular On Authors Haven</h5>
         {
           asideDiv
         }
@@ -38,16 +38,18 @@ class Aside extends Component {
 }
 
 Aside.propTypes = {
-  articles: PropTypes.array.isRequired,
-  getArticles: PropTypes.func.isRequired,
+  articles: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  getAllArticles: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   articles: state.articles.all_articles,
+  loading: '',
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getArticles,
+  getAllArticles: getArticles,
+  loading: '',
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Aside);

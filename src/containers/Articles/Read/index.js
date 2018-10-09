@@ -4,14 +4,14 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import '../../../styles/styles.css';
-import { getArticles } from './actions';
+import getArticles from './actions';
 import ArticleHeader from '../../../components/Header';
 import Aside from './aside';
 
 class ReadArticle extends Component {
   componentDidMount() {
-    const { getArticles } = this.props;
-    getArticles();
+    const { getAllArticles } = this.props;
+    getAllArticles();
   }
 
   render() {
@@ -38,7 +38,7 @@ class ReadArticle extends Component {
                           <a href="/">{ article.author }</a>
                         </p>
                         <div className="article-time--details">
-                          <p>{ article.created_at_date.substring(0,17) }</p>
+                          <p>{ article.created_at_date.substring(0, 17) }</p>
                           <span className="r-l-spacer">.</span>
                           <p>2 min</p>
                         </div>
@@ -84,7 +84,7 @@ class ReadArticle extends Component {
               );
             default:
               return (
-                <div key={article.slug} className= "card hoverable article-default">
+                <div key={article.slug} className="card hoverable article-default">
                   <div className="card-content">
                     <div className="card-content author-info">
                       <img
@@ -97,7 +97,7 @@ class ReadArticle extends Component {
                           <a href="/">{ article.author }</a>
                         </p>
                         <div className="article-time--details">
-                          <p>{ article.created_at_date.substring(0,17) }</p>
+                          <p>{ article.created_at_date.substring(0, 17) }</p>
                           <span className="r-l-spacer">.</span>
                           <p>2 min</p>
                         </div>
@@ -132,15 +132,20 @@ class ReadArticle extends Component {
 }
 
 ReadArticle.propTypes = {
-  articles: PropTypes.array.isRequired,
+  articles: PropTypes.arrayOf(
+    PropTypes.shape(),
+  ).isRequired,
+  getAllArticles: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   articles: state.articles.all_articles,
+  loading: '',
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getArticles,
+  getAllArticles: getArticles,
+  loading: '',
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReadArticle);

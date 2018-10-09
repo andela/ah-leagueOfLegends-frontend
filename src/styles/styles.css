@@ -1,9 +1,9 @@
 .articles-landing {
-  margin-top: 20px;
   float: left;
+  height: 350px;
   margin-left: 50px;
-  width: 55%;
-  height: 350px; }
+  margin-top: 20px;
+  width: 55%; }
 
 .article-aside {
   float: right;
@@ -12,19 +12,22 @@
 
 .article-default {
   float: left;
-  margin: 50px 0 5px 50px;
+  margin-bottom: 5px;
+  margin-left: 50px;
+  margin-right: 0;
+  margin-top: 50px;
   width: 55%; }
 
-.asideArticle {
+.aside-article {
   position: absolute;
-  top: 60%;
   right: 2%;
+  top: 60%;
   width: 35%; }
 
 .aside-number {
   float: left;
-  padding: 1rem;
-  font-size: 24px; }
+  font-size: 24px;
+  padding: 1rem; }
 
 .author-info {
   display: flex;
@@ -36,24 +39,24 @@
   border-radius: 50%; }
 
 .article-time--details {
-  display: flex;
   color: #aaa;
+  display: flex;
   font-size: 14px; }
 
 .r-l-spacer {
-  padding-right: 10px;
-  padding-left: 10px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .article-title {
   font-family: Lato;
   font-weight: bolder; }
 
 .card-action ul {
-  padding: 0px;
-  margin: 0px; }
+  margin: 0;
+  padding: 0; }
 
-.card-action ul li {
+.card-action li {
   display: inline;
   font-family: Lato;
   font-size: 0.8em;
-  padding: 0px 10px; }
+  padding: 0 10px; }

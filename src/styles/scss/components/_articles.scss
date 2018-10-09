@@ -1,66 +1,101 @@
-.articles-landing{
-  margin-top: 20px;
+@import "../base/settings";
+
+.articles-landing {
   float: left;
-  margin-left: 50px;
-  width: 55%;
+
   height: 350px;
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 55%;
 }
 
 .article-aside {
   float: right;
+
   margin: 20px 2%;
   width: 35%;
 }
 
 .article-default {
   float: left;
-  margin:50px 0 5px 50px;
+
+  margin-bottom: 5px;
+  margin-left: 50px;
+  margin-right: 0;
+
+  margin-top: 50px;
+
   width: 55%;
+
 }
-.asideArticle{
+
+.aside-article {
   position: absolute;
-  top: 60%;
+
   right: 2%;
+
+  top: 60%;
+
   width: 35%;
 }
-.articlesComponent {
+
+.aside-number {
+  float: left;
+
+  font-size: 24px;
+
+  padding: 1rem;
+
 }
 
-.aside-number{
-  float: left;
-  padding:  1rem;
-  font-size: 24px;
-}
 .author-info {
   display: flex;
+
   margin-bottom: 20px;
-}
-.avatar-small {
-  height:50px;
-  width:50px;
-  border-radius: 50%;
-}
-.article-time--details {
-  display: flex;
-  color: #aaa;
-  font-size: 14px;
-}
-.r-l-spacer {
-  padding-right: 10px;;
-  padding-left: 10px;;
-}
-.article-title{
-    font-family: Lato;
-      font-weight: bolder;
 
 }
-.card-action ul{
-  padding:0px;
-  margin: 0px;
+
+.avatar-small {
+  border-radius: 50%;
+
+  height: 50px;
+  width: 50px;
+
+
 }
-.card-action ul li {
+
+.article-time--details {
+  color: $color-gray;
+  display: flex;
+
+  font-size: 14px;
+}
+
+.r-l-spacer {
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+.article-title {
+  font-family: Lato;
+
+  font-weight: bolder;
+
+}
+
+.card-action ul {
+  margin: 0;
+
+  padding: 0;
+
+}
+
+.card-action  li {
   display: inline;
-   font-family:Lato;
-   font-size: 0.8em;
-   padding:0px 10px;
+
+  font-family: Lato;
+  font-size: 0.8em;
+  padding: 0 10px;
 }
