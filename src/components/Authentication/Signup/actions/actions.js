@@ -1,7 +1,6 @@
 // actions.js
 
 import axios from 'axios';
-import history from '../history';
 import { REG_FAILED, REG_SUCCESSFUL } from './types';
 
 export const regFailed = error => ({
@@ -20,7 +19,6 @@ export const registerUser = user => (dispatch) => {
     .then((res) => {
       if (res.status === 201) {
         dispatch(regSuccessful());
-        history.push('/Success');
       }
     })
     .catch((err) => {
