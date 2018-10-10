@@ -9,7 +9,6 @@ import Articles from './containers/Articles/Read';
 // import Home from "./containers/Home";
 import Login from './containers/Authentication/Login/Login';
 import Register from './components/Authentication/Signup/Register';
-import Success from './components/Authentication/Signup/Success';
 
 class App extends Component {
   componentDidMount() {}
@@ -21,7 +20,6 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path={ROUTE.home} component={Articles} />
-              <Route exact path="/Success" component={Success} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
             </Switch>
