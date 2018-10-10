@@ -74,34 +74,35 @@
 }
 
 .modal1 {
-  text-align: center;
-  width: 70%;
-  background-color: #dbebeb;
-}
+  #modal2 {
+    text-align: center;
+    width: 70%;
+    background-color: #dbebeb;
+  }
 
-.modal-content p {
-  margin: 1% 25%;
-  text-align: center;
-  font: 18px "Robot";
-}
+  .modal-content p {
+    margin: 1% 25%;
+    text-align: center;
+    font: 18px "Robot";
+  }
 
-.mdl-footer {
-  text-align: center;
-  background-color: #dbebeb;
-}
+  .mdl-footer {
+    text-align: center;
+    background-color: #dbebeb;
+  }
 
-.alert-error {
-  color: #c80a0a;
-  font-style: oblique;
-  padding: 0.6em;
-  margin-top: 0.5em;
-}
+  .alert-error {
+    color: #c80a0a;
+    font-style: oblique;
+    padding: 0.6em;
+    margin-top: 0.5em;
+  }
 
-.reg-button {
-  margin: 0 auto;
-}
+  .reg-button {
+    margin: 0 auto;
+  }
 
-.row style {
-  width: 50%;
-  margin-top: 2%;
-}
+  .row style {
+    width: 50%;
+    margin-top: 2%;
+  }
