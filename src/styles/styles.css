@@ -34,9 +34,9 @@
   margin-bottom: 20px; }
 
 .avatar-small {
+  border-radius: 50%;
   height: 50px;
-  width: 50px;
-  border-radius: 50%; }
+  width: 50px; }
 
 .article-time--details {
   color: #aaa;
