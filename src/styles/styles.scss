@@ -1,3 +1,37 @@
 @import "./scss/base/base";
 @import "./scss/components/articles";
 
+.modal1 {
+  text-align: center;
+  width: 70%;
+  background-color: rgb(219, 235, 235)
+}
+
+.modal-content p {
+  margin: 1% 25%;
+  text-align: center;
+  font: 18px "Robot";
+}
+
+.mdl-footer {
+  text-align: center;
+  background-color: rgb(219, 235, 235)
+}
+
+.alert-error {
+  color: rgb(200, 10, 10);
+  font-style: oblique;
+  padding: 0.6em;
+  margin-top: 0.5em;
+
+}
+
+.reg-button {
+  margin: 0 auto;
+
+}
+
+.row style {
+  width: 50%;
+  margin-top: 2%;
+}
