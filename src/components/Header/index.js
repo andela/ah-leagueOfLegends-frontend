@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import ROUTE from '../../utils/routes';
-// import Register from '../Authentication/Signup/Register';
 
 const ArticleHeader = () => (
   <div>
@@ -58,7 +57,6 @@ const ArticleHeader = () => (
         </li>
       </ul>
     </div>
-    {/* <Register /> */}
   </div>
 );
 export default ArticleHeader;

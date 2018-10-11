@@ -3,14 +3,12 @@
   height: 350px;
   margin-left: 50px;
   margin-top: 20px;
-  width: 55%;
-}
+  width: 55%; }
 
 .article-aside {
   float: right;
   margin: 20px 2%;
-  width: 35%;
-}
+  width: 35%; }
 
 .article-default {
   float: left;
@@ -18,89 +16,73 @@
   margin-left: 50px;
   margin-right: 0;
   margin-top: 50px;
-  width: 55%;
-}
+  width: 55%; }
 
 .aside-article {
   position: absolute;
   right: 2%;
   top: 60%;
-  width: 35%;
-}
+  width: 35%; }
 
 .aside-number {
   float: left;
   font-size: 24px;
-  padding: 1rem;
-}
+  padding: 1rem; }
 
 .author-info {
   display: flex;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .avatar-small {
   border-radius: 50%;
   height: 50px;
-  width: 50px;
-}
+  width: 50px; }
 
 .article-time--details {
   color: #aaa;
   display: flex;
-  font-size: 14px;
-}
+  font-size: 14px; }
 
 .r-l-spacer {
   padding-left: 10px;
-  padding-right: 10px;
-}
+  padding-right: 10px; }
 
 .article-title {
   font-family: Lato;
-  font-weight: bolder;
-}
+  font-weight: bolder; }
 
 .card-action ul {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .card-action li {
   display: inline;
   font-family: Lato;
   font-size: 0.8em;
-  padding: 0 10px;
-}
+  padding: 0 10px; }
 
 #modal2 {
   text-align: center;
   width: 60%;
-  background-color: #dbebeb;
-}
+  background-color: #dbebeb; }
 
 .modal-content p {
   margin: 1% 25%;
   text-align: center;
-  font: 18px "Robot";
-}
+  font: 18px "Robot"; }
 
 .alert-error {
   color: red;
   font-style: oblique;
   margin-top: 0.5em;
-  padding: 0.6em;
-}
+  padding: 0.6em; }
 
 .reg-button {
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 .row style {
   margin-top: 2%;
-  width: 50%;
-}
+  width: 50%; }
 
 .alert-reg-success {
-  color: green;
-}
+  color: green; }
