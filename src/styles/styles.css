@@ -1,3 +1,6 @@
+.articles-landing-page {
+  margin-left: 50px; }
+
 .articles-landing {
   float: left;
   height: 350px;
@@ -6,9 +9,9 @@
   width: 55%; }
 
 .article-aside {
-  float: right;
-  margin: 20px 2%;
-  width: 35%; }
+  float: left;
+  margin-left: 45px !important;
+  width: 40%; }
 
 .article-default {
   float: left;
@@ -72,7 +75,7 @@
   font: 18px "Robot"; }
 
 .alert-error {
-  color: red;
+  color: #ff0000;
   font-style: oblique;
   margin-top: 0.5em;
   padding: 0.6em; }
@@ -85,4 +88,4 @@
   width: 50%; }
 
 .alert-reg-success {
-  color: green; }
+  color: #008080; }

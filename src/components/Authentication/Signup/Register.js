@@ -15,7 +15,6 @@ class Register extends Component {
       username: '',
       email: '',
       password: '',
-      errors: {},
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,21 +31,16 @@ class Register extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = {
-      username: this.state.username,
-      email: this.state.email,
-      password: this.state.password,
-    };
-
-    this.props.registerUser(user, this.props.history);
-  }
-
-  // Updates component with errors received if any
-  // nextProps has errors if any
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    }
+    const { username, email, password } = this.state;
+    const { history, registerNewUser } = this.props;
+    registerNewUser(
+      {
+        username,
+        email,
+        password,
+      },
+      history,
+    );
   }
 
   render() {
@@ -130,13 +124,14 @@ class Register extends Component {
 }
 
 Register.propTypes = {
-  registerUser: PropTypes.func.isRequired,
+  registerNewUser: PropTypes.func.isRequired,
   authReducer: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
 };
 
 const mapStateToProps = state => ({ authReducer: state.authReducer });
 
 export default connect(
   mapStateToProps,
-  { registerUser },
+  { registerNewUser: registerUser },
 )(Register);

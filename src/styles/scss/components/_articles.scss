@@ -1,5 +1,10 @@
 @import "../base/settings";
 
+.articles-landing-page {
+  margin-left: 50px;
+
+}
+
 .articles-landing {
   float: left;
 
@@ -10,10 +15,9 @@
 }
 
 .article-aside {
-  float: right;
-
-  margin: 20px 2%;
-  width: 35%;
+  float: left;
+  margin-left: 45px !important;
+  width: 40%;
 }
 
 .article-default {
@@ -92,7 +96,7 @@
 
 }
 
-.card-action  li {
+.card-action li {
   display: inline;
 
   font-family: Lato;

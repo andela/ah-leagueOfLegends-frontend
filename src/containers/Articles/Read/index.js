@@ -18,7 +18,7 @@ class ReadArticle extends Component {
   render() {
     const { articles } = this.props;
     return (
-      <div className="article-landing-page">
+      <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
         <Aside />
         {articles.map((article, index) => (
           <ArticleComponent key={article.slug} article={article} index={index} />
