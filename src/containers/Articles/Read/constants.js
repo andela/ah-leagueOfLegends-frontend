@@ -1,0 +1,2 @@
+export const GET_ARTICLES = 'GET_ARTICLES';
+export const PUBLISH_ARTICLE = 'PUBLISH_ARTICLE';
