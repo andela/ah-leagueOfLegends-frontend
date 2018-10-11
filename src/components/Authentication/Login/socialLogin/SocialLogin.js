@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { connect } from 'react-redux';
+import M from 'materialize-css';
 import login from './actions';
 
 class SocialLogin extends Component {
+  componentDidMount() {
+    const el = document.querySelectorAll('.modal');
+    M.Modal.init(el);
+  }
+
   responseFacebook = (response) => {
     const { dispatch } = this.props;
     dispatch(login('facebook', response.accessToken));
@@ -19,19 +25,31 @@ class SocialLogin extends Component {
     const customHeader = {};
     customHeader['Content-Type'] = 'application/json';
     return (
-      <div>
-        <FacebookLogin
-          appId="296338254283684"
-          fields="name,email,picture"
-          // onClick={componentClicked}
-          callback={this.responseFacebook}
-        />
-        <GoogleLogin
-          clientId="645485731694-fabope70g976vi1kvm3ko2e9c2v92epc.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={this.responseGoogle}
-          onFailure={this.responseGoogle}
-        />
+      <div className="modal social-modal" id="modal-social">
+        <div className="modal-content">
+          <div className="modal-btn">
+            <FacebookLogin
+              appId="296338254283684"
+              fields="name,email,picture"
+              icon="fa-facebook"
+              cssClass="white waves-effect btn-social-facebook"
+              textButton=" Signin with facebook"
+              callback={this.responseFacebook}
+            />
+          </div>
+          <div className="modal-btn">
+            <GoogleLogin
+              clientId="645485731694-fabope70g976vi1kvm3ko2e9c2v92epc.apps.googleusercontent.com"
+              buttonText=" Signin with Google"
+              className="btn-social-google"
+              onSuccess={this.responseGoogle}
+              onFailure={this.responseGoogle}
+            />
+          </div>
+          <div className="btn  white btn-text-social">
+                     Signin with email
+          </div>
+        </div>
       </div>
     );
   }
