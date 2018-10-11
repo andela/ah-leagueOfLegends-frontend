@@ -19,23 +19,17 @@ class ReadArticle extends Component {
     const { articles } = this.props;
     return (
       <div className="article-landing-page">
-        <ArticleHeader />
         <Aside />
-        {
-        articles.map((article, index) => (
+        {articles.map((article, index) => (
           <ArticleComponent key={article.slug} article={article} index={index} />
-        ),
-        )
-        }
+        ))}
       </div>
     );
   }
 }
 
 ReadArticle.propTypes = {
-  articles: PropTypes.arrayOf(
-    PropTypes.shape(),
-  ).isRequired,
+  articles: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   getAllArticles: PropTypes.func.isRequired,
 };
 
@@ -44,9 +38,15 @@ const mapStateToProps = state => ({
   loading: '',
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getAllArticles: getArticles,
-  loading: '',
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    getAllArticles: getArticles,
+    loading: '',
+  },
+  dispatch,
+);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReadArticle);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ReadArticle);

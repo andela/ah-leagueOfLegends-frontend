@@ -3,13 +3,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { withRouter } from 'react-router-dom';
 import 'materialize-css/dist/css/materialize.css';
 import { Button } from 'react-materialize';
 import M from 'materialize-css';
 import { registerUser } from './actions/actions';
 
-class Register extends React.Component {
+class Register extends Component {
   constructor() {
     super();
     this.state = {
@@ -51,12 +50,8 @@ class Register extends React.Component {
   }
 
   render() {
-    const { errors } = this.state;
-    console.log(this.props);
     return (
       <React.Fragment>
-        {/* <Navbar isSignup={true} /> */}
-
         <div className="container" style={{ marginTop: '50px', width: '700px' }}>
           <div id="modal2" className="modal">
             <div className="modal-content">
@@ -145,6 +140,3 @@ export default connect(
   mapStateToProps,
   { registerUser },
 )(Register);
-
-{
-}

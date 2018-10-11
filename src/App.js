@@ -5,9 +5,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import store from './store/store';
 import ROUTE from './utils/routes';
 import Articles from './containers/Articles/Read';
-
-// import Home from "./containers/Home";
-import Login from './containers/Authentication/Login/Login';
+import Navbar from './components/Authentication/Navbar';
 import Register from './components/Authentication/Signup/Register';
 
 class App extends Component {
@@ -18,10 +16,10 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
+            <Navbar />
+            <Register />
             <Switch>
               <Route exact path={ROUTE.home} component={Articles} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/register" component={Register} />
             </Switch>
           </div>
         </Router>
