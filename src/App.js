@@ -8,10 +8,9 @@ import Articles from './containers/Articles/Read';
 // import Navbar from './components/Authentication/Navbar';
 import Register from './components/Authentication/Signup/Register';
 
-
 import Login from './containers/Authentication/Login/Login';
 import Navbar from './components/Navbar';
-
+import history from './history';
 
 class App extends Component {
   componentDidMount() {}
@@ -19,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <Router history={history}>
           <div>
             <Register />
             <Navbar />
