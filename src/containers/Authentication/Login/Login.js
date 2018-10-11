@@ -1,7 +1,7 @@
 import React from 'react';
 import login from './actions';
 import { connect } from 'react-redux';
-import M from 'materialize-css'
+import M from 'materialize-css';
 
 class Login extends React.Component {
   constructor() {
@@ -87,7 +87,7 @@ class Login extends React.Component {
             <p>Forgot password? <a href="/">Send me a reset password link</a></p>
           <p>
           Dont have an account ? < a className = "modal-trigger modal-close"
-          href = "#modal1" > Sign up </a> </p> 
+          href = "#modal2" > Sign up </a> </p> 
           </div>
         </div>
       </div>
