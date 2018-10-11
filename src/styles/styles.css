@@ -64,6 +64,7 @@
   font-size: 0.8em;
   padding: 0 10px; }
 
+<<<<<<< HEAD
 #modal2 {
   background-color: #dbebeb;
   text-align: center;
@@ -89,6 +90,8 @@
 
 .alert-reg-success {
   color: #008080; }
+=======
+>>>>>>> [Feature #159965439] Fix merge conflicts
 .modal1 {
   text-align: center;
   width: 55%;
