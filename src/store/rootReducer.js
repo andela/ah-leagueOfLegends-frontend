@@ -7,6 +7,7 @@ import authReducer from '../components/Authentication/Signup/reducers/authReduce
 import newArticle from '../containers/Articles/Create/reducer';
 import completeArticle from '../containers/Articles/Article/reducer';
 
+import { SocialLoginReducer } from '../components/Authentication/Login/socialLogin/reducer';
 
 export default combineReducers({
   completeArticle,
@@ -15,4 +16,5 @@ export default combineReducers({
   newArticle,
   router: routerReducer,
   Login: loginReducer,
+  socialLoginReducer: SocialLoginReducer,
 });
