@@ -10,7 +10,7 @@ export const regFailed = error => ({
 
 export const regSuccessful = () => ({
   type: REG_SUCCESSFUL,
-  payload: 'Please verify your email address to continue the registration.',
+  payload: 'Please verify your email address to activate your account.',
 });
 
 export const registerUser = user => (dispatch) => {

@@ -6,7 +6,7 @@ describe('User registration', () => {
   let payload = {};
 
   it('Should be successful', () => {
-    payload = 'Please verify your email address to continue the registration.';
+    payload = 'Please verify your email address to activate your account.';
     const expected = {
       reg_status: true,
       isAuthenticated: false,
