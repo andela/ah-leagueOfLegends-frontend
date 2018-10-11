@@ -37,8 +37,7 @@ class Navbar extends Component {
                                 modal-trigger"
                           href="#modal1"
                         >
-Sign in
-
+                          Sign in
                         </a>
 
                       </li>
