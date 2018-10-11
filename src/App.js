@@ -8,6 +8,7 @@ import Articles from './containers/Articles/Read';
 import Navbar from './components/Navbar';
 import Register from './components/Authentication/Signup/Register';
 import Success from './components/Authentication/Signup/Success';
+import NewArticle from './containers/Articles/Create';
 
 import Login from './containers/Authentication/Login/Login';
 import history from './history';
@@ -26,6 +27,7 @@ class App extends Component {
             <Switch>
               <Route exact path={ROUTE.home} component={Articles} />
               <Route exact path="/Success" component={Success} />
+              <Route exact path={ROUTE.newArticle} component={NewArticle} />
             </Switch>
           </div>
         </Router>
