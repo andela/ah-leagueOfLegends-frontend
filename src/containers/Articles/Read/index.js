@@ -18,7 +18,6 @@ class ReadArticle extends Component {
     const { articles } = this.props;
     return (
       <div className="article-landing-page">
-        {/* <ArticleHeader /> */}
         <Aside />
         {articles.map((article, index) => (
           <ArticleComponent key={article.slug} article={article} index={index} />
