@@ -124,7 +124,9 @@ Sign up
 }
 
 
-Login.propTypes = { errors: PropTypes.instanceOf(Object).isRequired };
+Login.propTypes = { errors: PropTypes.instanceOf(Object), dispatch: PropTypes.func.isRequired };
+
+Login.defaultProps = { errors: undefined };
 
 
 const mapStateToProps = state => ({ errors: state.Login.error });

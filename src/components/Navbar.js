@@ -37,7 +37,7 @@ Sign in
 
                       </li>
                       <li>
-                        <button className="waves-effect waves-light btn white teal-text modal-trigger" href="#modal2">
+                        <button type="button" className="waves-effect waves-light btn white teal-text modal-trigger" href="#modal2">
                           Get started
                         </button>
 
@@ -53,7 +53,12 @@ Sign in
   }
 }
 
-Navbar.propTypes = { isAuthenticated: PropTypes.boolean };
+Navbar.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  state: PropTypes.instanceOf(Object).isRequired,
+};
+
+Navbar.defaultProps = { isAuthenticated: false };
 
 
 const mapStateToProps = state => ({ state: state.Login });
