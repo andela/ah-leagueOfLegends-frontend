@@ -3,7 +3,7 @@ import React from 'react';
 import '../../../styles/styles.css';
 
 const articleComponent = (props) => {
-  const { article } = props;
+  const { article, preview } = props;
   switch (props.index) {
     case 0:
       return (
@@ -26,8 +26,8 @@ const articleComponent = (props) => {
                 </div>
               </div>
             </div>
-            <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <span className="article-title">{ article.title }</span>
+            <p>{preview}</p>
           </div>
           <div className="card-action">
             <ul className="grey-text actions">
@@ -51,7 +51,7 @@ const articleComponent = (props) => {
         <div key={article.slug} className="card hoverable article-aside">
           <div className="card-content">
             <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <p>{preview}</p>
           </div>
         </div>
       );
@@ -60,7 +60,7 @@ const articleComponent = (props) => {
         <div key={article.slug} className=" card hoverable article-aside">
           <div className="card-content">
             <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <p>{preview}</p>
           </div>
         </div>
       );
@@ -85,8 +85,8 @@ const articleComponent = (props) => {
                 </div>
               </div>
             </div>
-            <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <span className="article-title">{ article.title }</span>
+            <p>{preview}</p>
           </div>
           <div className="card-action">
             <ul className="grey-text actions">

@@ -7,6 +7,7 @@ import '../../../styles/styles.css';
 import getArticles from './actions';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
+import { extractDescription } from './filterArticles';
 
 class ReadArticle extends Component {
   componentDidMount() {
@@ -14,14 +15,40 @@ class ReadArticle extends Component {
     getAllArticles();
   }
 
-  render() {
+  renderArticleHandler = () => {
     const { articles } = this.props;
+    const artcles = articles.map((article, index) => {
+      let b;
+      try {
+        b = JSON.parse(article.body);
+      } catch (e) {
+        return false;
+      }
+      const { blocks } = b;
+      if (!blocks) return false;
+      const p = extractDescription(blocks);
+      const preview = p ? p.text : '';
+      return (
+        <ArticleComponent
+          key={article.slug}
+          article={article}
+          index={index}
+          preview={preview}
+        />
+      );
+    },
+    );
+    if (artcles === 0) {
+      console.log('No data');
+    }
+    return artcles;
+  }
+
+  render() {
     return (
       <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
         <Aside />
-        { articles.map((article, index) => (
-          <ArticleComponent key={article.slug} article={article} index={index} />
-        ))}
+        { this.renderArticleHandler()}
       </div>
     );
   }
