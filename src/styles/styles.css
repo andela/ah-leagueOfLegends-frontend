@@ -65,9 +65,9 @@
   padding: 0 10px; }
 
 #modal2 {
+  background-color: #DBEBEB;
   text-align: center;
-  width: 60%;
-  background-color: #DBEBEB; }
+  width: 60%; }
 
 .modal-content p {
   font: 18px "Robot";
