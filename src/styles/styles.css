@@ -70,9 +70,9 @@
   background-color: #DBEBEB; }
 
 .modal-content p {
+  font: 18px "Robot";
   margin: 10em 20px;
-  text-align: center;
-  font: 18px "Robot"; }
+  text-align: center; }
 
 .alert-error {
   color: #ff0000;
