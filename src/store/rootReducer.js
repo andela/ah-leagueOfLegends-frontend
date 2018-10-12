@@ -35,4 +35,5 @@ export default combineReducers({
   NotificationReducer,
   editProfileReducer,
   viewProfileReducer,
+
 });
