@@ -1,15 +1,8 @@
 import { BACKEND_URL } from '../../../utils/config';
 
 
-const datat = {
-  "article": {
-    "title": "Done",
-    "description": "Be happy",
-    "body": "It takes a village",
-    "tagList": ["hello", "happy"]
-  }
-}
-export default function publishArticle(data=datat, history, update = false, slug) {
+export default function publishArticle(data, history, update = false, slug) {
+  console.log('@@@@@@', data)
   return async (dispatch) => {
     let MAIN_URL = `${BACKEND_URL}api/articles`;
     if (update) {

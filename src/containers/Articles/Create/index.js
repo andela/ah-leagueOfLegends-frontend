@@ -15,41 +15,18 @@ import newArticle from './actions';
 
 class CreateArticle extends Component {
   componentDidMount() {
-    const { publishNewArticle } = this.props
-    publishNewArticle();
   }
 
   render() {
-    const { history } = this.props;
-    console.log(this.props.newArticle)
+    const { history, publishing, publishNewArticle } = this.props;
     return (
       <div>
         <ArticleHeader />
-        <div style={{ width: '70%', marginLeft: '20%', marginTop: '2%' }}>
-          <div className="">
-            <div className="author-info">
-              <img
-                className="avatar-small"
-                src="https://api.adorable.io/avatars/285/abott@adorable.png"
-                alt="User Profile Pic"
-                style={{ marginTop: 10 }}
-              />
-              <div className="articale-time">
-                <p>Gilbert Ngeywo</p>
-                <div className="article-time--details" style={{ padding: 1 }}>
-                  I Love Programming so much. Wanna be a world class Programmer
-                  <br />
-                  Draft
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <Editor
           edtrState={EditorState}
           history={history}
-          publishing = {this.props.publishing}
-          postArticle = {this.props.newArticle}
+          publishing={publishing}
+          postArticle={publishNewArticle}
           widgets={[
             ImageBlockConfig(),
             CodeBlockConfig(),
