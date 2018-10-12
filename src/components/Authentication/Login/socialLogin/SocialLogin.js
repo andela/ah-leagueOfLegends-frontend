@@ -31,6 +31,7 @@ class SocialLogin extends Component {
           <div className="modal-btn">
             <FacebookLogin
               appId="296338254283684"
+              autoLoad={false}
               fields="name,email,picture"
               icon="fa-facebook"
               cssClass="white waves-effect btn-social-facebook"

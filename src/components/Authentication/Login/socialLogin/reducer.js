@@ -1,4 +1,4 @@
-const initialState = { isAuthenticated: false };
+export const initialState = { isAuthenticated: false };
 
 export const SocialLoginReducer = (state = initialState, action) => {
   switch (action.type) {
