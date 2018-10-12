@@ -61,9 +61,9 @@ class SocialLogin extends Component {
           </div>
           <p>
             No account?
-            <a href="#modal2" className="modal-trigger modal-close"> Create One</a>
+            <a href="#modal" className="modal-trigger modal-close"> Create One</a>
           </p>
-
+          <a href="#modal" className="modal-trigger modal-close"> Forgot Password ?</a>
         </div>
       </div>
     );
