@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import '../../../styles/styles.css';
 import getArticles from './actions';
-// import ArticleHeader from '../../../components/Header';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
 
