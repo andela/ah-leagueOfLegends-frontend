@@ -13,15 +13,15 @@ class Navbar extends Component {
           <nav className="white z-depth-0">
             <div className="container">
               <div className="nav-wrapper">
-                <a href="/" className="brand-logo black-text">
-                        Authors Haven
-
-                </a>
+                <a href="/" className="brand-logo black-text">Authors Haven</a>
                 {(isAuthenticated) ? (
                   <ul className="right hide-on-med-and-down grey-text">
                     <li><i className="material-icons">search</i></li>
                     <li><i className="material-icons">notifications_none</i></li>
                     <li><i className="material-icons">bookmark_border</i></li>
+                    <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
+                          logout
+                    </button>
                   </ul>) : (
                     <ul className="right hide-on-med-and-down grey-text">
                       <li><i className="material-icons">search</i></li>

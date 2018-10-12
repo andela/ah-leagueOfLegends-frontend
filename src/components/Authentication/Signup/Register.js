@@ -126,8 +126,10 @@ class Register extends Component {
 Register.propTypes = {
   registerNewUser: PropTypes.func.isRequired,
   authReducer: PropTypes.instanceOf(Object).isRequired,
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }),
 };
+
+Register.defaultProps = { history: undefined };
 
 const mapStateToProps = state => ({ authReducer: state.authReducer });
 
