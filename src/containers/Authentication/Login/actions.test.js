@@ -26,7 +26,6 @@ describe('loginActions', () => {
       ];
       store.dispatch(LoginActions.loginSuccess(user));
       expect(store.getActions()).toEqual(expectedActions);
-      expect(store.getActions()).toMatchSnapshot();
     });
   });
 
@@ -41,7 +40,6 @@ describe('loginActions', () => {
       ];
       store.dispatch(LoginActions.loginFailure(error));
       expect(store.getActions()).toEqual(expectedActions);
-      expect(store.getActions()).toMatchSnapshot();
     });
   });
 });
