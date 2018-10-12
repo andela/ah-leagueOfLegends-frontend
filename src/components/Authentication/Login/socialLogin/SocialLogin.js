@@ -3,6 +3,7 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import { connect } from 'react-redux';
 import M from 'materialize-css';
+import PropTypes from 'prop-types';
 import login from './actions';
 
 class SocialLogin extends Component {
@@ -54,7 +55,7 @@ class SocialLogin extends Component {
     );
   }
 }
-
+SocialLogin.propTypes = { dispatch: PropTypes.func.isRequired };
 const mapStateToProps = state => ({ login: state.SocialLogin });
 
 export default connect(mapStateToProps)(SocialLogin);
