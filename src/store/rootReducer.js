@@ -15,6 +15,8 @@ import getAllComment from '../containers/comments/getComents/reducer';
 
 import { SocialLoginReducer } from '../components/Authentication/Login/socialLogin/reducer';
 import NotificationReducer from '../containers/Notification/reducer';
+import viewProfileReducer from '../containers/Profile/ViewProfile/reducer';
+import editProfileReducer from '../containers/Profile/UpdateProfile/reducer';
 
 export default combineReducers({
   completeArticle,
@@ -31,4 +33,9 @@ export default combineReducers({
   forgotPasswordReducer,
   resetPasswordReducer,
   NotificationReducer,
+  editProfileReducer,
+  viewProfileReducer,
+  router: routerReducer,
+  Login: loginReducer,
+
 });
