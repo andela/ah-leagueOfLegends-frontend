@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
-
 import store from './store/store';
 import ROUTE from './utils/routes';
 import Articles from './containers/Articles/Read';
-
+import Navbar from './components/Authentication/Navbar';
+import Register from './components/Authentication/Signup/Register';
 
 class App extends Component {
   componentDidMount() {}
@@ -16,6 +16,8 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div>
+            <Navbar />
+            <Register />
             <Switch>
               <Route exact path={ROUTE.home} component={Articles} />
             </Switch>
@@ -25,6 +27,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

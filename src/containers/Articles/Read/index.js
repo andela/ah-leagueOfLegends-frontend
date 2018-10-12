@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import '../../../styles/styles.css';
 import getArticles from './actions';
-import ArticleHeader from '../../../components/Header';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
 
@@ -18,24 +17,18 @@ class ReadArticle extends Component {
   render() {
     const { articles } = this.props;
     return (
-      <div className="article-landing-page">
-        <ArticleHeader />
+      <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
         <Aside />
-        {
-        articles.map((article, index) => (
+        {articles.map((article, index) => (
           <ArticleComponent key={article.slug} article={article} index={index} />
-        ),
-        )
-        }
+        ))}
       </div>
     );
   }
 }
 
 ReadArticle.propTypes = {
-  articles: PropTypes.arrayOf(
-    PropTypes.shape(),
-  ).isRequired,
+  articles: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   getAllArticles: PropTypes.func.isRequired,
 };
 
@@ -44,9 +37,15 @@ const mapStateToProps = state => ({
   loading: '',
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getAllArticles: getArticles,
-  loading: '',
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    getAllArticles: getArticles,
+    loading: '',
+  },
+  dispatch,
+);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReadArticle);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ReadArticle);

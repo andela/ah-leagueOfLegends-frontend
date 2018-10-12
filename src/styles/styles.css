@@ -1,3 +1,6 @@
+.articles-landing-page {
+  margin-left: 50px; }
+
 .articles-landing {
   float: left;
   height: 350px;
@@ -6,9 +9,9 @@
   width: 55%; }
 
 .article-aside {
-  float: right;
-  margin: 20px 2%;
-  width: 35%; }
+  float: left;
+  margin-left: 45px !important;
+  width: 40%; }
 
 .article-default {
   float: left;
@@ -60,3 +63,29 @@
   font-family: Lato;
   font-size: 0.8em;
   padding: 0 10px; }
+
+#modal2 {
+  background-color: #dbebeb;
+  text-align: center;
+  width: 60%; }
+
+.modal-content p {
+  font: 18px "Robot";
+  margin: 10em 20px;
+  text-align: center; }
+
+.alert-error {
+  color: #ff0000;
+  font-style: oblique;
+  margin-top: 0.5em;
+  padding: 0.6em; }
+
+.reg-button {
+  margin: 0 auto; }
+
+.row style {
+  margin-top: 2%;
+  width: 50%; }
+
+.alert-reg-success {
+  color: #008080; }

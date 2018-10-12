@@ -1,3 +1,36 @@
 @import "./scss/base/base";
+@import "./scss/base/settings";
 @import "./scss/components/articles";
 
+#modal2 {
+  background-color: $color-pale-green;
+  text-align: center;
+  width: 60%;
+}
+
+.modal-content p {
+  font: 18px "Robot";
+  margin: 10em 20px;
+  text-align: center;
+}
+
+.alert-error {
+  color: $color-red;
+  font-style: oblique;
+  margin-top: 0.5em;
+  padding: 0.6em;
+}
+
+.reg-button {
+  margin: 0 auto;
+
+}
+
+.row style {
+  margin-top: 2%;
+  width: 50%;
+}
+
+.alert-reg-success {
+  color: $color-green;
+}
