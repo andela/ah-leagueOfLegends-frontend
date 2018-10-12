@@ -15,7 +15,7 @@ export const regSuccessful = () => ({
 
 export const registerUser = user => (dispatch) => {
   axios
-    .post('http://127.0.0.1:8000/api/users/', { user })
+    .post('https://ah-leagueoflegends-staging.herokuapp.com/api/users/', { user })
     .then((res) => {
       if (res.status === 201) {
         dispatch(regSuccessful());
