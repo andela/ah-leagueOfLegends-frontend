@@ -22,3 +22,26 @@ Array [
   },
 ]
 `;
+
+exports[`loginFailure dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "error": "User with that email and password was not found",
+    "type": "USERS_LOGIN_FAILURE",
+  },
+]
+`;
+
+exports[`loginSuccess dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "user": Object {
+        "email": "testuser@gmail.com",
+        "password": "letmein",
+      },
+    },
+    "type": "USERS_LOGIN_SUCCESS",
+  },
+]
+`;

@@ -34,3 +34,6 @@ function login(email, password) {
   };
 }
 export default login;
+
+export { loginSuccess };
+export { loginFailure };
