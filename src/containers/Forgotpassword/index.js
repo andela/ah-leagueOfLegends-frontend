@@ -38,6 +38,8 @@ class Forgotpassword extends React.Component {
     };
 
     render() {
+      const { payload, forgotPasswordReducer } = this.props;
+      console.log(payload);
       return (
         <div id="modal3" className="row modal">
           <h4>Password Recovery</h4>
@@ -45,6 +47,13 @@ class Forgotpassword extends React.Component {
             <div className="input-field col s12">
               <input required name="email" type="email" className="validate" onChange={this.handleChange} />
               <label htmlFor="email">Email</label>
+              {payload}
+              {
+                console.log('=>', forgotPasswordReducer)
+              }
+              {
+                forgotPasswordReducer.success ? (<div>E-mail sent successfully</div>) : null
+              }
             </div>
             <div className="fpl">
               <button onClick={this.handleSubmit} className="btn waves-effect waves-light" type="submit" name="action">
@@ -59,7 +68,7 @@ class Forgotpassword extends React.Component {
 }
 
 Forgotpassword.prototypes = { forgotPasswordAction: PropTypes.func.isRequired };
-const mapStateToProps = state => ({ rootReducer: state.rootReducer });
+const mapStateToProps = state => ({ forgotPasswordReducer: state.forgotPasswordReducer });
 
 const mapActionsToProps = { forgotPasswordAction };
 

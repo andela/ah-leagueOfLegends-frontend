@@ -21,7 +21,8 @@ export const forgotPasswordAction = email => (dispatch) => {
     { email },
   )
     .then((res) => {
-      dispatch(linkSuccess(res));
+      dispatch(linkSuccess(res.data));
+      console.log(res.data);
     }).catch((err) => {
       dispatch(linkFailure(err));
     },
