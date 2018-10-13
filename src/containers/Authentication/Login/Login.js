@@ -46,23 +46,24 @@ class Login extends React.Component {
     const { submitted, email, password } = this.state;
     const { errors } = this.props;
     return (
-      <div id="modal1" className="modal modal1 row">
-        {
+      <div id="modal1" className="modal1 modal row">
+        <div className="col s12 modal-content">
+          <div className="welcome-modal-msg">
+            <h4>Welcome back.</h4>
+            <p>
+            Sign in to access your personalized homepage, follow authors and
+            topics you love, and like stories that matter to you.
+            </p>
+          </div>
+          {
           errors !== undefined
             ? (
-              <div className="alert">
+              <p className="error">
                 {errors}
-              </div>
+              </p>
             )
             : null
                 }
-        <div className="col s12 modal-content">
-          <h4>Authors Haven </h4>
-          <p>
-          Welcome Back
-            {' '}
-
-          </p>
           <div className="row">
             <form className="col s12" onSubmit={this.handleSubmit}>
               <div className="row">
@@ -89,9 +90,8 @@ class Login extends React.Component {
                 name="action"
               >
                 {' '}
-Submit
+Login
                 {' '}
-                <i className="material-icons right"> send </i>
               </button>
             </form>
           </div>
