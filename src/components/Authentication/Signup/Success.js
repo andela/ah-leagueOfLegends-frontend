@@ -29,10 +29,7 @@ class Success extends Component {
     );
   }
 }
-Success.propTypes = {
-  authReducer: PropTypes.instanceOf(Object).isRequired,
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-};
+Success.propTypes = { authReducer: PropTypes.instanceOf(Object).isRequired };
 
 const mapStateToProps = state => ({ authReducer: state.authReducer });
 
