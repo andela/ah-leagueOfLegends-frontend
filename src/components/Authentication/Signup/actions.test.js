@@ -23,7 +23,8 @@ describe('Register actions', () => {
 
     const returnedAction = [
       {
-        payload: 'Please verify your email address to activate your account.',
+        payload:
+          'Please verify your email address to activate your account. If you do not see it, check your spam folder.',
         type: REG_SUCCESSFUL,
       },
     ];

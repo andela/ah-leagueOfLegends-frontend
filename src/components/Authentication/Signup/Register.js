@@ -51,9 +51,6 @@ class Register extends Component {
             <div className="modal-content">
               <h5>Join Authors Haven</h5>
               <h4 style={{ marginBottom: '20px' }}>Create an account</h4>
-              {this.props.authReducer.message !== undefined ? (
-                <span className="alert-reg-success">{this.props.authReducer.message}</span>
-              ) : null}
               <div className="row">
                 <form onSubmit={this.handleSubmit} className="register">
                   <div className="row">
