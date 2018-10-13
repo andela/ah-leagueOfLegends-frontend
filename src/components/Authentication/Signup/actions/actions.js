@@ -1,7 +1,6 @@
 // actions.js
 
 import axios from 'axios';
-import M from 'materialize-css';
 import { REG_FAILED, REG_SUCCESSFUL } from './types';
 import history from '../history';
 
@@ -12,7 +11,8 @@ export const regFailed = error => ({
 
 export const regSuccessful = () => ({
   type: REG_SUCCESSFUL,
-  payload: 'Please verify your email address to activate your account. If you do not see it, check your spam folder.',
+  payload:
+    'Please verify your email address to activate your account. If you do not see it, check your spam folder.',
 });
 
 export const registerUser = user => (dispatch) => {
