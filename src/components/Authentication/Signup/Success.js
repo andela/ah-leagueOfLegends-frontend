@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class Success extends Component {
   componentDidMount() {}
@@ -28,6 +29,10 @@ class Success extends Component {
     );
   }
 }
+Success.propTypes = {
+  authReducer: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+};
 
 const mapStateToProps = state => ({ authReducer: state.authReducer });
 
