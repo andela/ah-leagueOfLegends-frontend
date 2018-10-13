@@ -5,6 +5,12 @@ import PropTypes from 'prop-types';
 class Navbar extends Component {
   componentDidMount() {}
 
+  logout = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('isAuthenticated');
+    window.location.reload(true);
+  }
+
   render() {
     const { isAuthenticated } = this.props.state;
     return (

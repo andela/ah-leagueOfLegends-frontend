@@ -46,7 +46,7 @@ class Login extends React.Component {
     const { submitted, email, password } = this.state;
     const { errors } = this.props;
     return (
-      <div id="modal1" className="modal1 modal row">
+      <div id="modal1" className="modal custom-modal row">
         <div className="col s12 modal-content">
           <div className="welcome-modal-msg">
             <h4>Welcome back.</h4>
@@ -69,7 +69,7 @@ class Login extends React.Component {
               <div className="row">
                 <div className="input-field col s12">
                   <label htmlFor="email"> Email </label>
-                  <input id="email" type="email" className="validate" name="email" onChange={this.handleChange} />
+                  <input id="loginemail" type="email" className="validate" name="email" onChange={this.handleChange} />
                 </div>
                 {submitted && !email
                   && <div className="error">email is required</div>
@@ -78,7 +78,7 @@ class Login extends React.Component {
               <div className="row">
                 <div className="input-field col s12">
                   <label htmlFor="password"> Password </label>
-                  <input id="password" type="password" className="validate" name="password" onChange={this.handleChange} />
+                  <input id="loginpassword" type="password" className="validate" name="password" onChange={this.handleChange} />
                 </div>
                 {submitted && !password
                   && <div className="error">Password is required</div>
@@ -124,7 +124,7 @@ Sign up
 }
 
 
-Login.propTypes = { errors: PropTypes.instanceOf(Object), dispatch: PropTypes.func.isRequired };
+Login.propTypes = { errors: PropTypes.string, dispatch: PropTypes.func.isRequired };
 
 Login.defaultProps = { errors: undefined };
 
