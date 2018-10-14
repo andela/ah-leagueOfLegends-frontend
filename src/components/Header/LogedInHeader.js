@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import M from 'materialize-css';
 
 import ROUTE from '../../utils/routes';
 import '../../styles/styles.css';
@@ -13,7 +14,14 @@ class ArticleHeader extends Component {
   }
 
   componentDidMount() {
-
+    const { getTags, removeTag, tags } = this.props;
+    const chip = document.querySelectorAll('.chips');
+    M.Chips.init(chip, {
+      placeholder: 'Add a tag...',
+      onChipAdd: getTags,
+      onChipDelete: removeTag,
+      data: tags.map(tag => ({ tag })),
+    });
   }
 
   profileDropDownhandler = () => (
@@ -25,7 +33,7 @@ class ArticleHeader extends Component {
   );
 
   render() {
-    const { publishHandler, getTags, tagsValue } = this.props;
+    const { publishHandler } = this.props;
     const { profileClicked, publishClicked } = this.state;
     return (
       <div>
@@ -64,7 +72,8 @@ class ArticleHeader extends Component {
           <h6><b>Prepare your story for readers</b></h6>
           Add or change tags (up to 5) so readers know what your story is about.
           <br />
-          <input type="text" placeholder="Add tags" style={{ width: '80%' }} value={tagsValue} onChange={getTags} />
+          <div className="chips chips-placeholder" />
+          {/* <input type="text" placeholder="Add tags" style={{ width: '80%' }} value={tags} onChange={getTags} /> */}
           <br />
           <br />
           <button type="button" className="publish-button" onClick={publishHandler}>

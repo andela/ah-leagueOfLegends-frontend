@@ -17,14 +17,34 @@ export default class Editor extends Component {
 
   componentDidMount() {
     // eslint-disable-next-line
-    this.setState({ article: { ...this.state.article, body: this.props.edtrState } });
+    this.setState({ article: { ...this.state.article, body: this.props.edtrState, tags:[] } });
+    sessionStorage.setItem('tags', this.state.tags);
   }
 
-  getTagsHandler = (e) => {
-    const gotenTags = e.target.value;
-    const saveTags = gotenTags.split(' ');
-    this.setState({ tags: saveTags });
+  static getDerivedStateFromProps(props, state) {
+    const propsNewTags = props.tags ? props.tags.filter(tag => state.tags.includes(tag)) : [];
+    if (!props.tags) {
+      return {
+        ...state,
+        tags: [...state.tags],
+        editorState: props.state,
+      };
+    }
+    return {
+      ...state,
+      tags: propsNewTags.length === 0 ? props.tags : [...propsNewTags, ...state.tags],
+      editorState: props.state,
+    };
   }
+
+  getTags = (_e, d) => {
+    this.setState({ tags: [...this.state.tags, d.childNodes[0].nodeValue] });
+  };
+
+  removeTag = (_e, d) => {
+    this.setState({ tags: this.state.tags.filter(tag => tag !== d.childNodes[0].nodeValue) });
+  };
+
 
   handleSave = (state) => {
     this.setState({ saving: true });
@@ -33,13 +53,13 @@ export default class Editor extends Component {
     let data;
     if (state.editorContent.blocks.length === 1 && state.editorContent.blocks[0].text === '') {
       // eslint-disable-next-line
-      const { editorState, tags } = this.state;
+      const { editorState } = this.state;
       data = {
         article: {
           body: JSON.stringify(editorState),
           title,
           description: title,
-          tagList: tags,
+          tagList: this.state.tags,
         },
       };
       localStorage.setItem('article', JSON.stringify(data));
@@ -63,6 +83,7 @@ export default class Editor extends Component {
   publishArticleHandler = () => {
     const { postArticle, history } = this.props;
     const article = JSON.parse(localStorage.getItem('article'));
+    article.article.tagList = this.state.tags;
     postArticle(article, history);
   }
 
@@ -71,13 +92,14 @@ export default class Editor extends Component {
     const { edtrState } = this.props;
     const { saving } = this.state;
     const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNTQxNzUzNjc0fQ.aP0y7XZbbq5wVp-SqWmpx3n4wERppmqCCCCQYqQB5uI';
-
     return (
       <div>
         <LoginHeader
           /* eslint-disable-next-line */
           tagsValue={this.state.tags}
-          getTags={this.getTagsHandler}
+          getTags={this.getTags}
+          tags={this.state.tags}
+          removeTag={this.removeTag}
           publishHandler={this.publishArticleHandler}
         />
         <UserInfo status={saving} />
