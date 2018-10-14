@@ -10,7 +10,6 @@ import { CodeBlockConfig } from 'Dante2/package/es/components/blocks/code';
 
 import EditorState from './editorState';
 import Editor from '../../../components/Article/editor';
-import ArticleHeader from '../../../components/Header/LogedInHeader';
 import newArticle from './actions';
 
 class CreateArticle extends Component {
@@ -21,7 +20,6 @@ class CreateArticle extends Component {
     const { history, publishing, publishNewArticle } = this.props;
     return (
       <div>
-        <ArticleHeader />
         <Editor
           edtrState={EditorState}
           history={history}
@@ -42,16 +40,18 @@ class CreateArticle extends Component {
 }
 
 CreateArticle.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired }).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  publishing: PropTypes.bool.isRequired,
+  publishNewArticle: PropTypes.func.isRequired,
+
 };
+
 const mapStateToProps = state => ({
   newArticle: state.newArticle.payload,
   publishing: state.newArticle.publishing,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  publishNewArticle: newArticle,
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ publishNewArticle: newArticle },
+  dispatch);
 
-export default connect( mapStateToProps, mapDispatchToProps )(CreateArticle);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateArticle);

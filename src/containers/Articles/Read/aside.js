@@ -39,7 +39,7 @@ class Aside extends Component {
       );
     },
     );
-    if (asideDiv) {
+    if (asideDiv === 0) {
       console.log('No Aside Data');
     }
     return asideDiv;

@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import ROUTE from '../../utils/routes';
 import '../../styles/styles.css';
 
 
 class ArticleHeader extends Component {
+  state = {
+    profileClicked: false,
+    publishClicked: false,
+  }
+
   componentDidMount() {
 
   }
 
+  profileDropDownhandler = () => (
+    this.setState(prevState => ({ profileClicked: !prevState.profileClicked }))
+  );
+
+  publishClickedHandler = () => (
+    this.setState(prevState => ({ publishClicked: !prevState.publishClicked }))
+  );
+
   render() {
+    const { publishHandler, getTags, tagsValue } = this.props;
+    const { profileClicked, publishClicked } = this.state;
     return (
       <div>
         <div className="navbar-fixed ">
@@ -21,15 +37,39 @@ class ArticleHeader extends Component {
                 <a href="/" data-target="mobile-nav" className="sidenav-trigger">
                   <i className="material-icons black-text">menu</i>
                 </a>
-                <a href='/' className="waves-effect waves-light btn publish-new">Ready to publish?</a>
+                <button type="button" onClick={this.publishClickedHandler} className="button">
+                    Ready to Publish?
+                </button>
                 <ul className="right hide-on-med-and-down grey-text">
                   <li><i className="material-icons">search</i></li>
                   <li><i className="material-icons">notifications_none</i></li>
-                  <li><img className="small-profile" alt="User Profile" src="https://api.adorable.io/avatars/285/abott@adorable.png" /></li>
+                  <li>
+                    {/* eslint-disable-next-line */}
+                    <div onClick={this.profileDropDownhandler} role="link">
+                      <img className="small-profile" alt="User Profile" src="https://api.adorable.io/avatars/285/abott@adorable.png" />
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
           </nav>
+        </div>
+        <div className="card hoverable dropdown" style={{ display: (profileClicked ? 'block' : 'none') }}>
+          <ul>
+            <li><a href="/" className="card-content">Home</a></li>
+            <li><a href="/" className="card-content">Sign out</a></li>
+          </ul>
+        </div>
+        <div className="publish-article-dropdown" style={{ display: (publishClicked ? 'block' : 'none') }}>
+          <h6><b>Prepare your story for readers</b></h6>
+          Add or change tags (up to 5) so readers know what your story is about.
+          <br />
+          <input type="text" placeholder="Add tags" style={{ width: '80%' }} value={tagsValue} onChange={getTags} />
+          <br />
+          <br />
+          <button type="button" className="publish-button" onClick={publishHandler}>
+            Publish Now
+          </button>
         </div>
         <ul className="sidenav" id="mobile-nav">
           <li><a href="/">Home</a></li>
@@ -41,4 +81,7 @@ class ArticleHeader extends Component {
     );
   }
 }
+
+ArticleHeader.propTypes = { publishHandler: PropTypes.func.isRequired };
+
 export default ArticleHeader;
