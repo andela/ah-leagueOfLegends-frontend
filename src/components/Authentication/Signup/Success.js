@@ -17,9 +17,12 @@ class Success extends Component {
                     <i className="material-icons medium">done</i>
                   </div>
                   <h5>Welcome to Authors Haven!</h5>
-                  {this.props.authReducer.message !== undefined ? (
-                    <span className="alert-reg-success">{this.props.authReducer.message}</span>
-                  ) : null}
+                  {/* {this.props.authReducer.message !== undefined ? ( */}
+                  <span className="alert-reg-success">
+                    Please verify your email address to activate your account. If you do not see it,
+                    check your spam folder.
+                  </span>
+                  {/* ) : null} */}
                 </div>
               </div>
             </div>

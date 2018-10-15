@@ -21,11 +21,9 @@ export const registerUser = user => (dispatch) => {
     .post('https://ah-leagueoflegends-staging.herokuapp.com/api/users/', { user })
     .then((res) => {
       if (res.status === 201) {
-        const elem = document.querySelectorAll('.modal')[0];
         dispatch(regSuccessful());
         history.push('/Success');
-        const instance = M.Modal.init(elem);
-        instance.close();
+        window.location.reload();
       }
     })
     .catch((err) => {
