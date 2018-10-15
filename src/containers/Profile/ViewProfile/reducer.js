@@ -6,12 +6,11 @@ const initialState = {
     payload:{
         profile:{
         username: "",
-        bio: "...",
+        bio: "",
         image: ""
         }
     },
     success:false,
-
     failure:false,
     errors:null,
 };
