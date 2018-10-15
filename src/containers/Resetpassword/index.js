@@ -39,34 +39,36 @@ class Resetpassword extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div id="modal4" className="row modal">
-          <h3>Password Reset</h3>
-          <div className="input-field col s12">
-            <input id="email1" type="email" className="validate" onChange={this.handleChange} />
-            <label htmlFor="email">Email</label>
-          </div>
-          <div className="row">
+      <div id="modal4" className="modal custom-modal">
+        <div className="modal-content">
+          <form onSubmit={this.handleSubmit}>
+            <h2>Password Reset</h2>
             <div className="input-field col s12">
-              <input id="password2" type="password" className="validate" onChange={this.handleChange} />
-              <label htmlFor="password">Confirm Password</label>
+              <input id="email1" type="email" className="validate" onChange={this.handleChange} />
+              <label htmlFor="email">Email</label>
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <input id="password" type="password" className="validate" onChange={this.handleChange} />
-                <label htmlFor="password">New Password</label>
+                <input id="password2" type="password" className="validate" onChange={this.handleChange} />
+                <label htmlFor="password">Confirm Password</label>
+              </div>
+              <div className="row">
+                <div className="input-field col s12">
+                  <input id="password" type="password" className="validate" onChange={this.handleChange} />
+                  <label htmlFor="password">New Password</label>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="rsp">
-            <button className="btn waves-effect waves-light" type="submit" name="action">
-      Submit
-              <i className="material-icons right">send</i>
-            </button>
-          </div>
-
+            <div className="rsp">
+              <button className="btn waves-effect waves-light" type="submit" name="action">
+        Submit
+                <i className="material-icons right">send</i>
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
+ 
 
     );
   }

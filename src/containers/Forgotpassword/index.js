@@ -41,27 +41,30 @@ class Forgotpassword extends React.Component {
       const { payload, forgotPasswordReducer } = this.props;
       console.log(payload);
       return (
-        <div id="modal3" className="row modal">
-          <h4>Password Recovery</h4>
-          <form>
-            <div className="input-field col s12">
-              <input required name="email" type="email" className="validate" onChange={this.handleChange} />
-              <label htmlFor="email">Email</label>
-              {payload}
-              {
-                console.log('=>', forgotPasswordReducer)
-              }
-              {
-                forgotPasswordReducer.success ? (<div>E-mail sent successfully</div>) : null
-              }
-            </div>
-            <div className="fpl">
-              <button onClick={this.handleSubmit} className="btn waves-effect waves-light" type="submit" name="action">
-                    Submit
-                <i className="material-icons right">send</i>
-              </button>
-            </div>
-          </form>
+        <div id="modal3" className="modal custom-modal">
+          <div className="modal-content">
+            <h2>Password Recovery</h2>
+            <form>
+              <div className="input-field col s12">
+                <input required name="email" type="email" className="validate" onChange={this.handleChange} />
+                <label htmlFor="email">Email</label>
+                {payload}
+                {
+                  console.log('=>', forgotPasswordReducer)
+                }
+                {
+                  forgotPasswordReducer.success ? (<div color="$color-green">E-mail sent successfully</div>) : null
+                }
+              </div>
+              <br />
+              <div className="fpl">
+                <button onClick={this.handleSubmit} className="btn waves-effect waves-light" type="submit" name="action">
+                      Submit
+                  <i className="material-icons right">send</i>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       );
     }
