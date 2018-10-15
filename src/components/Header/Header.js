@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import M from 'materialize-css';
 
 import ROUTE from '../../utils/routes';
 import '../../styles/styles.css';
@@ -14,14 +12,6 @@ class ArticleHeader extends Component {
   }
 
   componentDidMount() {
-    const { getTags, removeTag, tags } = this.props;
-    const chip = document.querySelectorAll('.chips');
-    M.Chips.init(chip, {
-      placeholder: 'Enter your tags ...',
-      onChipAdd: getTags,
-      onChipDelete: removeTag,
-      data: tags.map(tag => ({ tag })),
-    });
   }
 
   profileDropDownhandler = () => (
@@ -33,8 +23,7 @@ class ArticleHeader extends Component {
   );
 
   render() {
-    const { publishHandler } = this.props;
-    const { profileClicked, publishClicked } = this.state;
+    const { profileClicked } = this.state;
     return (
       <div>
         <div className="navbar-fixed ">
@@ -46,7 +35,7 @@ class ArticleHeader extends Component {
                   <i className="material-icons black-text">menu</i>
                 </a>
                 <button type="button" onClick={this.publishClickedHandler} className="button">
-                    Ready to Publish?
+                    Edit
                 </button>
                 <ul className="right hide-on-med-and-down grey-text">
                   <li><i className="material-icons">search</i></li>
@@ -68,17 +57,6 @@ class ArticleHeader extends Component {
             <li><a href="/" className="card-content">Sign out</a></li>
           </ul>
         </div>
-        <div className="publish-article-dropdown" style={{ display: (publishClicked ? 'block' : 'none') }}>
-          <h6><b>Prepare your story for readers</b></h6>
-          Add or change tags (up to 5) so readers know what your story is about.
-          <br />
-          <div className="chips chips-placeholder" />
-          <br />
-          <br />
-          <button type="button" className="publish-button" onClick={publishHandler}>
-            Publish Now
-          </button>
-        </div>
         <ul className="sidenav" id="mobile-nav">
           <li><a href="/">Home</a></li>
           <li><a href="/">Search</a></li>
@@ -89,12 +67,5 @@ class ArticleHeader extends Component {
     );
   }
 }
-
-ArticleHeader.propTypes = {
-  publishHandler: PropTypes.func.isRequired,
-  getTags: PropTypes.func.isRequired,
-  removeTag: PropTypes.func.isRequired,
-  tags: PropTypes.instanceOf(Object).isRequired,
-};
 
 export default ArticleHeader;

@@ -126,6 +126,11 @@
 
 .navbar-fixed {
   box-shadow: 0 0.5px #e0dfdf; }
+.main-article {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 3%; }
+
 .navbar-fixed {
   box-shadow: 0px 0.5px #e0dfdf; }
 
@@ -232,3 +237,8 @@ i:hover {
 .publish-button:hover {
   color: white;
   background-color: #4ba57f; }
+
+.tag-list {
+  float: right;
+  margin: 3%;
+  margin-right: 10%; }

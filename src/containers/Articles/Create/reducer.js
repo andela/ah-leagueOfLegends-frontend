@@ -1,8 +1,11 @@
-import { PUBLISH_ARTICLE } from './constants';
+import { ARTICLE_SUCCESS, ARTICLE_FAILURE, PUBLISH_ARTICLE } from './constants';
 
 const initialState = {
   payload: {},
   publishing: false,
+  success: false,
+  failure: false,
+  error: undefined,
 };
 
 export default function (state = initialState, action) {
@@ -10,8 +13,20 @@ export default function (state = initialState, action) {
     case PUBLISH_ARTICLE:
       return {
         ...state,
-        payload: action.data,
         publishing: true,
+      };
+    case ARTICLE_SUCCESS:
+      return {
+        ...state,
+        payload: action.payload,
+        publishing: true,
+        success: true,
+      };
+    case ARTICLE_FAILURE:
+      return {
+        ...state,
+        failure: true,
+        error: action.errors,
       };
     default:
       return state;
