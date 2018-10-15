@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import getArticles from './actions';
 import '../../../styles/styles.css';
@@ -27,7 +28,8 @@ class Aside extends Component {
       const { blocks } = b;
       if (!blocks) return false;
       const p = extractDescription(blocks);
-      const preview = p ? p.text : '';
+      const prevw = p ? p.text : '';
+      const preview = prevw.slice(0, 100);
       return (
         <div key={aside.slug} className="hoverable card-content articlesComponent">
           <div className="aside-number">
@@ -35,6 +37,8 @@ class Aside extends Component {
           </div>
           <h6>{aside.title}</h6>
           {preview}
+          {/* eslint-disable-next-line */}
+          ...<Link to={`/article/${aside.slug}`} >Read More</Link>
         </div>
       );
     },

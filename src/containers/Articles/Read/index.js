@@ -27,7 +27,8 @@ class ReadArticle extends Component {
       const { blocks } = b;
       if (!blocks) return false;
       const p = extractDescription(blocks);
-      const preview = p ? p.text : '';
+      const prevw = p ? p.text : '';
+      const preview = prevw.slice(0, 220);
       return (
         <ArticleComponent
           key={article.slug}

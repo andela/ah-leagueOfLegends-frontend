@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../../styles/styles.css';
 
@@ -27,7 +28,11 @@ const articleComponent = (props) => {
               </div>
             </div>
             <span className="article-title">{ article.title }</span>
-            <p>{preview}</p>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
           <div className="card-action">
             <ul className="grey-text actions">
@@ -51,7 +56,11 @@ const articleComponent = (props) => {
         <div key={article.slug} className="card hoverable article-aside">
           <div className="card-content">
             <span className="article-title">{article.title}</span>
-            <p>{preview}</p>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
         </div>
       );
@@ -60,7 +69,11 @@ const articleComponent = (props) => {
         <div key={article.slug} className=" card hoverable article-aside">
           <div className="card-content">
             <span className="article-title">{article.title}</span>
-            <p>{preview}</p>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
         </div>
       );
@@ -86,7 +99,11 @@ const articleComponent = (props) => {
               </div>
             </div>
             <span className="article-title">{ article.title }</span>
-            <p>{preview}</p>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
           <div className="card-action">
             <ul className="grey-text actions">
