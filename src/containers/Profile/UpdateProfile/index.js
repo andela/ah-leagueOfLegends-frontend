@@ -101,6 +101,8 @@ class UpdateProfile extends Component {
               />
             </div>)}
       </div>
+
+
     );
   }
 }
