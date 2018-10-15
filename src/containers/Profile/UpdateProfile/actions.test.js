@@ -1,9 +1,8 @@
 import * as actions from './actions';
-import {} from './ActionTypes';
-import { UPDATE_USER_PROFILE_REQUEST } from './ActionTypes';
-import { VIEW_PROFILE_FAILURE } from '../ViewProfile/ActionTypes';
-import { UPDATE_PROFILE_SUCCESS } from './ActionTypes';
-import { UPDATE_PROFILE_FAILURE } from './ActionTypes';
+import {
+  UPDATE_USER_PROFILE_REQUEST,
+  UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE,
+} from './ActionTypes';
 
 describe('Actions for edit profile', () => {
   // Create edit profile request
