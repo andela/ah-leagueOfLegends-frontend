@@ -18,6 +18,14 @@ const publishArticle = (data, history, update = false, slug) => (dispatch) => {
   const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNTQxNzUzNjc0fQ.aP0y7XZbbq5wVp-SqWmpx3n4wERppmqCCCCQYqQB5uI';
   // eslint-disable-next-line
   axios.defaults.headers.common = { Authorization: 'Bearer ' + token }
+  if (update) {
+    axios.put(MAIN_URL, data)
+      .then((res) => {
+        dispatch(articleSuccess(res));
+        history.push(`/article/${res.data.articles.slug}`);
+      })
+      .catch(err => dispatch(articleFailure(err)));
+  }
   axios.post(MAIN_URL, data)
     .then((res) => {
       dispatch(articleSuccess(res));

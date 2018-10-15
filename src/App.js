@@ -10,6 +10,7 @@ import Register from './components/Authentication/Signup/Register';
 import Success from './components/Authentication/Signup/Success';
 import NewArticle from './containers/Articles/Create';
 import MainArticle from './containers/Articles/Article/largArticle';
+import UpdateArticle from './containers/Articles/Update/index';
 
 import Login from './containers/Authentication/Login/Login';
 import history from './history';
@@ -30,6 +31,7 @@ class App extends Component {
               <Route exact path="/Success" component={Success} />
               <Route exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />
+              <Route exact path={ROUTE.editArticle} component={UpdateArticle} />
             </Switch>
           </div>
         </Router>

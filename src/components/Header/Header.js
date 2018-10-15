@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import ROUTE from '../../utils/routes';
 import '../../styles/styles.css';
 
 
 class ArticleHeader extends Component {
-  state = {
-    profileClicked: false,
-    publishClicked: false,
-  }
+  state = { profileClicked: false }
 
   componentDidMount() {
   }
@@ -18,12 +16,14 @@ class ArticleHeader extends Component {
     this.setState(prevState => ({ profileClicked: !prevState.profileClicked }))
   );
 
-  publishClickedHandler = () => (
-    this.setState(prevState => ({ publishClicked: !prevState.publishClicked }))
-  );
+  editClickedHanlder = () => {
+    const { history, urlPath } = this.props;
+    history.push(`${urlPath}/edit`);
+  };
 
   render() {
     const { profileClicked } = this.state;
+    const { urlPath } = this.props;
     return (
       <div>
         <div className="navbar-fixed ">
@@ -34,9 +34,10 @@ class ArticleHeader extends Component {
                 <a href="/" data-target="mobile-nav" className="sidenav-trigger">
                   <i className="material-icons black-text">menu</i>
                 </a>
-                <button type="button" onClick={this.publishClickedHandler} className="button">
+                <button type="button" onClick={this.editClickedHanlder} className="button">
                     Edit
                 </button>
+                <Link to={urlPath}>Edit</Link>
                 <ul className="right hide-on-med-and-down grey-text">
                   <li><i className="material-icons">search</i></li>
                   <li><i className="material-icons">notifications_none</i></li>
@@ -67,5 +68,10 @@ class ArticleHeader extends Component {
     );
   }
 }
+
+ArticleHeader.propTypes = {
+  urlPath: PropTypes.string.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default ArticleHeader;

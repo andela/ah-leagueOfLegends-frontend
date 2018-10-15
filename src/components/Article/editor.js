@@ -18,7 +18,6 @@ export default class Editor extends Component {
   componentDidMount() {
     // eslint-disable-next-line
     this.setState({ article: { ...this.state.article, body: this.props.edtrState, tags:[] } });
-    sessionStorage.setItem('tags', this.state.tags);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -38,10 +37,12 @@ export default class Editor extends Component {
   }
 
   getTags = (_e, d) => {
+    // eslint-disable-next-line
     this.setState({ tags: [...this.state.tags, d.childNodes[0].nodeValue] });
   };
 
   removeTag = (_e, d) => {
+    // eslint-disable-next-line
     this.setState({ tags: this.state.tags.filter(tag => tag !== d.childNodes[0].nodeValue) });
   };
 
@@ -59,6 +60,7 @@ export default class Editor extends Component {
           body: JSON.stringify(editorState),
           title,
           description: title,
+          // eslint-disable-next-line
           tagList: this.state.tags,
         },
       };
@@ -81,9 +83,10 @@ export default class Editor extends Component {
   };
 
   publishArticleHandler = () => {
+    const { tags } = this.state;
     const { postArticle, history } = this.props;
     const article = JSON.parse(localStorage.getItem('article'));
-    article.article.tagList = this.state.tags;
+    article.article.tagList = tags;
     postArticle(article, history);
   }
 
@@ -98,6 +101,7 @@ export default class Editor extends Component {
           /* eslint-disable-next-line */
           tagsValue={this.state.tags}
           getTags={this.getTags}
+          /* eslint-disable-next-line */
           tags={this.state.tags}
           removeTag={this.removeTag}
           publishHandler={this.publishArticleHandler}

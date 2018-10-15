@@ -17,7 +17,7 @@ class MainArticle extends Component {
   renderArticleHandler = () => {
     const { mainArticle } = this.props;
     let articleData;
-    if(mainArticle.payload.body) {
+    if (mainArticle.payload.body) {
       articleData = JSON.parse(mainArticle.payload.body);
 
       return <Dante read_only content={articleData} />;
@@ -26,10 +26,10 @@ class MainArticle extends Component {
   }
 
   render() {
-    const { mainArticle } = this.props;
+    const { mainArticle, history } = this.props;
     return (
       <div>
-        <ArticleHeader />
+        <ArticleHeader urlPath={history.location.pathname} history={history} />
         <div className="tag-list">
           {
           mainArticle.payload.tagList
@@ -54,6 +54,7 @@ MainArticle.propTypes = {
   match: PropTypes.instanceOf(Object).isRequired,
   fetchOneArticles: PropTypes.func.isRequired,
   mainArticle: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
