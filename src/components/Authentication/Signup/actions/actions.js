@@ -1,6 +1,7 @@
 // actions.js
 
 import axios from 'axios';
+import M from 'materialize-css';
 import { REG_FAILED, REG_SUCCESSFUL } from './types';
 import history from '../history';
 
@@ -20,9 +21,11 @@ export const registerUser = user => (dispatch) => {
     .post('https://ah-leagueoflegends-staging.herokuapp.com/api/users/', { user })
     .then((res) => {
       if (res.status === 201) {
+        const elem = document.querySelectorAll('.modal')[0];
         dispatch(regSuccessful());
         history.push('/Success');
-        window.location.reload(true);
+        const instance = M.Modal.init(elem);
+        instance.close();
       }
     })
     .catch((err) => {
