@@ -77,6 +77,13 @@
   margin-top: 2%;
   width: 50%; }
 
+.success-content {
+  color: #008080;
+  text-align: center; }
+
+.card-panel {
+  background-color: #dbebeb; }
+
 .alert-reg-success {
   color: #008080; }
 

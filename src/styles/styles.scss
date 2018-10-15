@@ -18,6 +18,15 @@
   width: 50%;
 }
 
+.success-content {
+  color: $color-green;
+  text-align: center;
+}
+
+.card-panel {
+  background-color: $color-pale-green;
+}
+
 .alert-reg-success {
   color: $color-green;
 }
