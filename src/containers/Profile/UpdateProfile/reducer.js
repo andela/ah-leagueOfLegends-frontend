@@ -5,7 +5,14 @@ import {
 } from './ActionTypes';
 
 const InitialState = {
-    payload: {},
+    payload: {
+      user: {
+        email: "",
+        username: "",
+        bio: "",
+        image: ""
+      }
+      },
     success: false,
     failure: false,
     errors: null,
