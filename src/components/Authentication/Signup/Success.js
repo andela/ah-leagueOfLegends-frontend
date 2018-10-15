@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 class Success extends Component {
   componentDidMount() {}
@@ -30,8 +28,4 @@ class Success extends Component {
     );
   }
 }
-Success.propTypes = { authReducer: PropTypes.instanceOf(Object).isRequired };
-
-const mapStateToProps = state => ({ authReducer: state.authReducer });
-
-export default connect(mapStateToProps)(Success);
+export default Success;
