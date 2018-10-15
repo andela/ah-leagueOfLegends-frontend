@@ -18,14 +18,11 @@ function socialLogin(provider, accessToken) {
     { provider, access_token: accessToken },
     { headers: { 'Content-Type': 'application/json' } })
     .then((response) => {
-      const elem = document.querySelectorAll('.modal')[0];
-      const elem1 = document.querySelectorAll('.modal-overlay')[0];
       dispatch(loginSuccess(response.data));
       const { token } = response.data.user;
       localStorage.setItem('access_token', token);
       history.push('/');
-      elem.style = 'display : none';
-      elem1.style = 'display:none';
+      // window.location.reload();
     })
     .catch((error) => {
       dispatch(loginFailure(error));
