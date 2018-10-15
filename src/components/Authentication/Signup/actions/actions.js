@@ -1,7 +1,6 @@
 // actions.js
 
 import axios from 'axios';
-import M from 'materialize-css';
 import { REG_FAILED, REG_SUCCESSFUL } from './types';
 import history from '../history';
 
