@@ -47,7 +47,7 @@ class Register extends Component {
     return (
       <React.Fragment>
         <div className="container" style={{ marginTop: '50px', width: '700px' }}>
-          <div id="modal2" className="modal">
+          <div id="modal2" className="modal custom-modal">
             <div className="modal-content">
               <h5>Join Authors Haven</h5>
               <h4 style={{ marginBottom: '20px' }}>Create an account</h4>
@@ -126,8 +126,10 @@ class Register extends Component {
 Register.propTypes = {
   registerNewUser: PropTypes.func.isRequired,
   authReducer: PropTypes.instanceOf(Object).isRequired,
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }),
 };
+
+Register.defaultProps = { history: undefined };
 
 const mapStateToProps = state => ({ authReducer: state.authReducer });
 
