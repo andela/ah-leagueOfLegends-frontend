@@ -22,7 +22,7 @@ function socialLogin(provider, accessToken) {
       const { token } = response.data.user;
       localStorage.setItem('access_token', token);
       history.push('/');
-      // window.location.reload();
+      window.location.reload();
     })
     .catch((error) => {
       dispatch(loginFailure(error));

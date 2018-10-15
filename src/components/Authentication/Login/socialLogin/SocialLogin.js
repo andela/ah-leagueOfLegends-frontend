@@ -38,7 +38,7 @@ class SocialLogin extends Component {
     const customHeader = {};
     customHeader['Content-Type'] = 'application/json';
     return (
-      <div className="modal social-modal" id="modal-social">
+      <div className="modal social-modal custom-modal" id="modal-social">
         <div className="modal-content">
           <div className="welcome-modal-msg">
             <h4>Welcome back.</h4>
@@ -74,43 +74,12 @@ class SocialLogin extends Component {
               callback={this.responseFacebook}
             />
           </div>
-          <div className="modal-btn">
-            <TwitterLogin
-              loginUrl="https://api.twitter.com/oauth/authenticate"
-              onFailure={this.responseTwitter}
-              onSuccess={this.responseTwitter}
-              className="white waves-effect waves-teal btn-social-twitter"
-              // requestTokenUrl="http://localhost:4000/api/v1/auth/twitter/reverse"
-              customHeaders={customHeader}
-            >
-              <i className="fa fa-twitter" />
-              <span />
-              {' '}
-              <span />
-            Signin with Twitter
-            </TwitterLogin>
-          </div>
-          <div className="modal-btn">
-            <GitHubLogin
-              clientId="8901d00b0b9847029df3"
-              className="white waves-effect waves-teal btn-social-github"
-              onSuccess={this.responseGithub}
-              onFailure={this.responseGithub}
-            >
-              <i className="fa fa-github" />
-              <span />
-              {' '}
-              <span />
-              Signin with Github
-            </GitHubLogin>
-
-          </div>
-          <div className="white waves-effect waves-light  btn-login-email">
+          <div href="#modal1" className="white waves-effect waves-light  btn-login-email modal-trigger modal-close">
           Signin with email
           </div>
           <p>
             No account?
-            <a href="#modal" className="modal-trigger modal-close"> Create One</a>
+            <a href="#modal2" className="modal-trigger modal-close"> Create One</a>
           </p>
           <a href="#modal" className="modal-trigger modal-close"> Forgot Password ?</a>
         </div>
