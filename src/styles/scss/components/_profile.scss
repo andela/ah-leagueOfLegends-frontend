@@ -3,12 +3,14 @@
   height: 40px;
   width: 40px;
 }
+
 .profile {
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
    margin-top: 40px;
  }
+
  .user-detail {
    align-items: center;
    display: flex;
@@ -20,6 +22,7 @@
    border-radius: 50%;
    margin-top: 45px;
  }
+
  .edit-avatar{
    height: 120px;
    width: 120px;
@@ -44,13 +47,16 @@
 
 }
 
- .user-info {
+.user-info {
    display: flex;
    flex-direction: column;
  }
+
 .followers-link li{
   display: inline;
+
 }
+
 .followers-link li :hover{
   text-decoration: underline;
 }
