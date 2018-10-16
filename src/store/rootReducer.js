@@ -26,4 +26,5 @@ export default combineReducers({
   Search: searchReducer,
   rootReducer,
   forgotPasswordReducer,
+  resetPasswordReducer,
 });
