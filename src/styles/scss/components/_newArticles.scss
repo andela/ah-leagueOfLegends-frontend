@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "../base/settings";
 
 .navbar-fixed {
@@ -36,4 +37,39 @@ i:hover {
   left: 50%;
   position: relative;
   width: 30%;
+=======
+.navbar-fixed {
+  box-shadow: 0px 0.5px rgb(224, 223, 223);
+}
+.nav-wrapper .brand-logo {
+font-family: Athelas,'Times New Roman';
+}
+.nav-wrapper i {
+  padding: 2px 10px 0px 10px ;
+}
+i:hover {
+  cursor: pointer;
+  color: #000;
+}
+.small-profile {
+  border-radius: 100%;
+
+  width: 30px;
+  margin: 20px 10px ;
+  cursor: pointer;
+}
+.draft-editor {
+  margin-left: 20%;
+}
+.publish-new{
+  position: relative;
+  
+  left: 50%;
+
+  background-color: white;
+  color: green;
+  font-size: 12px;
+  width: 30%;
+  height: 30px;
+>>>>>>> [Feature #159965441] Update project style file
 }
