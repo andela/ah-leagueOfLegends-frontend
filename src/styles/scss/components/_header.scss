@@ -26,18 +26,14 @@
   width: 200px;
 }
 
-.dropdown li {
-  border-bottom: 1px solid $secondary-gray;
-  padding: 2%;
-}
 
 .publish-article-dropdown {
-  position: absolute;
+  border: 1px solid $primary-green;
   border-radius: 5%;
+  position: absolute;
+  right: 23%;
   text-align: center;
   width: 300px;
-  right: 23%;
-  border: 1px solid $primary-green;
   z-index: 500;
 }
 
@@ -54,8 +50,8 @@
 }
 
 .publish-button:hover {
-  color: $white;
   background-color: $button-green;
+  color: $white;
 }
 
 .tag-list {

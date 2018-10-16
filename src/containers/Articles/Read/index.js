@@ -44,7 +44,9 @@ class ReadArticle extends Component {
     },
     );
     if (artcles === 0) {
-      // console.log('No data');
+      /* Not Found Component will be added here;
+       Esther's Created it.
+      */
     }
     return artcles;
   }

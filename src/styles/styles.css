@@ -123,17 +123,13 @@ i:hover {
   text-align: center;
   width: 200px; }
 
-.dropdown li {
-  border-bottom: 1px solid #f9f9f9;
-  padding: 2%; }
-
 .publish-article-dropdown {
-  position: absolute;
+  border: 1px solid #008000;
   border-radius: 5%;
+  position: absolute;
+  right: 23%;
   text-align: center;
   width: 300px;
-  right: 23%;
-  border: 1px solid #008000;
   z-index: 500; }
 
 .publish-button {
@@ -148,8 +144,8 @@ i:hover {
   width: 200px; }
 
 .publish-button:hover {
-  color: #ffffff;
-  background-color: #4ba57f; }
+  background-color: #4ba57f;
+  color: #ffffff; }
 
 .tag-list {
   float: right;
