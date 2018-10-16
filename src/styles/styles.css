@@ -788,7 +788,9 @@ i:hover {
 
 .profile {
   display: flex;
-  justify-content: space-between; }
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px; }
 
 .btn {
   text-transform: none;
@@ -843,7 +845,7 @@ button:hover {
 
 .profile-header .container.underline {
   border: 0.5px solid #dadada;
-  width: 44%;
+  margin-top: 1%;
   padding: 0%;
   margin-top: 1%; }
 
@@ -898,6 +900,9 @@ h6 {
   border-radius: 4px;
   box-shadow: none;
   border: 1px solid #aaa; }
+.user-detail {
+  align-items: center;
+  display: flex; }
 
 .btn:hover {
   text-transform: none;
@@ -1457,7 +1462,9 @@ h6 {
   align-items: center; }
 
 .small-profile {
+  border-radius: 50%;
   height: 40px;
+
   width: 50px;
   border-radius: 50%; }
 
