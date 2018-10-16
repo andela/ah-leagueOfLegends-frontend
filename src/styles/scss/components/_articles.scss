@@ -1,10 +1,5 @@
 @import "../base/settings";
 
-.articles-landing-page {
-  margin-left: 50px;
-
-}
-
 .articles-landing {
   float: left;
 
@@ -15,9 +10,10 @@
 }
 
 .article-aside {
-  float: left;
-  margin-left: 45px !important;
-  width: 40%;
+  float: right;
+
+  margin: 20px 2%;
+  width: 35%;
 }
 
 .article-default {
@@ -96,7 +92,7 @@
 
 }
 
-.card-action li {
+.card-action  li {
   display: inline;
 
   font-family: Lato;
@@ -107,5 +103,9 @@
 .main-article {
   margin-left: 20%;
   margin-right: 20%;
+<<<<<<< HEAD
   padding: 3%;
+=======
+  padding:3%;
+>>>>>>> [Feature #159965441] Update project style file
 }
