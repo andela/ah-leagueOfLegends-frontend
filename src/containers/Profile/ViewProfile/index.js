@@ -69,7 +69,11 @@ class ViewProfile extends Component {
           publicId={payload.profile.image}
           onEditClick={this.handleEditUser}
         />
-        <button onClick={this.handleImageUpload}>Upload</button>
+        <button onClick={this.handleImageUpload}>
+          <i className="material-icons">
+          add_a_photo
+          </i>
+        </button>
       </div>
     );
   }
