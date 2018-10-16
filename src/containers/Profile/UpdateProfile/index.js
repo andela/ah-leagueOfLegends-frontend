@@ -49,7 +49,6 @@ class UpdateProfile extends Component {
         bio,
       },
     };
-    console.log('you are here');
     this.props.updateUser(profile)
       .then(() => {
         toastr.success('Profile Update Success');
@@ -92,10 +91,7 @@ class UpdateProfile extends Component {
 
 UpdateProfile.propTypes = {
   username: PropTypes.string.isRequired,
-  match: PropTypes.object.isRequired,
-  viewProfileReducer: PropTypes.object.isRequired,
   updateUser: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
   fetchUserDetails: PropTypes.func.isRequired,
 
 };
