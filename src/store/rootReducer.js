@@ -12,7 +12,6 @@ export default combineReducers({
   completeArticle,
   articles,
   authReducer,
-  articles,
   newArticle,
   router: routerReducer,
   Login: loginReducer,

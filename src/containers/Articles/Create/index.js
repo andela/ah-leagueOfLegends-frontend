@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ImageBlockConfig } from 'Dante2/package/es/components/blocks/image';
-import { VideoBlockConfig } from 'Dante2/package/es/components/blocks/video';
-import { EmbedBlockConfig } from 'Dante2/package/es/components/blocks/embed';
-import { PlaceholderBlockConfig } from 'Dante2/package/es/components/blocks/placeholder';
-import { CodeBlockConfig } from 'Dante2/package/es/components/blocks/code';
 
 import EditorState from './editorState';
 import Editor from '../../../components/Article/editor';
@@ -25,13 +20,6 @@ class CreateArticle extends Component {
           history={history}
           publishing={publishing}
           postArticle={publishNewArticle}
-          widgets={[
-            ImageBlockConfig(),
-            CodeBlockConfig(),
-            EmbedBlockConfig(),
-            VideoBlockConfig(),
-            PlaceholderBlockConfig(),
-          ]}
         />
 
       </div>

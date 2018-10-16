@@ -19,7 +19,7 @@ export default class Editor extends Component {
     // eslint-disable-next-line
     this.setState({ article: { ...this.state.article, body: this.props.edtrState, tags:[] } });
   }
-
+  // eslint-disable-next-line
   static getDerivedStateFromProps(props, state) {
     const propsNewTags = props.tags ? props.tags.filter(tag => state.tags.includes(tag)) : [];
     if (!props.tags) {
@@ -94,7 +94,7 @@ export default class Editor extends Component {
     const titl = <div style={{ fontSize: 50, fontWeight: 'bold' }}>Enter Title</div>;
     const { edtrState } = this.props;
     const { saving } = this.state;
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNTQxNzUzNjc0fQ.aP0y7XZbbq5wVp-SqWmpx3n4wERppmqCCCCQYqQB5uI';
+    const token = localStorage.getItem('access_token');
     return (
       <div>
         <LoginHeader

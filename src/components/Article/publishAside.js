@@ -1,6 +1,6 @@
 import React from 'react';
 
-const publishAside = props => (
+const publishAside = () => (
   <div className="col s12 m1">
     <div>
       <button type="button" className="dropdown-trigger btn-dropdown" data-target="publish">

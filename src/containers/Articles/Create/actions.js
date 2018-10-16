@@ -15,7 +15,7 @@ const publishArticle = (data, history, update = false, slug) => (dispatch) => {
   if (update) {
     MAIN_URL = `${BACKEND_URL}api/articles/${slug}`;
   }
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNTQxNzUzNjc0fQ.aP0y7XZbbq5wVp-SqWmpx3n4wERppmqCCCCQYqQB5uI';
+  const token = localStorage.getItem('access_token');
   // eslint-disable-next-line
   axios.defaults.headers.common = { Authorization: 'Bearer ' + token }
   if (update) {
