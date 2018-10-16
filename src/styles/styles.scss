@@ -109,70 +109,44 @@
 }
 
 .modal-btn {
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .btn-social-facebook {
-  margin: 2% 0%;
-  color: #3B5998 ;
-  padding: 5px;
-  border: none;
-  background-color: #fff;
+  background-color: $white;
+  border: 0;
   border-radius: 4px;
+  color: $facebook-blue;
   font-size: 16px;
+  margin: 2% 0%;
+  padding: 5px;
   width: 45%;
 }
 
-.btn-social-twitter {
-  margin: 2% 0%;
-  color: #1DA1F2;
-  padding: 5px;
-  border: none;
-  background-color: #fff;
+.btn-social-google {
+  background-color: $white;
+  border: 0;
   border-radius: 4px;
+  color: $google-red;
   font-size: 16px;
+  margin: 2% 0%;
+  padding: 5px;
   width: 45%;
 }
 
-.btn-social-github {
-  margin: 2% 0%;
-  color: #333;
-  padding: 5px;
-  border: none;
-  background-color: #fff;
+.btn-login-email {
+  background-color: $white;
   border-radius: 4px;
+  color: $color-green;
   font-size: 16px;
+  margin: 2% 0%;
+  padding: 5px;
   width: 45%;
 }
 
-.btn-social-google{
-  margin: 2% 0%;
-  color: #db3236;
-  padding: 5px;
-  border: none;
-  background-color: #fff;
-  border-radius: 4px;
-  font-size: 16px;
-  width: 45%;
-}
-
-.btn-login-email{
-  margin: 2% 0%;
-  color: #008080;
-  padding: 5px;
-  background-color: #fff;
-  border-radius: 4px;
-  font-size: 16px;
-  width: 45%;
-}
-
-.social-modal{
-  text-align:center;
+.social-modal {
+  background-color: $color-pale-green;
+  text-align: center;
   width: 55%;
-  background-color: rgb(219, 235, 235);
-}
-
-.social-modal .modal-content{
-  align-items: center;
 }

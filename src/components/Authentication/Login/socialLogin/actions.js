@@ -3,12 +3,12 @@ import history from '../../../../History';
 
 const axios = require('axios');
 
-const loginSuccess = payload => ({
+export const loginSuccess = payload => ({
   type: LoginConstants.LOGIN_SUCCESS,
   payload,
 });
 
-const loginFailure = error => ({
+export const loginFailure = error => ({
   type: LoginConstants.LOGIN_FAILURE,
   error,
 });

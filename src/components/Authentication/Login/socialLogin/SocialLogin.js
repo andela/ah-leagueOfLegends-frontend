@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
-import TwitterLogin from 'react-twitter-auth';
-import GitHubLogin from 'react-github-login';
 import GoogleLogin from 'react-google-login';
 import { connect } from 'react-redux';
 import M from 'materialize-css';
@@ -22,16 +20,6 @@ class SocialLogin extends Component {
   responseGoogle = (response) => {
     const { dispatch } = this.props;
     dispatch(login('google-oauth2', response.accessToken));
-  }
-
-  responseGithub = (response) => {
-    const { dispatch } = this.props;
-    dispatch(login('github', response.accessToken));
-  }
-
-  responseTwitter = (response) => {
-    const { dispatch } = this.props;
-    dispatch(login('github', response.accessToken));
   }
 
   render() {
