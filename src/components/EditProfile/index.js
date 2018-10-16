@@ -2,45 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const EditProfile = ({
-  username, image, bio, save, onChange, onButtonClick, onImageClick, onCancel, onSave,
+  username, image, bio, onChange, onCancel, onSave,
 }) => (
   <div>
     <div className="row">
-      <form className="col s12">
-        <div className="row">
-          <div className="input-field ">
-            <h5>Username</h5>
-            <input id="username" type="text" className="validate" onChange={onChange} value={username} />
-          </div>
-          <div className="input-field ">
-            <h5> Bio</h5>
-            <input id="bio" type="tel" className="validate" onChange={onChange} value={bio} />
-          </div>
-        </div>
+      <form className="col m4 s12 offset-m3">
         <div className="avatar-wrapper">
-
-          <i className="material-icons">
-            add_a_photo
-            <img className="avatar" src={image} />
-          </i>
+          <img className="avatar" src={image} />
+        </div>
+        <div className="input-field ">
+          <h5>Username</h5>
+          <input id="username" type="text" className="validate" onChange={onChange} value={username} />
+        </div>
+        <div className="input-field ">
+          <h5> Bio</h5>
+          <input id="bio" type="tel" className="validate" onChange={onChange} value={bio} />
         </div>
       </form>
-    </div>
-    <div className="modal-footer">
-      <button
-        data-target="modal1"
-        className="modal-close waves-effect waves-light btn  btn-flat white grey-text"
-        onClick={onSave}
-      >
-        Apply
-      </button>
-      <button
-        data-target="modal1"
-        className="modal-close waves-effect waves-light btn  btn-flat white grey-text"
-        onClick={onCancel}
-      >
-        Cancel
-      </button>
+      <div className="row">
+        <div className="col m4 s12 offset-m3">
+          <button
+            data-target="modal1"
+            className="btn  btn-flat white grey-text"
+            onClick={onSave}
+          >
+          Apply
+          </button>
+          <button
+            data-target="modal1"
+            className="btn  btn-flat white grey-text"
+            onClick={onCancel}
+          >
+          Cancel
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
