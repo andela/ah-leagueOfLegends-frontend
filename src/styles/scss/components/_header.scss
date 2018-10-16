@@ -1,0 +1,61 @@
+@import "../base/settings";
+
+.button {
+  background-color: $white;
+  border: 1px solid $button-green;
+  border-radius: 20px;
+  color: $button-green;
+  cursor: pointer;
+  left: 65%;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+}
+
+.button:hover {
+  background-color: $button-green;
+  color: $white;
+}
+
+.dropdown {
+  border-radius: 10%;
+  position: absolute;
+  right: 10%;
+  text-align: center;
+  width: 200px;
+}
+
+
+.publish-article-dropdown {
+  border: 1px solid $primary-green;
+  border-radius: 5%;
+  position: absolute;
+  right: 23%;
+  text-align: center;
+  width: 300px;
+  z-index: 500;
+}
+
+.publish-button {
+  background-color: $white;
+  border: 1px solid $button-green;
+  border-radius: 20px;
+  color: $button-green;
+  cursor: pointer;
+  margin: 2%;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+}
+
+.publish-button:hover {
+  background-color: $button-green;
+  color: $white;
+}
+
+.tag-list {
+  float: right;
+  margin: 3%;
+  margin-right: 10%;
+}

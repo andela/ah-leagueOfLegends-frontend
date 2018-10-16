@@ -1,0 +1,39 @@
+@import "../base/settings";
+
+.navbar-fixed {
+  box-shadow: 0 0.5px $primary-gray;
+}
+
+.nav-wrapper .brand-logo {
+  font-family: Athelas, 'Times New Roman';
+}
+
+.nav-wrapper i {
+  padding: 2px 10px 0;
+}
+
+i:hover {
+  color: $primary-black;
+  cursor: pointer;
+}
+
+.small-profile {
+  border-radius: 100%;
+  cursor: pointer;
+  margin: 20px 10px;
+  width: 30px;
+}
+
+.draft-editor {
+  margin-left: 20%;
+}
+
+.publish-new {
+  background-color: $white;
+  color: $primary-green;
+  font-size: 12px;
+  height: 30px;
+  left: 50%;
+  position: relative;
+  width: 30%;
+}

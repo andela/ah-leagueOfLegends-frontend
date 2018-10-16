@@ -1,4 +1,5 @@
 import LoginConstants from './actiontypes';
+import { BACKEND_URL } from '../../../utils/config';
 
 const axios = require('axios');
 
@@ -15,7 +16,7 @@ const loginFailure = error => ({
 function login(email, password) {
   return (dispatch) => {
     dispatch(loginRequest);
-    return axios.post('https://ah-leagueoflegends-staging.herokuapp.com/api/users/login/',
+    return axios.post(`${BACKEND_URL}api/users/login/`,
       { user: { email, password } },
       { headers: { 'Content-Type': 'application/json' } })
       .then((response) => {

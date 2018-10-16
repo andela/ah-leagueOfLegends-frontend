@@ -7,6 +7,11 @@ import '../../../styles/styles.css';
 import getArticles from './actions';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
+import { extractDescription } from './filterArticles';
+import Navbar from '../../../components/Navbar';
+import Register from '../../../components/Authentication/Signup/Register';
+import Login from '../../Authentication/Login/Login';
+
 
 class ReadArticle extends Component {
   componentDidMount() {
@@ -14,14 +19,46 @@ class ReadArticle extends Component {
     getAllArticles();
   }
 
-  render() {
+  renderArticleHandler = () => {
     const { articles } = this.props;
+    const artcles = articles.map((article, index) => {
+      let b;
+      try {
+        b = JSON.parse(article.body);
+      } catch (e) {
+        return false;
+      }
+      const { blocks } = b;
+      if (!blocks) return false;
+      const p = extractDescription(blocks);
+      const prevw = p ? p.text : '';
+      const preview = prevw.slice(0, 220);
+      return (
+        <ArticleComponent
+          key={article.slug}
+          article={article}
+          index={index}
+          preview={preview}
+        />
+      );
+    },
+    );
+    if (artcles === 0) {
+      /* Not Found Component will be added here;
+       Esther's Created it.
+      */
+    }
+    return artcles;
+  }
+
+  render() {
     return (
       <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
+        <Navbar />
+        <Register />
+        <Login />
         <Aside />
-        { articles.map((article, index) => (
-          <ArticleComponent key={article.slug} article={article} index={index} />
-        ))}
+        { this.renderArticleHandler()}
       </div>
     );
   }

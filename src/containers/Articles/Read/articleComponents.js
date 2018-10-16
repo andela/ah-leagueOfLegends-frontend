@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../../styles/styles.css';
 
 const articleComponent = (props) => {
-  const { article } = props;
+  const { article, preview } = props;
   switch (props.index) {
     case 0:
       return (
@@ -26,8 +27,12 @@ const articleComponent = (props) => {
                 </div>
               </div>
             </div>
-            <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <span className="article-title">{ article.title }</span>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
           <div className="card-action">
             <ul className="grey-text actions">
@@ -51,7 +56,11 @@ const articleComponent = (props) => {
         <div key={article.slug} className="card hoverable article-aside">
           <div className="card-content">
             <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
         </div>
       );
@@ -60,7 +69,11 @@ const articleComponent = (props) => {
         <div key={article.slug} className=" card hoverable article-aside">
           <div className="card-content">
             <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
         </div>
       );
@@ -85,8 +98,12 @@ const articleComponent = (props) => {
                 </div>
               </div>
             </div>
-            <span className="article-title">{article.title}</span>
-            <p>{article.body}</p>
+            <span className="article-title">{ article.title }</span>
+            <p>
+              {preview}
+              {/* eslint-disable-next-line */}
+              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+            </p>
           </div>
           <div className="card-action">
             <ul className="grey-text actions">
