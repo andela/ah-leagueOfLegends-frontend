@@ -19,11 +19,7 @@
 .article-default {
   float: left;
 
-  margin-bottom: 5px;
-  margin-left: 50px;
-  margin-right: 0;
-
-  margin-top: 50px;
+  margin: 50px 0 5px 50px;
 
   width: 55%;
 
@@ -103,9 +99,6 @@
 .main-article {
   margin-left: 20%;
   margin-right: 20%;
-<<<<<<< HEAD
   padding: 3%;
-=======
-  padding:3%;
->>>>>>> [Feature #159965441] Update project style file
+
 }
