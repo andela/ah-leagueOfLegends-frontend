@@ -25,7 +25,6 @@ class Forgotpassword extends React.Component {
     handleChange= (e) => {
       const { name, value } = e.target;
       this.setState({ [name]: value });
-      console.log(this.state);
     }
 
     handleSubmit= (e) => {
@@ -39,7 +38,6 @@ class Forgotpassword extends React.Component {
 
     render() {
       const { payload, forgotPasswordReducer } = this.props;
-      console.log(payload);
       return (
         <div id="modal3" className="modal custom-modal">
           <div className="modal-content">
@@ -49,9 +47,6 @@ class Forgotpassword extends React.Component {
                 <input required name="email" type="email" className="validate" onChange={this.handleChange} />
                 <label htmlFor="email">Email</label>
                 {payload}
-                {
-                  console.log('=>', forgotPasswordReducer)
-                }
                 {
                   forgotPasswordReducer.success ? (<div color="$color-green">E-mail sent successfully</div>) : null
                 }

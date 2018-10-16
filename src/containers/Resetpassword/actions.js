@@ -15,14 +15,19 @@ export const linkFailure = errors => ({
 });
 
 export const resetPassword = () => ({ type: LINK_REQUEST });
+const token = (window.location.href).split('/')[6];
+console.log(window.location.href);
+const url = 'https://ah-leagueoflegends-staging.herokuapp.com/api/users/reset_password/';
+console.log(url);
 
-export const resetPasswordAction = data => (dispatch) => {
-  axios.post('https://ah-leagueoflegends-staging.herokuapp.com/api/users/reset_password/',
-    { data },
+export const resetPasswordAction = (email, newPassword, confirmPassword) => (dispatch) => {
+  axios.put(url, { email, newPassword, confirmPassword },
   )
     .then((res) => {
+      console.log('........', res.data);
       dispatch(linkSuccess(res));
     }).catch((err) => {
+      console.log(err);
       dispatch(linkFailure(err));
     },
     );

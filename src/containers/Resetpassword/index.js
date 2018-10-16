@@ -2,6 +2,7 @@ import React from 'react';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import { resetPasswordAction } from './actions';
 
 class Resetpassword extends React.Component {
@@ -10,6 +11,8 @@ class Resetpassword extends React.Component {
 
     this.state = {
       email: '',
+      newPassword: '',
+      confirmPassword: '',
       submitted: false,
     };
 
@@ -22,20 +25,16 @@ class Resetpassword extends React.Component {
     M.Modal.init(el);
   }
 
-  handleChange= (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-    console.log(this.state);
+  handleChange= (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit= (e) => {
-    e.preventDefault();
-    if (this.state.email === undefined || this.state.email === '') { return false; }
-    const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    //  console.log('regex = ', regex.test(this.state.email))
-    if (!regex.test(this.state.email)) return false;
-    this.props.resetPasswordAction(this.state.email);
-  };
+  handleSubmit= (event) => {
+    event.preventDefault();
+    const { resetPass } = this.props;
+    const { email, newPassword, confirmPassword } = this.state;
+    resetPass({ email, newPassword, confirmPassword });
+  }
 
   render() {
     return (
@@ -44,18 +43,18 @@ class Resetpassword extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <h2>Password Reset</h2>
             <div className="input-field col s12">
-              <input id="email1" type="email" className="validate" onChange={this.handleChange} />
+              <input name="email" id="email1" type="email" className="validate" onChange={this.handleChange} required="True" />
               <label htmlFor="email">Email</label>
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <input id="password2" type="password" className="validate" onChange={this.handleChange} />
-                <label htmlFor="password">Confirm Password</label>
+                <input name="newPassword" id="password2" type="password" className="validate" onChange={this.handleChange} required="True" />
+                <label htmlFor="password">New Password</label>
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <input id="password" type="password" className="validate" onChange={this.handleChange} />
-                  <label htmlFor="password">New Password</label>
+                  <input name="confirmPassword" id="password" type="password" className="validate" onChange={this.handleChange} required="True" />
+                  <label htmlFor="password">Confirm Password</label>
                 </div>
               </div>
             </div>
@@ -68,16 +67,17 @@ class Resetpassword extends React.Component {
           </form>
         </div>
       </div>
- 
+
 
     );
   }
 }
 
-Resetpassword.prototypes = { forgotPasswordAction: PropTypes.func.isRequired };
+Resetpassword.prototypes = { resetPasswordAction: PropTypes.func.isRequired };
 const mapStateToProps = state => ({ rootReducer: state.rootReducer });
 
-const mapActionsToProps = { resetPasswordAction };
+const mapDispatchToProps = dispatch => bindActionCreators({ resetPass: resetPasswordAction },
+  dispatch);
 
 export default connect(
-  mapStateToProps, mapActionsToProps)(Resetpassword);
+  mapStateToProps, mapDispatchToProps)(Resetpassword);
