@@ -8,6 +8,7 @@ import updateUser from './actions';
 import fetchUserDetails from '../ViewProfile/actions';
 import Header from '../../../components/ProfileHeader';
 import EditProfile from '../../../components/EditProfile';
+import Loader from '../../../components/Loader';
 
 class UpdateProfile extends Component {
   constructor() {
@@ -48,6 +49,7 @@ class UpdateProfile extends Component {
         bio,
       },
     };
+    console.log('you are here');
     this.props.updateUser(profile)
       .then(() => {
         toastr.success('Profile Update Success');
@@ -66,8 +68,12 @@ class UpdateProfile extends Component {
   }
 
   render() {
-    const { payload } = this.props.viewProfileReducer;
-
+    const { payload, isFetching } = this.props.viewProfileReducer;
+    if (isFetching) {
+      return (
+        <Loader />
+      );
+    }
     return (
       <div>
         <Header username={payload.profile.username} image={payload.profile.image} />
