@@ -33,15 +33,25 @@ class Resetpassword extends React.Component {
     event.preventDefault();
     const { resetPass } = this.props;
     const { email, newPassword, confirmPassword } = this.state;
-    resetPass({ email, newPassword, confirmPassword });
+    const data = {
+      email,
+      new_password: newPassword,
+      confirm_password: confirmPassword,
+    };
+    resetPass(data);
   }
 
   render() {
+    const { payload, resetPasswordReducer } = this.props;
     return (
       <div id="modal4" className="modal custom-modal">
         <div className="modal-content">
           <form onSubmit={this.handleSubmit}>
             <h2>Password Reset</h2>
+            {payload}
+            {
+                  resetPasswordReducer.success ? (<div color="$color-green">Password reset successfully</div>) : null
+                }
             <div className="input-field col s12">
               <input name="email" id="email1" type="email" className="validate" onChange={this.handleChange} required="True" />
               <label htmlFor="email">Email</label>
@@ -74,8 +84,7 @@ class Resetpassword extends React.Component {
 }
 
 Resetpassword.prototypes = { resetPasswordAction: PropTypes.func.isRequired };
-const mapStateToProps = state => ({ rootReducer: state.rootReducer });
-
+const mapStateToProps = state => ({ resetPasswordReducer: state.resetPasswordReducer });
 const mapDispatchToProps = dispatch => bindActionCreators({ resetPass: resetPasswordAction },
   dispatch);
 
