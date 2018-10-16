@@ -9,6 +9,7 @@ import fetchUserDetails from '../ViewProfile/actions';
 import Header from '../../../components/ProfileHeader';
 import EditProfile from '../../../components/EditProfile';
 import Loader from '../../../components/Loader';
+import NotFound from '../../../components/NotFound';
 
 class UpdateProfile extends Component {
   constructor() {
@@ -17,7 +18,6 @@ class UpdateProfile extends Component {
       username: '',
       bio: '',
       image: '',
-      selectedFile: null,
     };
     this.handleSave = this.handleSave.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -25,7 +25,9 @@ class UpdateProfile extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserDetails(this.props.match.params.username)
+    const { props } = this;
+    const { match } = this.props;
+    props.fetchUserDetails(match.params.username)
       .catch((error) => {
         toastr.error(error);
       });
@@ -42,19 +44,22 @@ class UpdateProfile extends Component {
   }
 
   handleSave() {
+    const { props } = this;
     const { username, bio } = this.state;
+    const { history } = this.props;
     const profile = {
       user: {
         username,
         bio,
       },
     };
-    this.props.updateUser(profile)
+    props.updateUser(profile)
       .then(() => {
         toastr.success('Profile Update Success');
-        const { payload } = this.props.viewProfileReducer;
-        const username = (profile.user.username === '') ? payload.profile.username : profile.user.username;
-        this.props.history.push(`/profile/${username}`);
+        const { viewProfileReducer } = this.props;
+        const { payload } = viewProfileReducer.payload;
+        const usernameUrl = (profile.user.username === '') ? payload.profile.username : profile.user.username;
+        history.push(`/profile/${usernameUrl}`);
       }).catch((error) => {
         toastr.error(error);
       });
@@ -62,12 +67,15 @@ class UpdateProfile extends Component {
 
   handleCancel(event) {
     event.preventDefault();
-    const username = this.props.match.params.username;
-    this.props.history.replace(`/profile/${username}`);
+    const { match, history } = this.props;
+    const { username } = match.params;
+    history.replace(`/profile/${username}`);
   }
 
   render() {
-    const { payload, isFetching } = this.props.viewProfileReducer;
+    const { viewProfileReducer } = this.props;
+    const { payload, isFetching, failure } = viewProfileReducer;
+    const { username, bio, image } = this.state;
     if (isFetching) {
       return (
         <Loader />
@@ -75,24 +83,31 @@ class UpdateProfile extends Component {
     }
     return (
       <div>
-        <Header username={payload.profile.username} image={payload.profile.image} />
-        <EditProfile
-          username={this.state.username}
-          bio={this.state.bio}
-          image={this.state.image}
-          onChange={this.handleChange}
-          onSave={this.handleSave}
-          onCancel={this.handleCancel}
-        />
+        {failure
+          ? (
+            <NotFound item="User" />
+          )
+          : (
+            <div>
+              <Header username={payload.profile.username} image={payload.profile.image} />
+              <EditProfile
+                username={username}
+                bio={bio}
+                image={image}
+                onChange={this.handleChange}
+                onSave={this.handleSave}
+                onCancel={this.handleCancel}
+              />
+            </div>)}
       </div>
     );
   }
 }
 
 UpdateProfile.propTypes = {
-  username: PropTypes.string.isRequired,
-  updateUser: PropTypes.func.isRequired,
-  fetchUserDetails: PropTypes.func.isRequired,
+  viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
+  match: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 
 };
 
