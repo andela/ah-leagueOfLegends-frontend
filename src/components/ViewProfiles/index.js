@@ -12,10 +12,10 @@ const ViewProfile = ({
             <h4 className="username">{username}</h4>
             <button
               data-target="modal1"
-              className="waves-effect waves-light btn  btn-flat white grey-text modal-trigger"
+              className="waves-effect waves-light btn  btn-flat white grey-text"
               onClick={onEditClick}
             >
-                  Edit profile
+              Edit profile
             </button>
           </div>
           <p className="bio offset-s2">{bio}</p>
