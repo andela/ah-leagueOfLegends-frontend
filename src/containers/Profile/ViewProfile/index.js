@@ -1,78 +1,105 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import connect from "react-redux/es/connect/connect";
-import {bindActionCreators} from "redux";
-import M from 'materialize-css';
+import connect from 'react-redux/es/connect/connect';
+import { bindActionCreators } from 'redux';
 
-import Header from "../../../components/Header";
-import EditProfileModal from "../../../components/EditProfileModal";
+import ProfileHeader from '../../../components/ProfileHeader';
+import ViewProfiles from '../../../components/ViewProfiles';
+import Loader from '../../../components/Loader';
 import fetchUserDetails from './actions';
+import updateUser from '../UpdateProfile/actions';
 
 class ViewProfile extends Component {
-    componentDidMount() {
-        const { fetchUserDetails, match } = this.props;
-        const username = match.params.username;
-        fetchUserDetails(username);
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedUsername: null,
+      image: '',
+    };
+    this.handleEditUser = this.handleEditUser.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
+  }
 
-        const elems = document.querySelectorAll('.modal');
-        M.Modal.init(elems);
-    }
+  componentDidMount() {
+    const { fetchUserDetails, match } = this.props;
+    const username = match.params.username;
+    fetchUserDetails(username);
+  }
 
-    render() {
-        const {payload,} = this.props.viewProfileReducer;
-        return (
-            <div>
-                <Header username={payload.profile.username} image={payload.profile.image}/>
-                <main className="conatiner">
-                    <div className="row">
-                        <div className="col m6 s12 offset-m3 profile">
-                            <div className="user-info">
-                                <div className="user-detail">
-                                    <h4 className="username">{payload.profile.username}</h4>
-                                    <button data-target="modal1"
-                                            className="waves-effect waves-light btn  btn-flat white grey-text modal-trigger">
-                                        Edit profile
-                                    </button>
-                                </div>
-                                <p className="bio offset-s2">{payload.profile.bio}</p>
-                                <ul className="followers-link">
-                                    <li><a className="grey-text p-r-30" href="#"> 0 Following</a></li>
-                                    <li><a className="grey-text" href="#"> 0 Followers</a></li>
-                                </ul>
-                            </div>
-                            <div className="avatar-wrapper">
-                                <img className="avatar" src={payload.profile.image}/>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <EditProfileModal username={payload.profile.username} bio={payload.profile.bio} image={payload.profile.image}/>
-            </div>
-        );
+  handleImageUpload() {
+    window.cloudinary.openUploadWidget({ upload_preset: 'fntswd9v', tags: ['profpic'] },
+      (error, result) => {
+        const { username, bio } = this.props.viewProfileReducer.payload.profile;
+        console.log(username);
+        this.setState({ image: result[0].secure_url });
+        const { updateUser } = this.props;
+        updateUser({
+          user: {
+            username,
+            bio,
+            image: this.state.image,
+          },
+        });
+        window.location.reload();
+      });
+  }
+
+  handleEditUser() {
+    const selectedUsername = this.props.match.params.username;
+    if (selectedUsername) {
+      this.setState({ selectedUsername: undefined });
+      this.props.history.push(`/profile/${selectedUsername}/edit`);
     }
+  }
+
+  render() {
+    const { payload, isFetching } = this.props.viewProfileReducer;
+    if (isFetching) {
+      return (
+        <Loader />
+      );
+    }
+    return (
+      <div>
+        <ProfileHeader username={payload.profile.username} image={payload.profile.image} />
+        <ViewProfiles
+          username={payload.profile.username}
+          image={payload.profile.image}
+          bio={payload.profile.bio}
+          publicId={payload.profile.image}
+          onEditClick={this.handleEditUser}
+        />
+        <button onClick={this.handleImageUpload}>Upload</button>
+      </div>
+    );
+  }
 }
 
 ViewProfile.propTypes = {
-    username: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
+  viewProfileReducer: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  fetchUserDetails: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
+
 };
 
-//Takes a piece of your state
+// Takes a piece of your state
 // which is part of the store
 // and passes it into your component as a prop
-const mapStateToProps = (state) => ({
-    viewProfileReducer: state.viewProfileReducer
-});
+const mapStateToProps = state => ({ viewProfileReducer: state.viewProfileReducer });
 
-//Hook action with the container
-//Passing the action as a prop
-const matchDispatchToProps = (dispatch) =>
-    bindActionCreators(
-        {
-            fetchUserDetails: fetchUserDetails
-        }, dispatch);
-
+// Hook action with the container
+// Passing the action as a prop
+const matchDispatchToProps = dispatch => bindActionCreators(
+  {
+    fetchUserDetails,
+    updateUser,
+  }, dispatch);
 
 export default connect(
-    mapStateToProps,
-    matchDispatchToProps
+  mapStateToProps,
+  matchDispatchToProps,
 )(ViewProfile);
