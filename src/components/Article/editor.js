@@ -16,8 +16,7 @@ export default class Editor extends Component {
   }
 
   componentDidMount() {
-    // eslint-disable-next-line
-    this.setState({ article: { ...this.state.article, body: this.props.edtrState, tags:[] } });
+    this.setStateHandler();
   }
   // eslint-disable-next-line
   static getDerivedStateFromProps(props, state) {
@@ -34,6 +33,11 @@ export default class Editor extends Component {
       tags: propsNewTags.length === 0 ? props.tags : [...propsNewTags, ...state.tags],
       editorState: props.state,
     };
+  }
+
+  setStateHandler = () => {
+    // eslint-disable-next-line
+    this.setState({ article: { ...this.state.article, body: this.props.edtrState, tags:[] } });
   }
 
   getTags = (_e, d) => {
