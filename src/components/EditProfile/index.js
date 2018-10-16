@@ -8,21 +8,24 @@ const EditProfile = ({
     <div className="row">
       <form className="col m4 s12 offset-m3">
         <div className="avatar-wrapper">
-          <img className="avatar" src={image} />
+          <img className="edit-avatar" src={image} alt="edit-avatar" />
         </div>
         <div className="input-field ">
           <h5>Username</h5>
-          <input id="username" type="text" className="validate" onChange={onChange} value={username} />
+          <input id="username" type="text" className="username" onChange={onChange} value={username} />
         </div>
         <div className="input-field ">
           <h5> Bio</h5>
-          <input id="bio" type="tel" className="validate" onChange={onChange} value={bio} />
+          <textarea id="bio" cols={15} rows={10} className="materialize-textarea" onChange={onChange}>
+            {bio}
+          </textarea>
         </div>
       </form>
       <div className="row">
         <div className="col m4 s12 offset-m3">
           <button
             data-target="modal1"
+            type="submit"
             className="btn  btn-flat white grey-text"
             onClick={onSave}
           >
@@ -30,6 +33,7 @@ const EditProfile = ({
           </button>
           <button
             data-target="modal1"
+            type="submit"
             className="btn  btn-flat white grey-text"
             onClick={onCancel}
           >
