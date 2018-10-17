@@ -8,10 +8,7 @@ class Forgotpassword extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      email: '',
-      submitted: false,
-    };
+    this.state = { email: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
