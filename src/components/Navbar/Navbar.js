@@ -9,6 +9,7 @@ import Login from '../containers/Authentication/Login/Login';
 import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
 import Forgotpassword from '../containers/Forgotpassword';
 import Notifications from '../containers/Notification';
+import fetchUserDetails from '../../containers/Profile/ViewProfile/actions';
 
 class Navbar extends Component {
   constructor(props) {
@@ -23,6 +24,13 @@ class Navbar extends Component {
   componentDidMount() {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
+    const { fetchUserDetails: fetchUser } = this.props;
+    const { state } = this.props;
+    const { isAuthenticated } = state;
+    if (isAuthenticated) {
+      const username = localStorage.getItem('user');
+      fetchUser(username);
+    }
   }
 
   logout = () => {
@@ -33,7 +41,7 @@ class Navbar extends Component {
 
   handleprofileView() {
     const username = localStorage.getItem('user');
-    history.push(`/profile/${username}`);
+    window.location.replace(`/profile/${username}`);
   }
 
 
@@ -53,6 +61,9 @@ class Navbar extends Component {
     const { state } = this.props;
     const { isAuthenticated } = state;
     const username = localStorage.getItem('user');
+    const { viewProfileReducer } = this.props;
+    const { profile } = viewProfileReducer.payload;
+    const { image } = profile;
     return (
       <div>
         <div className="navbar-fixed">
@@ -128,12 +139,19 @@ class Navbar extends Component {
 Navbar.propTypes = {
   state: PropTypes.instanceOf(Object).isRequired,
   search: PropTypes.func.isRequired,
+  viewProfileReducer: PropTypes.func.isRequired,
+  fetchUserDetails: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({ search: searchItem },
-  dispatch);
+const mapStateToProps = state => ({
+  state: state.Login,
+  viewProfileReducer: state.viewProfileReducer,
+});
 
+const matchDispatchToProps = dispatch => bindActionCreators(
+  { fetchUserDetails, search: searchItem }, dispatch);
 
-const mapStateToProps = state => ({ state: state.Login });
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(
+  mapStateToProps,
+  matchDispatchToProps,
+)(Navbar);
