@@ -82,8 +82,7 @@ class ViewProfile extends Component {
                 bio={payload.profile.bio}
                 publicId={payload.profile.image}
                 onEditClick={this.handleEditUser}
-                avatarUplo
-                ad={this.handleImageUpload}
+                avatarUpload={this.handleImageUpload}
                 loggedinUsername={loggedinUsername}
               />
             </div>
