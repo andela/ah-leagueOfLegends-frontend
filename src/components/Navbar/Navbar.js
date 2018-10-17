@@ -93,12 +93,21 @@ class Navbar extends Component {
                       <li><Notifications /></li>
                       <li><i className="material-icons">bookmark_border</i></li>
                       <li>
-                        <button onClick={this.handleprofileView} type="submit">
-
-                          <b>{username}</b>
+                        <button className="profile-button" onClick={this.handleprofileView} type="submit">
+                          <img className="small-navbar-profile" src={image} alt={username} />
                         </button>
                       </li>
-                      <button type="button" className="waves-effect waves-light white teal-text btn " onClick={this.logout}>
+                      <li>
+                        {' '}
+                        <p className="navbar-username">
+                        Welcome
+                          {' '}
+                          {' '}
+                          {username}
+                        </p>
+                        {' '}
+                      </li>
+                      <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
                           logout
                       </button>
                     </span>
