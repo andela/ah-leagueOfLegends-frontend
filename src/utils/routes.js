@@ -9,6 +9,7 @@ const ROUTES = {
   profile: '/profile',
   getUserProfile: '/profile/:username',
   updateUserProfile: '/profile/:username/edit',
+  success: '/Success',
 };
 
 export default ROUTES;
