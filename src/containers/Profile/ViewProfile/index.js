@@ -48,14 +48,18 @@ class ViewProfile extends Component {
   handleEditUser() {
     const { match, history } = this.props;
     const selectedUsername = match.params.username;
-    if (selectedUsername) {
+    const loggedinUsername = localStorage.getItem('user');
+    if (selectedUsername === loggedinUsername) {
       history.push(`/profile/${selectedUsername}/edit`);
+    } else {
+      history.push(`/profile/${selectedUsername}`);
     }
   }
 
   render() {
     const { viewProfileReducer } = this.props;
     const { payload, isFetching, failure } = viewProfileReducer;
+    const loggedinUsername = localStorage.getItem('user');
     if (isFetching) {
       return (
         <Loader />
@@ -79,6 +83,7 @@ class ViewProfile extends Component {
                 publicId={payload.profile.image}
                 onEditClick={this.handleEditUser}
                 avatarUpload={this.handleImageUpload}
+                loggedinUsername={loggedinUsername}
               />
             </div>
           )
