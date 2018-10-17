@@ -81,7 +81,6 @@ class Resetpassword extends React.Component {
               {
               resetPasswordReducer.success ? (<div color="$color-green"><a href="http://localhost:3000/">Back to Home</a></div>) : null
                 }
-              { console.log(resetPasswordReducer)}
             </div>
 
           </form>
