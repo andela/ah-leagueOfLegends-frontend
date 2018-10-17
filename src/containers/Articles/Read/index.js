@@ -10,6 +10,7 @@ import ArticleComponent from './articleComponents';
 import { extractDescription } from './filterArticles';
 import Tags from '../../../components/tags/index';
 
+import NotFound from '../../../components/NotFound';
 
 class ReadArticle extends Component {
   componentDidMount() {
@@ -44,6 +45,9 @@ class ReadArticle extends Component {
       );
     },
     );
+    if (artcles === 0) {
+      return (<NotFound item="Article" />);
+    }
     return artcles;
   };
 
