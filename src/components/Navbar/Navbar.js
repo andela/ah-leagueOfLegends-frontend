@@ -8,8 +8,7 @@ import Register from './Authentication/Signup/Register';
 import Login from '../containers/Authentication/Login/Login';
 import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
 import Forgotpassword from '../containers/Forgotpassword';
-import Notifications from '../containers/Notification';
-import fetchUserDetails from '../../containers/Profile/ViewProfile/actions';
+import fetchUserDetails from '../containers/Profile/ViewProfile/actions';
 
 class Navbar extends Component {
   constructor(props) {
@@ -39,6 +38,7 @@ class Navbar extends Component {
     window.location.reload(true);
   };
 
+  // eslint-disable-next-line
   handleprofileView() {
     const username = localStorage.getItem('user');
     window.location.replace(`/profile/${username}`);
@@ -50,12 +50,12 @@ class Navbar extends Component {
     const { search } = this.props;
     const filter = document.getElementById('search-filter').value;
     search(searchText, filter);
-  }
+  };
 
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-  }
+  };
 
   render() {
     const { state } = this.props;
@@ -90,12 +90,13 @@ class Navbar extends Component {
                   </li>
                   {(isAuthenticated) ? (
                     <span>
-                      <li><Notifications /></li>
+                      <li><i className="material-icons">notifications_none</i></li>
                       <li><i className="material-icons">bookmark_border</i></li>
+                      {/* onClick={this.handleprofileView} see profile */ }
                       <li>
-                        <button className="profile-button" onClick={this.handleprofileView} type="submit">
-                          <img className="small-navbar-profile" src={image} alt={username} />
-                        </button>
+                        {/* <button className="profile-button" type="submit"> */}
+                        <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
+                        {/* </button> */}
                       </li>
                       <li>
                         {' '}
