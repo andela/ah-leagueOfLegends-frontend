@@ -27,7 +27,7 @@ class Resetpassword extends React.Component {
 
   handleChange= (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   handleSubmit= (event) => {
     event.preventDefault();
@@ -44,13 +44,16 @@ class Resetpassword extends React.Component {
   render() {
     const { payload, resetPasswordReducer } = this.props;
     return (
-      <div id="modal4" className="modal custom-modal">
+      <div className="myform">
         <div className="modal-content">
           <form onSubmit={this.handleSubmit}>
             <h2>Password Reset</h2>
             {payload}
             {
                   resetPasswordReducer.success ? (<div color="$color-green">Password reset successfully</div>) : null
+                }
+            {
+                  resetPasswordReducer.failure ? (<div color="$error-red">Password reset unsuccessfully</div>) : null
                 }
             <div className="input-field col s12">
               <input name="email" id="email1" type="email" className="validate" onChange={this.handleChange} required="True" />
@@ -74,6 +77,10 @@ class Resetpassword extends React.Component {
                 <i className="material-icons right">send</i>
               </button>
             </div>
+            {payload}
+            {
+              resetPasswordReducer.success ? (<div color="$color-green"><a href="http://localhost:3000/">Back to Home</a></div>) : null
+                }
           </form>
         </div>
       </div>

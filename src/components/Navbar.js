@@ -73,7 +73,7 @@ class Navbar extends Component {
                     </li>
                     <li><i className="material-icons">notifications_none</i></li>
                     <li><i className="material-icons">bookmark_border</i></li>
-                    <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
+                    <button type="button" className="waves-effect waves-light white teal-text btn " onClick={this.logout}>
                           logout
                     </button>
                   </ul>) : (

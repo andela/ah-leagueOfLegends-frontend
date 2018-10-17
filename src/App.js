@@ -14,6 +14,7 @@ import Rating from './components/Rating/Rating';
 import Navbar from './components/Navbar';
 import SearchResults from './containers/Search/index.';
 import history from './History';
+import PasswordReset from './containers/Resetpassword/index';
 
 class App extends Component {
   componentDidMount() {}
@@ -29,6 +30,7 @@ class App extends Component {
               <Route exact path="/Success" component={Success} />
               <Route exact path="/rating" component={Rating} />
               <Route exact path={ROUTE.searchResults} component={SearchResults} />
+              <Route exact path={ROUTE.reset} component={PasswordReset} />
 
               <PrivateRoute exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />
