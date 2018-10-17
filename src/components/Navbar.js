@@ -35,10 +35,9 @@ class Navbar extends Component {
                         <a
                           className="waves-effect waves-light btn white teal-text
                                 modal-trigger"
-                          href="#modal1"
+                          href="#modal-social"
                         >
-Sign in
-
+                          Sign in
                         </a>
 
                       </li>
@@ -65,7 +64,6 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = { isAuthenticated: false };
-
 
 const mapStateToProps = state => ({ state: state.Login });
 

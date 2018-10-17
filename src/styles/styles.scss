@@ -107,3 +107,46 @@
 .character-counter {
   display: none;
 }
+
+.modal-btn {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.btn-social-facebook {
+  background-color: $white;
+  border: 0;
+  border-radius: 4px;
+  color: $facebook-blue;
+  font-size: 16px;
+  margin: 2% 0%;
+  padding: 5px;
+  width: 45%;
+}
+
+.btn-social-google {
+  background-color: $white;
+  border: 0;
+  border-radius: 4px;
+  color: $google-red;
+  font-size: 16px;
+  margin: 2% 0%;
+  padding: 5px;
+  width: 45%;
+}
+
+.btn-login-email {
+  background-color: $white;
+  border-radius: 4px;
+  color: $color-green;
+  font-size: 16px;
+  margin: 2% 0%;
+  padding: 5px;
+  width: 45%;
+}
+
+.social-modal {
+  background-color: $color-pale-green;
+  text-align: center;
+  width: 55%;
+}

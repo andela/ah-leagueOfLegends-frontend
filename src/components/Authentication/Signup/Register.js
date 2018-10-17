@@ -106,7 +106,7 @@ class Register extends Component {
                     <br />
                     Already have an account?
                     {' '}
-                    <a className="modal-trigger modal-close" href="#modal1">
+                    <a className="modal-trigger modal-close" href="#modal-social">
                       Sign in
                     </a>
                   </div>
