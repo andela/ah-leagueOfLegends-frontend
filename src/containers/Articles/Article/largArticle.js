@@ -16,47 +16,43 @@ import fetchUserDetails from '../../Profile/ViewProfile/actions';
 
 class MainArticle extends Component {
   componentDidMount() {
-    const { match, fetchOneArticles, fetchUserDetails, article } = this.props;
+    const { match, fetchOneArticles } = this.props;
     fetchOneArticles(match.params.s);
     const usernameAvatar = localStorage.getItem('user');
     fetchUserDetails(usernameAvatar);
-
-    // const { author } = article.payload;
-    // fetchUserDetails(author);
-    
   }
-  
+
   editClickedHanlder = () => {
     const { history } = this.props;
     const urlPath = history.location.pathname;
     history.push(`${urlPath}/edit`);
   };
-  
+
   renderArticleHandler = () => {
     const { mainArticle } = this.props;
     let articleData;
     if (mainArticle.payload.body) {
       articleData = JSON.parse(mainArticle.payload.body);
-      
+
       return <Dante read_only content={articleData} />;
     }
     return null;
   };
-  
+
   render() {
     const { mainArticle, match } = this.props;
     const { viewProfileReducer } = this.props;
     const { payload } = viewProfileReducer;
     const { mainArticle } = this.props;
-    
-    const {author} = mainArticle.payload;
+
+    const { author } = mainArticle.payload;
     let articleSlug;
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;
     }
     return (
       <div>
-      <ProfileHeader image={payload.profile.image}/>
+        <ProfileHeader image={payload.profile.image} />
         <div className="tag-list">
           {mainArticle.payload.tagList
             ? mainArticle.payload.tagList.map((tag, index) => (
@@ -67,9 +63,9 @@ class MainArticle extends Component {
             ))
             : null}
         </div>
-        {
-          fetchUserDetails(author);
-          <UsrInfo username={payload.profile.username} />
+
+        {author !== undefined
+        && <UsrInfo username={author} />
         }
         <button type="button" onClick={this.editClickedHanlder} className="button">
                     Edit
@@ -98,7 +94,6 @@ MainArticle.propTypes = {
   fetchOneArticles: PropTypes.func.isRequired,
   mainArticle: PropTypes.instanceOf(Object).isRequired,
   viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
-  fetchUserDetails: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
