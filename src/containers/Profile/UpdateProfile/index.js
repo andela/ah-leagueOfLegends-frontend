@@ -59,6 +59,7 @@ class UpdateProfile extends Component {
         const { viewProfileReducer } = this.props;
         const { payload } = viewProfileReducer.payload;
         const usernameUrl = (profile.user.username === '') ? payload.profile.username : profile.user.username;
+        localStorage.setItem('user', profile.user.username);
         history.push(`/profile/${usernameUrl}`);
       }).catch((error) => {
         toastr.error(error);

@@ -6,6 +6,7 @@ export default (state = initialState, action) => {
       return {};
     case 'USERS_LOGIN_SUCCESS':
       localStorage.setItem('isAuthenticated', true);
+      localStorage.setItem('user', action.payload.user.username);
       return {
         ...state,
         isAuthenticated: true,
