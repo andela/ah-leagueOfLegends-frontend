@@ -92,9 +92,13 @@ class Resetpassword extends React.Component {
   }
 }
 
-Resetpassword.propTypes = { payload: PropTypes.instanceOf(Object).isRequired };
-Resetpassword.propTypes = { resetPasswordReducer: PropTypes.instanceOf(Function).isRequired };
-Resetpassword.propTypes = { resetPass: PropTypes.instanceOf(Function).isRequired };
+Resetpassword.defaultProps = { payload: {} };
+
+Resetpassword.propTypes = {
+  payload: PropTypes.instanceOf(Object),
+  resetPasswordReducer: PropTypes.instanceOf(Function).isRequired,
+  resetPass: PropTypes.instanceOf(Function).isRequired,
+};
 
 Resetpassword.prototypes = { resetPasswordAction: PropTypes.func.isRequired };
 const mapStateToProps = state => ({ resetPasswordReducer: state.resetPasswordReducer });
