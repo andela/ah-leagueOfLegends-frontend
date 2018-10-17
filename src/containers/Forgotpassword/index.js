@@ -64,9 +64,16 @@ class Forgotpassword extends React.Component {
 }
 
 Forgotpassword.prototypes = { forgotPasswordAction: PropTypes.func.isRequired };
+Forgotpassword.defaultProps = { payload: [], forgotPasswordReducer: {} };
+Forgotpassword.propTypes = {
+  payload: PropTypes.instanceOf(Object),
+  forgotPasswordReducer: PropTypes.shape({
+    success: PropTypes.bool.isRequired,
+    failure: PropTypes.bool.isRequired,
+  }),
+};
 const mapStateToProps = state => ({ forgotPasswordReducer: state.forgotPasswordReducer });
 
-// const mapActionsToProps = { forgotPasswordAction };
 const mapDispatchToProps = dispatch => bindActionCreators({ forgotPasswordAction },
   dispatch);
 
