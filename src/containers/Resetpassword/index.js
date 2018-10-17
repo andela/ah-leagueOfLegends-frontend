@@ -81,6 +81,7 @@ class Resetpassword extends React.Component {
               {
               resetPasswordReducer.success ? (<div color="$color-green"><a href="http://localhost:3000/">Back to Home</a></div>) : null
                 }
+              { console.log(resetPasswordReducer)}
             </div>
 
           </form>
@@ -92,12 +93,15 @@ class Resetpassword extends React.Component {
   }
 }
 
-Resetpassword.defaultProps = { payload: {} };
+Resetpassword.defaultProps = { payload: [], resetPasswordReducer: {} };
 
 Resetpassword.propTypes = {
   payload: PropTypes.instanceOf(Object),
-  resetPasswordReducer: PropTypes.instanceOf(Function).isRequired,
-  resetPass: PropTypes.instanceOf(Function).isRequired,
+  resetPasswordReducer: PropTypes.shape({
+    success: PropTypes.bool.isRequired,
+    failure: PropTypes.bool.isRequired,
+  }),
+  resetPass: PropTypes.func.isRequired,
 };
 
 Resetpassword.prototypes = { resetPasswordAction: PropTypes.func.isRequired };

@@ -1,6 +1,7 @@
 import React from 'react';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { forgotPasswordAction } from './actions';
 
@@ -65,7 +66,9 @@ class Forgotpassword extends React.Component {
 Forgotpassword.prototypes = { forgotPasswordAction: PropTypes.func.isRequired };
 const mapStateToProps = state => ({ forgotPasswordReducer: state.forgotPasswordReducer });
 
-const mapActionsToProps = { forgotPasswordAction };
+// const mapActionsToProps = { forgotPasswordAction };
+const mapDispatchToProps = dispatch => bindActionCreators({ forgotPasswordAction },
+  dispatch);
 
 export default connect(
-  mapStateToProps, mapActionsToProps)(Forgotpassword);
+  mapStateToProps, mapDispatchToProps)(Forgotpassword);
