@@ -23,7 +23,7 @@ function login(email, password) {
         dispatch(loginSuccess(response.data));
         const { token } = response.data.user;
         localStorage.setItem('access_token', token);
-        window.location.reload(true);
+        // window.location.reload(true);
       })
       .catch((error) => {
         dispatch(loginFailure(error.response.data.errors.error[0]));
