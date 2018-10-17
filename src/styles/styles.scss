@@ -187,24 +187,17 @@
   .nav-wrapper i {
     padding: 2px 10px 0px 10px; }
 
-.rsp{
+.rsp {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
 }
 
-.fpl{
- display: flex;
- justify-content: center;
- padding-left: 10px;
- margin-bottom: 10px;
-}
-
-.modal.custom-modal {
-  background-color: $color-pale-green;
-  outline: none;
-  text-align: center;
-  width: 50%;
+.fpl {
+  display: flex;
+  justify-content: center;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
 
 .modal-content h2 {
@@ -218,11 +211,9 @@
   justify-content: center;
 }
 
-.myform{
+.myform {
   color: $color-green;
   justify-content: center;
-  width: 50%;
-  margin: auto;
-  
+  margin: auto; 
+  width: 50%; 
 }
-

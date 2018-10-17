@@ -13,7 +13,6 @@ class Resetpassword extends React.Component {
       email: '',
       newPassword: '',
       confirmPassword: '',
-      submitted: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -77,10 +76,13 @@ class Resetpassword extends React.Component {
                 <i className="material-icons right">send</i>
               </button>
             </div>
-            {payload}
-            {
+            <div>
+              {payload}
+              {
               resetPasswordReducer.success ? (<div color="$color-green"><a href="http://localhost:3000/">Back to Home</a></div>) : null
                 }
+            </div>
+
           </form>
         </div>
       </div>
@@ -89,6 +91,10 @@ class Resetpassword extends React.Component {
     );
   }
 }
+
+Resetpassword.propTypes = { payload: PropTypes.instanceOf(Object).isRequired };
+Resetpassword.propTypes = { resetPasswordReducer: PropTypes.instanceOf(Function).isRequired };
+Resetpassword.propTypes = { resetPass: PropTypes.instanceOf(Function).isRequired };
 
 Resetpassword.prototypes = { resetPasswordAction: PropTypes.func.isRequired };
 const mapStateToProps = state => ({ resetPasswordReducer: state.resetPasswordReducer });

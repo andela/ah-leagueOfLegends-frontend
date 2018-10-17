@@ -101,7 +101,7 @@ Login
             <p>
 Forgot password?
               {' '}
-              <a href="/">Send me a reset password link</a>
+              <a href="#modal3" className="modal-trigger modal-close">Send me a reset password link</a>
             </p>
             <p>
           Dont have an account ?

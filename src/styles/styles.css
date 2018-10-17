@@ -345,12 +345,6 @@ i:hover {
   padding-left: 10px;
   margin-bottom: 10px; }
 
-.modal.custom-modal {
-  background-color: #dbebeb;
-  outline: none;
-  text-align: center;
-  width: 50%; }
-
 .modal-content h2 {
   font: 18px "Robot";
   margin: 1% 25%;
@@ -363,5 +357,5 @@ i:hover {
 .myform {
   color: #008080;
   justify-content: center;
-  width: 50%;
-  margin: auto; }
+  margin: auto;
+  width: 50%; }
