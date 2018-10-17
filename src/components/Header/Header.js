@@ -41,7 +41,7 @@ class ArticleHeader extends Component {
                   <li>
                     {/* eslint-disable-next-line */}
                     <div onClick={this.profileDropDownhandler} role="link">
-                      <img className="small-profile" alt="User Profile" src="https://api.adorable.io/avatars/285/abott@adorable.png" />
+                      {/*<img className="small-profile" alt="User Profile" src={image} />*/}
                     </div>
                   </li>
                 </ul>
@@ -69,6 +69,8 @@ class ArticleHeader extends Component {
 ArticleHeader.propTypes = {
   urlPath: PropTypes.string.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  viewProfileReducer: PropTypes.func.isRequired,
+  fetchUserDetails: PropTypes.func.isRequired,
 };
 
 export default ArticleHeader;

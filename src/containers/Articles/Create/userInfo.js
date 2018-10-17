@@ -2,20 +2,21 @@ import React from 'react';
 
 import '../../../styles/styles.css';
 
-const userInfo = () => (
+const userInfo = (username, image, bio) => (
+
   <div style={{ width: '70%', marginLeft: '20%', marginTop: '2%' }}>
     <div className="">
       <div className="author-info">
         <img
           className="avatar-small"
-          src="https://api.adorable.io/avatars/285/abott@adorable.png"
+          src={image}
           alt="User Profile Pic"
           style={{ marginTop: 10 }}
         />
         <div className="articale-time">
-          <p>Gilbert Ngeywo </p>
+          <p>{username}</p>
           <div className="article-time--details" style={{ padding: 1 }}>
-            I Love Programming so much. Wanna be a world class Programmer
+            {bio}
             <br />
             Draft
           </div>
