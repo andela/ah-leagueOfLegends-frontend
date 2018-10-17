@@ -1,0 +1,11 @@
+@import "../base/settings";
+
+.new-comments {
+  border: 1px solid $comment-grey;
+  padding: 2%;
+}
+
+.display-comments {
+  margin-top: 6%;
+  margin-left: 5%;
+}

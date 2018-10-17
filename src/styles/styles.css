@@ -152,6 +152,14 @@ i:hover {
   margin: 3%;
   margin-right: 10%; }
 
+.new-comments {
+  border: 1px solid #cccccc;
+  padding: 2%; }
+
+.display-comments {
+  margin-top: 6%;
+  margin-left: 5%; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;
