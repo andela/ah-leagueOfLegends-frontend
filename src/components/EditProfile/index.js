@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const EditProfile = ({
-  username, image, bio, onChange, onCancel, onSave,
+  username, image, bio, onChange, onCancel, onSave, validateForm,
 }) => (
   <div>
     <div className="row">
@@ -28,6 +28,7 @@ const EditProfile = ({
             type="submit"
             className="btn  btn-flat white grey-text"
             onClick={onSave}
+            disabled={username.length < 3 ? true : validateForm}
           >
           Apply
           </button>
@@ -53,6 +54,7 @@ EditProfile.propTypes = {
   onChange: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  validateForm: PropTypes.func.isRequired,
 
 };
 
