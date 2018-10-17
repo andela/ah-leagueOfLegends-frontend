@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ViewProfile = ({
-  username, image, bio, onEditClick, avatarUpload,
+  username, image, bio, onEditClick, avatarUpload, loggedinUsername,
 }) => (
   <main className="conatiner">
     <div className="row">
@@ -10,14 +10,16 @@ const ViewProfile = ({
         <div className="user-info">
           <div className="user-detail">
             <h4 className="username">{username}</h4>
-            <button
-              data-target="modal1"
-              type="submit"
-              className="waves-effect waves-light btn  btn-flat white grey-text"
-              onClick={onEditClick}
-            >
+            {(loggedinUsername === username) ? (
+              <button
+                data-target="modal1"
+                type="submit"
+                className="waves-effect waves-light btn  btn-flat white grey-text"
+                onClick={onEditClick}
+              >
               Edit profile
-            </button>
+              </button>
+            ) : (null)}
           </div>
           <p className="bio offset-s2">{bio}</p>
           <ul className="followers-link">
@@ -36,9 +38,10 @@ const ViewProfile = ({
       </div>
       <div className="col m1  avatar-wrapper">
         <img className="avatar" src={image} alt="header-profile" />
-        <button onClick={avatarUpload} type="submit">
-          <i className="material-icons">add_a_photo</i>
-        </button>
+        {(loggedinUsername === username) ? (
+          <button onClick={avatarUpload} type="submit">
+            <i className="material-icons">add_a_photo</i>
+          </button>) : (null)}
       </div>
     </div>
   </main>
@@ -50,6 +53,7 @@ ViewProfile.propTypes = {
   image: PropTypes.string.isRequired,
   onEditClick: PropTypes.func.isRequired,
   avatarUpload: PropTypes.func.isRequired,
+  loggedinUsername: PropTypes.func.isRequired,
 };
 
 export default ViewProfile;

@@ -29,6 +29,11 @@ class Navbar extends Component {
     localStorage.removeItem('access_token');
     localStorage.removeItem('isAuthenticated');
     window.location.reload(true);
+  };
+
+  handleprofileView() {
+    const username = localStorage.getItem('user');
+    history.push(`/profile/${username}`);
   }
 
 
@@ -47,6 +52,7 @@ class Navbar extends Component {
   render() {
     const { state } = this.props;
     const { isAuthenticated } = state;
+    const username = localStorage.getItem('user');
     return (
       <div>
         <div className="navbar-fixed">
@@ -75,6 +81,12 @@ class Navbar extends Component {
                     <span>
                       <li><Notifications /></li>
                       <li><i className="material-icons">bookmark_border</i></li>
+                      <li>
+                        <button onClick={this.handleprofileView} type="submit">
+
+                          <b>{username}</b>
+                        </button>
+                      </li>
                       <button type="button" className="waves-effect waves-light white teal-text btn " onClick={this.logout}>
                           logout
                       </button>
