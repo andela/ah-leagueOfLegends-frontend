@@ -47,7 +47,7 @@ export default class Editor extends Component {
   setStateHandler = () => {
     // eslint-disable-next-line
     this.setState({ article: { ...this.state.article, body: this.props.edtrState, tags:[] } });
-  }
+  };
 
   getTags = (_e, d) => {
     // eslint-disable-next-line
@@ -105,7 +105,7 @@ export default class Editor extends Component {
     const article = JSON.parse(localStorage.getItem('article'));
     article.article.tagList = tags;
     postArticle(article, history);
-  }
+  };
 
   render() {
     const titl = <div style={{ fontSize: 50, fontWeight: 'bold' }}>Enter Title</div>;

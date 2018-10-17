@@ -7,7 +7,7 @@ import '../../styles/styles.css';
 
 
 class ArticleHeader extends Component {
-  state = { profileClicked: false }
+  state = { profileClicked: false };
 
   profileDropDownhandler = () => (
     this.setState(prevState => ({ profileClicked: !prevState.profileClicked }))

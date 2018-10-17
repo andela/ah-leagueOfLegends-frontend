@@ -11,7 +11,7 @@ class ArticleHeader extends Component {
   state = {
     profileClicked: false,
     publishClicked: false,
-  }
+  };
 
   componentDidMount() {
     const { getTags, removeTag, tags } = this.props;
