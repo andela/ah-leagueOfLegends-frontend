@@ -27,11 +27,12 @@ const articleComponent = (props) => {
                 </div>
               </div>
             </div>
-            <span className="article-title">{ article.title }</span>
+            <span className="article-title">{article.title}</span>
             <p>
               {preview}
               {/* eslint-disable-next-line */}
-              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+              ...
+              <Link to={`/article/${article.slug}`}>Read More</Link>
             </p>
           </div>
           <div className="card-action">
@@ -59,7 +60,8 @@ const articleComponent = (props) => {
             <p>
               {preview}
               {/* eslint-disable-next-line */}
-              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+              ...
+              <Link to={`/article/${article.slug}`}>Read More</Link>
             </p>
           </div>
         </div>
@@ -72,7 +74,8 @@ const articleComponent = (props) => {
             <p>
               {preview}
               {/* eslint-disable-next-line */}
-              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+              ...
+              <Link to={`/article/${article.slug}`}>Read More</Link>
             </p>
           </div>
         </div>
@@ -98,11 +101,12 @@ const articleComponent = (props) => {
                 </div>
               </div>
             </div>
-            <span className="article-title">{ article.title }</span>
+            <span className="article-title">{article.title}</span>
             <p>
               {preview}
               {/* eslint-disable-next-line */}
-              ...<Link to={`/article/${article.slug}`} >Read More</Link>
+              ...
+              <Link to={`/article/${article.slug}`}>Read More</Link>
             </p>
           </div>
           <div className="card-action">
@@ -119,6 +123,7 @@ const articleComponent = (props) => {
                 <i className="material-icons">bookmark_border</i>
               </li>
             </ul>
+           
           </div>
         </div>
       );
