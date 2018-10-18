@@ -25,14 +25,13 @@ class Forgotpassword extends React.Component {
       this.setState({ [name]: value });
     }
 
-    handleSubmit= (e) => {
+    // eslint-disable-next-line
+    handleSubmit = (e) => {
       e.preventDefault();
-      if (this.state.email === undefined || this.state.email === '') { return false; }
-      const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      //  console.log('regex = ', regex.test(this.state.email))
-      if (!regex.test(this.state.email)) return false;
-      this.props.forgotPasswordAction(this.state.email);
-    };
+      const { email } = this.state;
+      if (email === undefined || email === '') { return false; }
+      forgotPasswordAction(email);
+    }
 
     render() {
       const { payload, forgotPasswordReducer } = this.props;
