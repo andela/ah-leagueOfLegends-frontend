@@ -19,12 +19,10 @@ export const currentAVG = response => ({
   payload: { average_rating: response === undefined ? 0 : response },
 });
 // action creator: takes an err and returns type RATING_FAILURE
-export const ratingError = (err) => {
-  return {
-    type: RATING_FAILURE,
-    payload: err,
-  };
-};
+export const ratingError = err => ({
+  type: RATING_FAILURE,
+  payload: err,
+});
 // Gets an article slug and dispatches a get request to the API
 // Returns initial rating
 export const InitialRate = slug => (dispatch) => {
