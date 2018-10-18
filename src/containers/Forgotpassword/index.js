@@ -42,6 +42,7 @@ class Forgotpassword extends React.Component {
             <form>
               <div className="input-field col s12">
                 <input required name="email" type="email" className="validate" onChange={this.handleChange} />
+                {/* eslint-disable-next-line */}
                 <label htmlFor="email">Email</label>
                 {payload}
                 {
