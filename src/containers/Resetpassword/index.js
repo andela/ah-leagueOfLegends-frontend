@@ -56,16 +56,19 @@ class Resetpassword extends React.Component {
                 }
             <div className="input-field col s12">
               <input name="email" id="email1" type="email" className="validate" onChange={this.handleChange} required="True" />
+              {/* eslint-disable-next-line */}
               <label htmlFor="email">Email</label>
             </div>
             <div className="row">
               <div className="input-field col s12">
                 <input name="newPassword" id="password2" type="password" className="validate" onChange={this.handleChange} required="True" />
+                {/* eslint-disable-next-line */}
                 <label htmlFor="password">New Password</label>
               </div>
               <div className="row">
                 <div className="input-field col s12">
                   <input name="confirmPassword" id="password" type="password" className="validate" onChange={this.handleChange} required="True" />
+                  {/* eslint-disable-next-line */}
                   <label htmlFor="password">Confirm Password</label>
                 </div>
               </div>
