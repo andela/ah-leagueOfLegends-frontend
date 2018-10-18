@@ -308,11 +308,13 @@ h6{
   }
 
   .navbar-fixed {
-    box-shadow: 0px 0.5px rgb(224, 223, 223);
+    box-shadow: 0 0.5px rgb(224, 223, 223);
   }
+
   .nav-wrapper .brand-logo {
     font-family: Athelas, 'Times New Roman';
   }
+
   .btn {
     text-transform: none;
     border-radius: 4px;
@@ -329,36 +331,44 @@ h6{
     color: #fff !important;
 
   }
+
   .nav-wrapper i {
-    padding: 2px 10px 0px 10px;
+    padding: 2px 10px 0 10px;
   }
   i:hover {
     cursor: pointer;
     color: #000;
   }
+
   .small-profile {
     border-radius: 100%;
     width: 30px;
     margin: 20px 10px;
   }
+
   .profile-header {
     padding-top: 1.5%;
   }
+
   .profile-header h4 {
     font-weight: bold;
   }
+
   .profile-header button {
     margin-top: 25px;
   }
+
   .profile-header .row {
-    margin-bottom: 0%;
-    padding: 0px 15px;
+    margin-bottom: 0;
+    padding: 0 15px;
   }
+
   button {
     border: 1px solid teal;
   }
+
   button:hover {
-    border: 0px solid grey;
+    border: 0 solid grey;
   }
 
   .profile-header p.bio {
@@ -366,40 +376,48 @@ h6{
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
+
   .followers-link li {
     display: inline;
   }
+
   .followers-link li :hover {
     text-decoration: underline;
   }
+
   .profile-header .container.underline {
     border: 0.5px solid rgb(218, 218, 218);
     width: 44%;
-    padding: 0%;
+    padding: 0;
     margin-top: 1%;
   }
+
   h6 {
     font-weight: bold;
   }
+
   .profile-articles {
     font-family: Athelas, 'Times New Roman';
     font-size: 1.3rem
   }
+
   .article-title {
     font-family: Lato;
     font-weight: bolder;
   }
+
   .profile-articles .row .card-action ul {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
   }
 
   .profile-articles .row .card-action ul li {
     display: inline;
     font-family: Lato;
     font-size: 0.8em;
-    padding: 0px 10px;
+    padding: 0 10px;
   }
+
   .article-small-profile {
     border-radius: 50%;
     width: 50px;
@@ -424,12 +442,8 @@ h6{
   }
 
   .user-detail {
-    display: flex;
     align-items: center;
-  }
-
-  .user-detail > button {
-    margin-left: 30px;
+    display: flex;
   }
 
   .username {
@@ -443,9 +457,11 @@ h6{
 
   .article-time {
     display: flex;
-    margin-left: 20px;
     flex-direction: column;
+    margin-left: 20px;
+
   }
+
   .article-time a {
     color: #000000;;
   }
@@ -495,10 +511,10 @@ h6{
     display: flex;
     justify-content: space-around;
   }
+
   .underline {
     text-decoration: underline;
   }
-}
 
   button:hover {
     border: 0 solid grey;

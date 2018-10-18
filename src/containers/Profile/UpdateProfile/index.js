@@ -77,7 +77,6 @@ class UpdateProfile extends Component {
     const { viewProfileReducer } = this.props;
     const { payload, isFetching, failure } = viewProfileReducer;
     const { username, bio, image } = this.state;
-    console.log(username);
     if (isFetching) {
       return (
         <Loader />

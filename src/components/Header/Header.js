@@ -68,8 +68,6 @@ class ArticleHeader extends Component {
 ArticleHeader.propTypes = {
   urlPath: PropTypes.string.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
-  viewProfileReducer: PropTypes.func.isRequired,
-  fetchUserDetails: PropTypes.func.isRequired,
 };
 
 export default ArticleHeader;
