@@ -10,6 +10,7 @@ import NewArticle from './containers/Articles/Create';
 import MainArticle from './containers/Articles/Article/largArticle';
 import UpdateArticle from './containers/Articles/Update/index';
 import PrivateRoute from './utils/PrivateRoute';
+import Rating from './components/Rating/Rating';
 
 class App extends Component {
   componentDidMount() {}
@@ -22,6 +23,7 @@ class App extends Component {
             <Switch>
               <Route exact path={ROUTE.home} component={Articles} />
               <Route exact path="/Success" component={Success} />
+              <Route exact path="/rating" component={Rating} />
 
               <PrivateRoute exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />

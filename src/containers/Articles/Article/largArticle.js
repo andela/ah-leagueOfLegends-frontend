@@ -7,6 +7,7 @@ import Dante from 'Dante2';
 import fetchArticles from './actions';
 import ArticleHeader from '../../../components/Header/Header';
 import UsrInfo from '../Create/userInfo';
+import Rating from '../../../components/Rating/Rating';
 
 class MainArticle extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class MainArticle extends Component {
       return <Dante read_only content={articleData} />;
     }
     return null;
-  }
+  };
 
   render() {
     const { mainArticle, history } = this.props;
@@ -31,20 +32,21 @@ class MainArticle extends Component {
       <div>
         <ArticleHeader urlPath={history.location.pathname} history={history} />
         <div className="tag-list">
-          {
-          mainArticle.payload.tagList
+          {mainArticle.payload.tagList
             ? mainArticle.payload.tagList.map((tag, index) => (
-            // eslint-disable-next-line
-            <div className="chip" key={index} >{tag}</div>
-            ),
-            )
-            : null
-            }
+                // eslint-disable-next-line
+                <div className="chip" key={index}>
+                  {tag}
+                </div>
+            ))
+            : null}
         </div>
         <UsrInfo />
-        <div className="main-article">
-          {this.renderArticleHandler()}
-        </div>
+        <Rating
+          slug={this.props.mainArticle.payload.slug}
+          average_rating={this.props.mainArticle.payload.average_ratings}
+        />
+        <div className="main-article">{this.renderArticleHandler()}</div>
       </div>
     );
   }
@@ -59,7 +61,9 @@ MainArticle.propTypes = {
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles },
-  dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainArticle);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MainArticle);

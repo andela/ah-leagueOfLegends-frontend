@@ -40,7 +40,9 @@ class ReadArticle extends Component {
           article={article}
           index={index}
           preview={preview}
+
         />
+
       );
     },
     );
