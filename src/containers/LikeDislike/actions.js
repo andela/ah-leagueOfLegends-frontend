@@ -14,7 +14,8 @@ export const likeDislikeArticleFailure = errors => ({
 
 // like an article
 export const likeArticles = (slug) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
+  const token = localStorage.getItem('access_token');
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   const url = `${BACKEND_URL}api/articles/${slug}/like/`;
   return (dispatch) => {
     dispatch(likeArticle());

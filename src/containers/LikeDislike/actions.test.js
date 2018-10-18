@@ -1,5 +1,8 @@
 import * as actions from './actions';
-import { DISLIKE_ARTICLE, LIKE_ARTICLE, LIKE_DISLIKE_FAILURE } from './ActionTypes';
+import {
+  DISLIKE_ARTICLE,
+  LIKE_ARTICLE, LIKE_DISLIKE_FAILURE,
+} from './ActionTypes';
 
 describe('Actions for likeDislike articles', () => {
   // Like articles
@@ -14,9 +17,14 @@ describe('Actions for likeDislike articles', () => {
     expect(actions.dislikeArticle()).toEqual(expectedAction);
   });
 
-  // Dispatch error when update user request fails
+  // Dispatch error when likeDislike article fails
   it('should dispatch errors when likeDislike fails', () => {
-    const errors = { errors: { error: ['Profile not updated.'] } };
+    const errors = {
+      errors: {
+        error:
+          ['Authentication credentials were not provided.'],
+      },
+    };
     const expectedAction = {
       type: LIKE_DISLIKE_FAILURE,
       errors,

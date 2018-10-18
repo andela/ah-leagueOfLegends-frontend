@@ -11,49 +11,17 @@ import { extractDescription } from './filterArticles';
 import Navbar from '../../../components/Navbar';
 import Register from '../../../components/Authentication/Signup/Register';
 import Login from '../../Authentication/Login/Login';
-import { dislikeArticle, likeArticle } from '../../LikeDislike/actions';
-
 
 class ReadArticle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      article: {},
-      likes_count: 0,
-      dislikes_count: 0,
-    };
-    this.handleLikeDislike = this.handleLikeDislike.bind(this);
-  }
-
   componentDidMount() {
     const { getAllArticles } = this.props;
     getAllArticles();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { article } = nextProps;
-    const { likes_count, dislikes_count } = article;
-    this.setState({ article, likes_count, dislikes_count });
-  }
-
-  handleLikeDislike(e) {
-    e.preventDefault();
-    const { like, dislike } = this.props;
-    const { match } = this.props;
-    if (localStorage.getItem('token')) {
-      if (e.target.id === 'like') {
-        like(match.params.slug);
-      } else if (e.target.id === 'dislike') {
-        dislike(match.params.slug);
-      }
-    } else {
-      return ('Please login/sign up');
-    }
-  }
 
   renderArticleHandler = () => {
     const { articles } = this.props;
-    const artcles = articles.map((article, index) => {
+    articles.map((article, index) => {
       let b;
       try {
         b = JSON.parse(article.body);
@@ -77,7 +45,7 @@ class ReadArticle extends Component {
       );
     },
     );
-  }
+  };
 
   render() {
     return (
@@ -103,8 +71,6 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   {
     getAllArticles: getArticles,
     loading: '',
-    // dislike: dislikeArticle,
-    // like: likeArticle,
   },
   dispatch,
 );

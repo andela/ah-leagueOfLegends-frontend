@@ -1,4 +1,7 @@
-import { DISLIKE_ARTICLE, LIKE_ARTICLE, LIKE_DISLIKE_FAILURE } from "./ActionTypes";
+import {
+  DISLIKE_ARTICLE, LIKE_ARTICLE,
+  LIKE_DISLIKE_FAILURE,
+} from './ActionTypes';
 
 const previousState = {
   error: {},
