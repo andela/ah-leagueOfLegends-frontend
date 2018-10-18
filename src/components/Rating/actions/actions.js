@@ -19,10 +19,13 @@ export const currentAVG = response => ({
   payload: { average_rating: response === undefined ? 0 : response },
 });
 // action creator: takes an err and returns type RATING_FAILURE
-export const ratingError = err => ({
-  type: RATING_FAILURE,
-  payload: err[0],
-});
+export const ratingError = (err) => {
+  console.log(err);
+  return {
+    type: RATING_FAILURE,
+    payload: err,
+  };
+};
 // Gets an article slug and dispatches a get request to the API
 // Returns initial rating
 export const InitialRate = slug => (dispatch) => {
@@ -83,6 +86,7 @@ export const rateArticle = (slug, rate) => (dispatch) => {
       dispatch(InitialRate(slug));
     })
     .catch((err) => {
-      dispatch(ratingError(err.response.data));
+      console.log('Eeeeeeee', err.response.data);
+      dispatch(ratingError(err.response.data.rate.message));
     });
 };

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
+import M from 'materialize-css';
 import { rateArticle, InitialRate } from './actions/actions';
 
 class ArticleRating extends Component {
@@ -21,9 +22,17 @@ class ArticleRating extends Component {
     this.props.rateArticle(this.props.slug, nextValue);
   };
 
+  showError = (err) => {
+    M.toast({ html: err });
+  };
+
   render() {
+    const { ratingReducer } = this.props;
     return (
       <React.Fragment>
+        <div className="errorMessage">
+          {ratingReducer.ratingError && this.showError(ratingReducer.ratingError)}
+        </div>
         <div className="row" style={{ centerContent: 'flex-end', marginLeft: '20%' }}>
           <div className="col s12 m6">
             <StarRatings
@@ -46,7 +55,6 @@ class ArticleRating extends Component {
                   {// eslint-disable-next-line
                   this.props.ratingReducer.average_rating !== undefined
                     ? this.props.ratingReducer.average_rating.toFixed(1)
-
                     : this.props.average_rating}
                 </span>
               </span>
