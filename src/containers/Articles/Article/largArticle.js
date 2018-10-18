@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Dante from 'Dante2';
-// import '../../../styles/scss/components/_likeDislikeArticles.scss';
+
 import fetchArticles from './actions';
 import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
@@ -11,18 +11,9 @@ import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
 import { dislikeArticles, likeArticles } from '../../LikeDislike/actions';
 import likeDislikeArticleReducer from '../../LikeDislike/reducer';
+import LikeDislike from '../../../components/LikeDislike';
 
 class MainArticle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      article: {},
-      likes_count: 0,
-      dislikes_count: 0,
-    };
-    this.handleLikeDislike = this.handleLikeDislike.bind(this);
-  }
-
   componentDidMount() {
     const { match, fetchOneArticles } = this.props;
     fetchOneArticles(match.params.s);
@@ -94,12 +85,8 @@ class MainArticle extends Component {
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
           <h1>Like and dislike coming here</h1>
-          <button className="icon_btn" onClick={() => this.handleLikeDislike(true)}>
-            <i className="material-icons" id="like">thumb_up</i>
-            <span>{this.state.likes_count}</span>
-          </button>
+          <LikeDislike />
         </div>
-
       </div>
 
 
@@ -112,7 +99,6 @@ MainArticle.propTypes = {
   fetchOneArticles: PropTypes.func.isRequired,
   mainArticle: PropTypes.instanceOf(Object).isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
-  slug: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => (
