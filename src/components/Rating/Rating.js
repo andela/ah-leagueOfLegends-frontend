@@ -65,6 +65,7 @@ ArticleRating.propTypes = {
   rateArticle: PropTypes.func.isRequired,
   average_rating: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
+  ratingReducer: PropTypes.func.isRequired,
 };
 export default connect(
   mapStateToProps,
