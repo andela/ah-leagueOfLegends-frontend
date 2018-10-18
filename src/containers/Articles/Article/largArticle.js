@@ -3,17 +3,47 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Dante from 'Dante2';
-
+// import '../../../styles/scss/components/_likeDislikeArticles.scss';
 import fetchArticles from './actions';
 import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
+import { dislikeArticles, likeArticles } from '../../LikeDislike/actions';
+import likeDislikeArticleReducer from '../../LikeDislike/reducer';
 
 class MainArticle extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      article: {},
+      likes_count: 0,
+      dislikes_count: 0,
+    };
+    this.handleLikeDislike = this.handleLikeDislike.bind(this);
+  }
+
   componentDidMount() {
     const { match, fetchOneArticles } = this.props;
     fetchOneArticles(match.params.s);
+  }
+
+  handleLikeDislike(isLike) {
+    if (isLike) {
+      const isLiking = this.props.likeDislikeArticleReducer.isLiking;
+      if (isLiking) {
+        this.setState({ likes_count: this.state.likes_count - 1 });
+      } else this.state.likes_count++;
+    }
+    console.log('slug I need', this.props.mainArticle.payload.slug);
+    console.log('fdfghjdrftghj', localStorage.getItem('access_token'));
+    if (localStorage.getItem('access_token')) {
+      // do the liking or disliking
+      console.log('calling....');
+      this.props.like(this.props.slug);
+    } else {
+    //   return('Please login/sign up');
+    }
   }
 
   editClickedHanlder = () => {
@@ -63,8 +93,16 @@ class MainArticle extends Component {
           {this.renderArticleHandler()}
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
+          <h1>Like and dislike coming here</h1>
+          <button className="icon_btn" onClick={() => this.handleLikeDislike(true)}>
+            <i className="material-icons" id="like">thumb_up</i>
+            <span>{this.state.likes_count}</span>
+          </button>
         </div>
+
       </div>
+
+
     );
   }
 }
@@ -74,11 +112,22 @@ MainArticle.propTypes = {
   fetchOneArticles: PropTypes.func.isRequired,
   mainArticle: PropTypes.instanceOf(Object).isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({ mainArticle: state.completeArticle });
+const mapStateToProps = state => (
+  {
+    mainArticle: state.completeArticle,
+    likeDislikeArticleReducer,
+  });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    fetchOneArticles: fetchArticles,
+    dislike: dislikeArticles,
+    like: likeArticles,
+  },
+  dispatch);
 
 export default connect(
   mapStateToProps,

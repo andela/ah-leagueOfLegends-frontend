@@ -103,8 +103,8 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   {
     getAllArticles: getArticles,
     loading: '',
-    dislike: dislikeArticle,
-    like: likeArticle,
+    // dislike: dislikeArticle,
+    // like: likeArticle,
   },
   dispatch,
 );

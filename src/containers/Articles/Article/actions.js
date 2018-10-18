@@ -14,6 +14,7 @@ const fetchArticles = slug => (dispatch) => {
   dispatch(fetchArticle());
   axios.get(`${BACKEND_URL}api/articles/${slug}`)
     .then((res) => {
+      console.log('I was called ', res.data);
       dispatch(articleFectSuccsess(res));
     })
     .catch(err => dispatch(articleFectFailure(err)));

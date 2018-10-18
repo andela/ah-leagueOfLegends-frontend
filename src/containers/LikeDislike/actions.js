@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { DISLIKE_ARTICLE, LIKE_ARTICLE, LIKE_DISLIKE_FAILURE } from "./ActionTypes";
 import { BACKEND_URL } from "../../utils/config";
+import { FETCH_ARTICLE } from "../Articles/Article/constant";
+import fetchArticles from "../Articles/Article/actions";
 
 export const likeArticle = () => ({ type: LIKE_ARTICLE });
 
@@ -14,11 +16,11 @@ export const likeDislikeArticleFailure = errors => ({
 });
 
 export const likeDislikeArticleSuccess = article => ({
-  type: GET_ARTICLES,
+  type: FETCH_ARTICLE,
   payload: article,
 });
 
-// like and article
+// like an article
 export const likeArticles = slug => {
   const url = `${BACKEND_URL}api/articles/${slug}/like/`;
   const token = localStorage.getItem('access_token');
@@ -36,6 +38,7 @@ export const likeArticles = slug => {
       (response) => {
         const userArray = response.data;
         dispatch(likeDislikeArticleSuccess(userArray));
+        dispatch(fetchArticles(slug));
       },
       (errors) => {
         dispatch(likeDislikeArticleFailure(errors));
@@ -54,7 +57,7 @@ export const dislikeArticles = slug => {
         headers: {
           'Content-Type': 'application/json',
           Authorization:
-            `Bearer ${token}`,
+            'Bearer '+ token,
         },
       },
     ).then(

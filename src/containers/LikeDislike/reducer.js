@@ -33,4 +33,4 @@ const likeDislikeArticleReducer = (state = previousState, action) => {
   }
 };
 
-export default likeDislikeArticleReducer();
+export default likeDislikeArticleReducer;
