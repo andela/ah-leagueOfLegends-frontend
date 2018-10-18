@@ -150,3 +150,20 @@
   text-align: center;
   width: 55%;
 }
+.search {
+ display:flex;
+ align-items: center;
+}
+
+.search i {
+  cursor: pointer;
+}
+
+input[type=search] {
+  padding: 0;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
