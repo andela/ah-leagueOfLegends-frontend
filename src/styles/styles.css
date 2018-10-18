@@ -276,14 +276,10 @@ i:hover {
   width: 55%; }
 
 .search {
-  display: flex;
-  align-items: center; }
-
-.search i {
-  cursor: pointer; }
-
-input[type=search] {
-  padding: 0; }
+  align-items: center;
+  display: flex; }
+  .search i {
+    cursor: pointer; }
 
 .centered {
   display: flex;

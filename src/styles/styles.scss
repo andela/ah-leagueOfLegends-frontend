@@ -150,17 +150,14 @@
   text-align: center;
   width: 55%;
 }
+
 .search {
- display:flex;
- align-items: center;
-}
+  align-items: center;
+  display: flex;
 
-.search i {
-  cursor: pointer;
-}
-
-input[type=search] {
-  padding: 0;
+  i {
+    cursor: pointer;
+  }
 }
 
 .centered {
