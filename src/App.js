@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 
 import store from './store/store';
 import ROUTE from './utils/routes';
@@ -11,6 +11,9 @@ import MainArticle from './containers/Articles/Article/largArticle';
 import UpdateArticle from './containers/Articles/Update/index';
 import PrivateRoute from './utils/PrivateRoute';
 import Rating from './components/Rating/Rating';
+import Navbar from './components/Navbar';
+import SearchResults from './containers/Search/index.';
+import history from './History';
 
 class App extends Component {
   componentDidMount() {}
@@ -18,12 +21,14 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <Router history={history}>
           <div>
+            <Navbar />
             <Switch>
               <Route exact path={ROUTE.home} component={Articles} />
               <Route exact path="/Success" component={Success} />
               <Route exact path="/rating" component={Rating} />
+              <Route exact path={ROUTE.searchResults} component={SearchResults} />
 
               <PrivateRoute exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />
