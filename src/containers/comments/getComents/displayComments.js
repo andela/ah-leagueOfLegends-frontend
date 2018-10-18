@@ -60,12 +60,12 @@ class DisplayComments extends PureComponent {
             </i>
 
             <ul className="comment-dropdown" id={index}>
-              <li>
-                <a href="#!" className="hoverable" onClick={() => this.deleteCommentHandler(comment.id, articleSlug)}>
-                  <i className="tiny material-icons">delete</i>
+
+              <button type="submit" className="hoverable" onClick={() => this.deleteCommentHandler(comment.id, articleSlug)}>
+                <i className="tiny material-icons">delete</i>
                     Delete
-                </a>
-              </li>
+              </button>
+
             </ul>
             <div className="card-content author-info">
               <img

@@ -4,6 +4,7 @@ import {
   UPDATE_PROFILE_SUCCESS,
   UPDATE_PROFILE_FAILURE, CLEAR_STORE,
 } from './ActionTypes';
+import { BACKEND_URL } from '../../../utils/config';
 
 export const updateUserProfile = () => ({ type: UPDATE_USER_PROFILE_REQUEST });
 
@@ -19,7 +20,7 @@ export const updateUserProfileFailure = errors => ({
 
 // update user details
 const updateUser = (profile) => {
-  const url = 'https://ah-leagueoflegends-staging.herokuapp.com/api/user/';
+  const url = `${BACKEND_URL}api/user/`;
   const token = localStorage.getItem('access_token');
   return (dispatch) => {
     dispatch(updateUserProfile());

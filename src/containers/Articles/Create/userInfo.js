@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import '../../../styles/styles.css';
 import { bindActionCreators } from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import PropTypes from 'prop-types';
+
+import connect from 'react-redux/es/connect/connect';
+import '../../../styles/styles.css';
 import fetchUserDetailsAction from '../../Profile/ViewProfile/actions';
 
 class UsrInfo extends Component {

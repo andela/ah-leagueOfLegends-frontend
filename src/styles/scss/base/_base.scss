@@ -1,5 +1,9 @@
 @import "./settings";
+
 textarea {
-    height: auto!important;
-    border: none!important;
+    //eslint-disable-next-line
+  border: none !important;
+    //eslint-disable-next-line
+  height: auto !important;
+
 }

@@ -3,6 +3,7 @@ import {
   VIEW_PROFILE_REQUEST, VIEW_PROFILE_FAILURE,
   VIEW_PROFILE_SUCCESS,
 } from './ActionTypes';
+import { BACKEND_URL } from '../../../utils/config';
 
 export const fetchUserProfile = () => ({ type: VIEW_PROFILE_REQUEST });
 
@@ -18,7 +19,7 @@ export const fetchUserProfileFailure = errors => ({
 
 // fetch user details
 const fetchUserDetails = (username) => {
-  const url = `https://ah-leagueoflegends-staging.herokuapp.com/api/profiles/${username}`;
+  const url = `${BACKEND_URL}api/profiles/${username}`;
   return (dispatch) => {
     dispatch(fetchUserProfile());
     return axios.get(url).then(

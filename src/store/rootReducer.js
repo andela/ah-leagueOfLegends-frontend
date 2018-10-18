@@ -35,7 +35,4 @@ export default combineReducers({
   NotificationReducer,
   editProfileReducer,
   viewProfileReducer,
-  router: routerReducer,
-  Login: loginReducer,
-
 });

@@ -18,8 +18,6 @@ class MainArticle extends Component {
   componentDidMount() {
     const { match, fetchOneArticles } = this.props;
     fetchOneArticles(match.params.s);
-    const usernameAvatar = localStorage.getItem('user');
-    fetchUserDetails(usernameAvatar);
   }
 
   editClickedHanlder = () => {
@@ -41,18 +39,12 @@ class MainArticle extends Component {
 
   render() {
     const { mainArticle, match } = this.props;
-    const { viewProfileReducer } = this.props;
-    const { payload } = viewProfileReducer;
-    const { mainArticle } = this.props;
-
-    const { author } = mainArticle.payload;
     let articleSlug;
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;
     }
     return (
       <div>
-        <ProfileHeader image={payload.profile.image} />
         <div className="tag-list">
           {mainArticle.payload.tagList
             ? mainArticle.payload.tagList.map((tag, index) => (
@@ -63,10 +55,7 @@ class MainArticle extends Component {
             ))
             : null}
         </div>
-
-        {author !== undefined
-        && <UsrInfo username={author} />
-        }
+        <UsrInfo />
         <button type="button" onClick={this.editClickedHanlder} className="button">
                     Edit
         </button>
@@ -93,19 +82,12 @@ MainArticle.propTypes = {
   match: PropTypes.instanceOf(Object).isRequired,
   fetchOneArticles: PropTypes.func.isRequired,
   mainArticle: PropTypes.instanceOf(Object).isRequired,
-  viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
-const mapStateToProps = state => ({
-  mainArticle: state.completeArticle,
-  viewProfileReducer: state.viewProfileReducer,
-});
+const mapStateToProps = state => ({ mainArticle: state.completeArticle });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchOneArticles: fetchArticles,
-  fetchUserDetails,
-},
-dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles }, dispatch);
 
 export default connect(
   mapStateToProps,

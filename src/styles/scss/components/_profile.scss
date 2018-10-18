@@ -42,25 +42,24 @@
   border-radius: 4px;
   box-shadow: none;
   border: 1px solid teal;
-  background-color: teal!important;
-  color: #fff!important;
+  background-color: teal !important;
+  color: #fff !important;
 
 }
 
 .user-info {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
  }
 
-.followers-link li{
+.followers-link li {
   display: inline;
 
+  & hover{
+    text-decoration: underline;
+  }
 }
-
-.followers-link li :hover{
-  text-decoration: underline;
-}
-
+  //eslint-disable-next-line
 .user-detail > button {
   margin-left: 30px;
 }
@@ -68,7 +67,7 @@
 .username{
   margin: 0;
   padding: 0;
-  border: none!important;
+  border: 0 !important;
 }
 
 .materialize-textarea{
@@ -80,12 +79,13 @@
 .avatar-wrapper {
   position: relative;
 
-  & button {
+  button {
+    background: none;
+    border: 0;
+    color: #ffffff;
+    left: 55px;
     position: absolute;
     top: 90px;
-    left: 55px;
-    background: none;
-    border: none;
-    color: white;
   }
+
 }

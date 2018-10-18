@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import '../../../styles/styles.css';
+import Navbar from '../../../components/Navbar';
 import getArticles from './actions';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
@@ -54,6 +55,7 @@ class ReadArticle extends Component {
   render() {
     return (
       <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
+        <Navbar />
         <Aside />
         <Tags />
         { this.renderArticleHandler()}
