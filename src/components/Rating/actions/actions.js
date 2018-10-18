@@ -20,7 +20,6 @@ export const currentAVG = response => ({
 });
 // action creator: takes an err and returns type RATING_FAILURE
 export const ratingError = (err) => {
-  console.log(err);
   return {
     type: RATING_FAILURE,
     payload: err,
@@ -86,7 +85,6 @@ export const rateArticle = (slug, rate) => (dispatch) => {
       dispatch(InitialRate(slug));
     })
     .catch((err) => {
-      console.log('Eeeeeeee', err.response.data);
       dispatch(ratingError(err.response.data.rate.message));
     });
 };
