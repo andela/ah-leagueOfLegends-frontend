@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { DISLIKE_ARTICLE, LIKE_ARTICLE, LIKE_DISLIKE_FAILURE } from './ActionTypes';
 import { BACKEND_URL } from '../../utils/config';
-import { FETCH_ARTICLE } from '../Articles/Article/constant';
 import fetchArticles from '../Articles/Article/actions';
 
 export const likeArticle = () => ({ type: LIKE_ARTICLE });
@@ -13,11 +12,6 @@ export const likeDislikeArticleFailure = errors => ({
   errors,
 });
 
-export const likeDislikeArticleSuccess = article => ({
-  type: FETCH_ARTICLE,
-  payload: article,
-});
-
 // like an article
 export const likeArticles = (slug) => {
   axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
@@ -26,8 +20,7 @@ export const likeArticles = (slug) => {
     dispatch(likeArticle());
     return axios.put(url)
       .then(
-        (response) => {
-          dispatch(likeDislikeArticleSuccess(response.data));
+        () => {
           dispatch(fetchArticles(slug));
         },
         (errors) => {
@@ -46,9 +39,7 @@ export const dislikeArticles = (slug) => {
     dispatch(dislikeArticle());
     return axios.put(url)
       .then(
-        (response) => {
-          const userArray = response.data;
-          dispatch(likeDislikeArticleSuccess(userArray));
+        () => {
           dispatch(fetchArticles(slug));
         },
         (errors) => {
