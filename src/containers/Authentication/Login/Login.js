@@ -68,6 +68,7 @@ class Login extends React.Component {
             <form className="col s12" onSubmit={this.handleSubmit}>
               <div className="row">
                 <div className="input-field col s12">
+                  {/* eslint-disable-next-line */}
                   <label htmlFor="email"> Email </label>
                   <input id="loginemail" type="email" className="validate" name="email" onChange={this.handleChange} />
                 </div>
@@ -77,6 +78,7 @@ class Login extends React.Component {
               </div>
               <div className="row">
                 <div className="input-field col s12">
+                  {/* eslint-disable-next-line */}
                   <label htmlFor="password"> Password </label>
                   <input id="loginpassword" type="password" className="validate" name="password" onChange={this.handleChange} />
                 </div>

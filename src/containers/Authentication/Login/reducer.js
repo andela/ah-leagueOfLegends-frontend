@@ -1,5 +1,3 @@
-
-
 const initialState = { isAuthenticated: localStorage.getItem('isAuthenticated') || false };
 
 export default (state = initialState, action) => {
