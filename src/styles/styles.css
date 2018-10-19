@@ -152,6 +152,34 @@ i:hover {
   margin: 3%;
   margin-right: 10%; }
 
+.new-comments {
+  border: 1px solid #cccccc;
+  padding: 2%; }
+
+.display-comments {
+  margin-top: 6%;
+  margin-left: 5%; }
+
+.comment-list {
+  width: 90%;
+  padding: 2%; }
+
+.more-comments-icon {
+  float: right; }
+
+.comment-dropdown {
+  float: right;
+  display: none; }
+
+.anotherclass {
+  display: block;
+  width: 100px;
+  background-color: #E0E0E0;
+  color: white;
+  font-size: 18px;
+  padding: 1%;
+  text-align: center; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;

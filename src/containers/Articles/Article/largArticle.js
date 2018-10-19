@@ -7,6 +7,8 @@ import Dante from 'Dante2';
 import fetchArticles from './actions';
 import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
+import Commnents from '../../comments';
+import DisplayComents from '../../comments/getComents/displayComments';
 
 class MainArticle extends Component {
   componentDidMount() {
@@ -32,7 +34,11 @@ class MainArticle extends Component {
   };
 
   render() {
-    const { mainArticle } = this.props;
+    const { mainArticle, match } = this.props;
+    let articleSlug;
+    if (mainArticle.payload.slug) {
+      articleSlug = mainArticle.payload.slug;
+    }
     return (
       <div>
         <div className="tag-list">
@@ -53,7 +59,11 @@ class MainArticle extends Component {
           slug={this.props.mainArticle.payload.slug}
           average_rating={this.props.mainArticle.payload.average_ratings}
         />
-        <div className="main-article">{this.renderArticleHandler()}</div>
+        <div className="main-article">
+          {this.renderArticleHandler()}
+          <Commnents articleSlug={articleSlug} />
+          <DisplayComents articleSlug={match.params.s} />
+        </div>
       </div>
     );
   }

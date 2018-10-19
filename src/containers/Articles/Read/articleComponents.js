@@ -123,7 +123,6 @@ const articleComponent = (props) => {
                 <i className="material-icons">bookmark_border</i>
               </li>
             </ul>
-           
           </div>
         </div>
       );

@@ -10,6 +10,8 @@ import newArticle from '../containers/Articles/Create/reducer';
 import completeArticle from '../containers/Articles/Article/reducer';
 import ratingReducer from '../components/Rating/reducers/ratingReducer';
 import searchReducer from '../containers/Search/reducer';
+import commentReducer from '../containers/comments/reducer';
+import getAllComment from '../containers/comments/getComents/reducer';
 
 import { SocialLoginReducer } from '../components/Authentication/Login/socialLogin/reducer';
 
@@ -19,6 +21,8 @@ export default combineReducers({
   authReducer,
   ratingReducer,
   newArticle,
+  commentReducer,
+  getAllComment,
   router: routerReducer,
   Login: loginReducer,
   socialLoginReducer: SocialLoginReducer,
