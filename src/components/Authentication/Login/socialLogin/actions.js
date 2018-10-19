@@ -25,7 +25,7 @@ function socialLogin(provider, accessToken) {
       window.location.reload();
     })
     .catch((error) => {
-      dispatch(loginFailure(error));
+      dispatch(loginFailure(error.message));
     });
 }
 
