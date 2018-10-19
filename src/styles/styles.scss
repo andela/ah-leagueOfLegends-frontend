@@ -165,6 +165,7 @@
 .centered {
   display: flex;
   justify-content: center;
+}
  
 .navbar-fixed {
     box-shadow: 0px 0.5px #e0dfdf; }
@@ -187,7 +188,7 @@
     color: #fff !important; }
   
   .nav-wrapper i {
-    padding: 2px 10px 0px 10px; }
+    padding: 2px 10px 0px 10px; 
   }
 .rsp {
   display: flex;
