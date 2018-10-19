@@ -84,7 +84,6 @@ class MainArticle extends Component {
           {this.renderArticleHandler()}
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
-          <h1>Like and dislike coming here</h1>
           <LikeDislike />
         </div>
       </div>

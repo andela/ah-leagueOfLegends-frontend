@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import connect from 'react-redux/es/connect/connect';
+import toastr from 'toastr';
+
 import likeDislikeArticleReducer from '../../containers/LikeDislike/reducer';
 import { dislikeArticles, likeArticles } from '../../containers/LikeDislike/actions';
 import '../../styles/scss/components/_likeDislikeArticles.scss';
@@ -21,6 +23,8 @@ class LikeDislike extends Component {
       } else {
         dislike(slug);
       }
+    } else {
+      toastr.error('Please Login/Register.');
     }
   }
 
