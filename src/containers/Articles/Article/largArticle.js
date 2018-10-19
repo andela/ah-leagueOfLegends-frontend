@@ -34,7 +34,7 @@ class MainArticle extends Component {
   };
 
   render() {
-    const { mainArticle, history, match } = this.props;
+    const { mainArticle, match } = this.props;
     let articleSlug;
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;

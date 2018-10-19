@@ -46,8 +46,7 @@ class DisplayComments extends PureComponent {
   render() {
     const { allComments, articleSlug } = this.props;
     let allComents;
-    console.log('=>', allComments);
-    if (allComments.success) {
+    if (allComments.success && allComments) {
       try {
         allComents = allComments.payload.data.comments.map((comment, index) => (
           <div key={comment.id} className="comment-list cards hoverable">
