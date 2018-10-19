@@ -483,3 +483,21 @@ ul#dropdown1.dropdown-content {
   padding-left: 70px;
   color: #8d8c8c;
   font-size: 10px; }
+.tabs {
+  border-bottom: 0.2px solid #b8b8b8;
+  top: -45px;
+  right: 2%; }
+
+.tabs .tab1 a {
+  color: #a0a0a0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 13px 30px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color .28s ease, background-color .28s ease; }
+
+.tabs .tab1 a:hover {
+  color: #000000; }
