@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import loginReducer from '../containers/Authentication/Login/reducer';
+import forgotPasswordReducer from '../containers/Forgotpassword/reducer';
+import resetPasswordReducer from '../containers/Resetpassword/reducer';
 
 import articles from '../containers/Articles/Read/reducer';
 import authReducer from '../components/Authentication/Signup/reducers/authReducer';
@@ -21,4 +23,6 @@ export default combineReducers({
   Login: loginReducer,
   socialLoginReducer: SocialLoginReducer,
   Search: searchReducer,
+  forgotPasswordReducer,
+  resetPasswordReducer,
 });

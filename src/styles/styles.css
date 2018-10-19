@@ -284,3 +284,47 @@ i:hover {
 .centered {
   display: flex;
   justify-content: center; }
+  .centered .navbar-fixed {
+    box-shadow: 0px 0.5px #e0dfdf; }
+  .centered .nav-wrapper .brand-logo {
+    font-family: Athelas,'Times New Roman'; }
+  .centered .btn {
+    text-transform: none;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid #aaa; }
+  .centered .btn:hover {
+    text-transform: none;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid teal;
+    background-color: teal !important;
+    color: #fff !important; }
+  .centered .nav-wrapper i {
+    padding: 2px 10px 0px 10px; }
+
+.rsp {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px; }
+
+.fpl {
+  display: flex;
+  justify-content: center;
+  padding-left: 10px;
+  margin-bottom: 10px; }
+
+.modal-content h2 {
+  font: 18px "Robot";
+  margin: 1% 25%;
+  text-align: center; }
+
+.alert-ms p {
+  color: #008080;
+  justify-content: center; }
+
+.myform {
+  color: #008080;
+  justify-content: center;
+  margin: auto;
+  width: 50%; }

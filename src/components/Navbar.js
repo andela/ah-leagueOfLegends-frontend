@@ -7,6 +7,7 @@ import { searchItem } from '../containers/Search/actions';
 import Register from './Authentication/Signup/Register';
 import Login from '../containers/Authentication/Login/Login';
 import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
+import Forgotpassword from '../containers/Forgotpassword';
 
 class Navbar extends Component {
   constructor(props) {
@@ -52,33 +53,33 @@ class Navbar extends Component {
             <div className="container">
               <div className="nav-wrapper">
                 <a href="/" className="brand-logo black-text">Authors Haven</a>
-                {(isAuthenticated) ? (
-                  <ul className="right hide-on-med-and-down grey-text">
-                    <li />
-                    <li>
-                      <form className="search">
-                        {/* eslint-disable-next-line */}
+                <ul className="right hide-on-med-and-down grey-text">
+                  <li>
+                    <form className="search">
+                      {/* eslint-disable-next-line */}
                         <i className="material-icons" onClick={this.handleSearch}>search</i>
-                        <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
-                        <div className="input-field col s12">
-                          <select id="search-filter">
-                            <option value="" disabled>Search By</option>
-                            <option value="title">Title</option>
-                            <option value="author__username">Author</option>
-                            <option value="tagList">Tag</option>
-                          </select>
-                        </div>
+                      <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
+                      <div className="input-field col s12">
+                        <select id="search-filter">
+                          <option value="" disabled>Search By</option>
+                          <option value="title">Title</option>
+                          <option value="author__username">Author</option>
+                          <option value="tagList">Tag</option>
+                        </select>
+                      </div>
 
-                      </form>
-                    </li>
-                    <li><i className="material-icons">notifications_none</i></li>
-                    <li><i className="material-icons">bookmark_border</i></li>
-                    <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
+                    </form>
+                  </li>
+                  {(isAuthenticated) ? (
+                    <span>
+                      <li><i className="material-icons">notifications_none</i></li>
+                      <li><i className="material-icons">bookmark_border</i></li>
+                      <button type="button" className="waves-effect waves-light white teal-text btn " onClick={this.logout}>
                           logout
-                    </button>
-                  </ul>) : (
-                    <ul className="right hide-on-med-and-down grey-text">
-                      <li><i className="material-icons">search</i></li>
+                      </button>
+                    </span>
+                  ) : (
+                    <span>
                       <li>
                         <a
                           className="waves-effect waves-light btn white teal-text
@@ -95,7 +96,9 @@ class Navbar extends Component {
                         </button>
 
                       </li>
-                    </ul>)}
+                    </span>)}
+                </ul>
+}
 
               </div>
             </div>
@@ -104,6 +107,7 @@ class Navbar extends Component {
         <Register />
         <Login />
         <SocialLogin />
+        <Forgotpassword />
       </div>
 
     );
