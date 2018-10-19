@@ -104,7 +104,6 @@ export default class Editor extends Component {
     const { postArticle, history } = this.props;
     const article = JSON.parse(localStorage.getItem('article'));
     article.article.tagList = tags;
-    console.log('about to post');
     postArticle(article, history);
   }
 
