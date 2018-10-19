@@ -5,14 +5,6 @@ import { connect } from 'react-redux';
 import getNotifications from './action';
 
 class Notifications extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notifications: [],
-      notificationBadge: false,
-    };
-  }
-
   componentDidMount() {
     const { InAppNotifications } = this.props;
     InAppNotifications();
@@ -20,13 +12,34 @@ class Notifications extends Component {
     M.Dropdown.init(el);
   }
 
+  renderCount = () => {
+    const { notifystate } = this.props;
+    if (notifystate.success && notifystate.notifications.notifications) {
+      let count = 0;
+      notifystate.notifications.notifications.map((notification) => {
+        if (notification.unread === true) {
+          count += 1;
+        }
+        return count;
+      },
+      );
+      return (
+        <div id="notification-counter">
+          <span>
+            {count}
+          </span>
+        </div>);
+    }
+    return null;
+  }
+
   renderNotifications = () => {
     const { notifystate } = this.props;
     if (notifystate.success && notifystate.notifications.notifications) {
-      try {
-        return (
-          notifystate.notifications.notifications.map(notification => (
-            <li key={notification.id}>
+      return (
+        notifystate.notifications.notifications.map(notification => (
+          <li key={notification.id}>
+            <div className={notification.unread ? 'read' : 'unread'}>
               <img
                 className="avatar-small"
                 alt="profile-pic"
@@ -38,27 +51,21 @@ class Notifications extends Component {
               {' '}
               <div>
                 {notification.timesince}
-                {' '}
-ago
+                {' ago'}
               </div>
-            </li>
-          ))
-        );
-      } catch (e) {
-        return ('could not get notifications', e);
-      }
-    } else {
-      return <li> You dont have new notifications</li>;
+            </div>
+          </li>
+        ))
+      );
     }
+    return <li> You have no new notifications</li>;
   }
 
   render() {
     return (
       <div>
-
-        <div id="notification-counter">
-          <span>3</span>
-        </div>
+        {this.renderCount()}
+        <div />
         <i
           className="dropdown-trigger material-icons bell-dropdown"
           data-target="dropdown1"
