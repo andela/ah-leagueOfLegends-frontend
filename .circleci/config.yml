@@ -35,6 +35,7 @@ jobs:
       - run:
           name: Run Test and Coverage
           command: |
+            mkdir /tmp/test-results
             ./cc-test-reporter before-build
             yarn test --u --coverage
       - run:
