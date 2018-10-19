@@ -8,11 +8,6 @@ import getArticles from './actions';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
 import { extractDescription } from './filterArticles';
-import Navbar from '../../../components/Navbar';
-import Register from '../../../components/Authentication/Signup/Register';
-import Login from '../../Authentication/Login/Login';
-import SocialLogin from '../../../components/Authentication/Login/socialLogin/SocialLogin';
-import Forgotpassword from '../../Forgotpassword';
 
 class ReadArticle extends Component {
   componentDidMount() {
@@ -57,11 +52,6 @@ class ReadArticle extends Component {
   render() {
     return (
       <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
-        <Navbar />
-        <Register />
-        <SocialLogin />
-        <Login />
-        <Forgotpassword />
         <Aside />
         { this.renderArticleHandler()}
       </div>

@@ -284,55 +284,24 @@ i:hover {
 .centered {
   display: flex;
   justify-content: center; }
+  .centered .navbar-fixed {
     box-shadow: 0px 0.5px #e0dfdf; }
-  
-  .nav-wrapper .brand-logo {
+  .centered .nav-wrapper .brand-logo {
     font-family: Athelas,'Times New Roman'; }
-  
-  .btn {
+  .centered .btn {
     text-transform: none;
     border-radius: 4px;
     box-shadow: none;
     border: 1px solid #aaa; }
-  
-  .btn:hover {
+  .centered .btn:hover {
     text-transform: none;
     border-radius: 4px;
     box-shadow: none;
     border: 1px solid teal;
     background-color: teal !important;
     color: #fff !important; }
-  
-  .nav-wrapper i {
+  .centered .nav-wrapper i {
     padding: 2px 10px 0px 10px; }
-
-.rsp{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.fpl{
-   display: flex;
-   justify-content: center;
-   padding-left: 10px;
-   margin-bottom: 10px;
-}
-  text-transform: none;
-  border-radius: 4px;
-  box-shadow: none;
-  border: 1px solid #aaa; }
-
-.btn:hover {
-  text-transform: none;
-  border-radius: 4px;
-  box-shadow: none;
-  border: 1px solid teal;
-  background-color: teal !important;
-  color: #fff !important; }
-
-.nav-wrapper i {
-  padding: 2px 10px 0px 10px; }
 
 .rsp {
   display: flex;

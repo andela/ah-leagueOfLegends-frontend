@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Dante from 'Dante2';
 
 import fetchArticles from './actions';
-import ArticleHeader from '../../../components/Header/Header';
 import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
 
@@ -14,6 +13,12 @@ class MainArticle extends Component {
     const { match, fetchOneArticles } = this.props;
     fetchOneArticles(match.params.s);
   }
+
+  editClickedHanlder = () => {
+    const { history } = this.props;
+    const urlPath = history.location.pathname;
+    history.push(`${urlPath}/edit`);
+  };
 
   renderArticleHandler = () => {
     const { mainArticle } = this.props;
@@ -27,10 +32,9 @@ class MainArticle extends Component {
   };
 
   render() {
-    const { mainArticle, history } = this.props;
+    const { mainArticle } = this.props;
     return (
       <div>
-        <ArticleHeader urlPath={history.location.pathname} history={history} />
         <div className="tag-list">
           {mainArticle.payload.tagList
             ? mainArticle.payload.tagList.map((tag, index) => (
@@ -42,6 +46,9 @@ class MainArticle extends Component {
             : null}
         </div>
         <UsrInfo />
+        <button type="button" onClick={this.editClickedHanlder} className="button">
+                    Edit
+        </button>
         <Rating
           slug={this.props.mainArticle.payload.slug}
           average_rating={this.props.mainArticle.payload.average_ratings}
