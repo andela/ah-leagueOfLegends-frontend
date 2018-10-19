@@ -46,12 +46,13 @@ class DisplayComments extends PureComponent {
   render() {
     const { allComments, articleSlug } = this.props;
     let allComents;
+    console.log('=>', allComments);
     if (allComments.success) {
       try {
         allComents = allComments.payload.data.comments.map((comment, index) => (
           <div key={comment.id} className="comment-list cards hoverable">
             {/* eslint-disable-next-line */}
-            <i 
+            <i
               role="button"
               className="small material-icons more-comments-icon dropdown-trigger"
               onClick={() => this.handleMouseEnter(index)}
@@ -60,8 +61,12 @@ class DisplayComments extends PureComponent {
             </i>
 
             <ul className="comment-dropdown" id={index}>
-              <li><a href="#!" className="hoverable" onClick={this.editCommentHandler}>Edit</a></li>
-              <li><a href="#!" className="hoverable" onClick={() => this.deleteCommentHandler(comment.id, articleSlug)}>Delete</a></li>
+              <li>
+                <a href="#!" className="hoverable" onClick={() => this.deleteCommentHandler(comment.id, articleSlug)}>
+                  <i className="tiny material-icons">delete</i>
+                    Delete
+                </a>
+              </li>
             </ul>
             <div className="card-content author-info">
               <img

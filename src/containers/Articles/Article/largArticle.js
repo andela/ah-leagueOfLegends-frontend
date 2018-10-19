@@ -59,7 +59,6 @@ class MainArticle extends Component {
           slug={this.props.mainArticle.payload.slug}
           average_rating={this.props.mainArticle.payload.average_ratings}
         />
-        <div className="main-article">{this.renderArticleHandler()}</div>
         <div className="main-article">
           {this.renderArticleHandler()}
           <Commnents articleSlug={articleSlug} />
