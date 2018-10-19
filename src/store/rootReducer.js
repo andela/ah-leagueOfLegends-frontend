@@ -14,6 +14,7 @@ import commentReducer from '../containers/comments/reducer';
 import getAllComment from '../containers/comments/getComents/reducer';
 
 import { SocialLoginReducer } from '../components/Authentication/Login/socialLogin/reducer';
+import NotificationReducer from '../containers/Notification/reducer';
 
 export default combineReducers({
   completeArticle,
@@ -29,4 +30,5 @@ export default combineReducers({
   Search: searchReducer,
   forgotPasswordReducer,
   resetPasswordReducer,
+  NotificationReducer,
 });
