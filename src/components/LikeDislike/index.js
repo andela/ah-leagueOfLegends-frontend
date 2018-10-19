@@ -6,6 +6,7 @@ import toastr from 'toastr';
 
 import likeDislikeArticleReducer from '../../containers/LikeDislike/reducer';
 import { dislikeArticles, likeArticles } from '../../containers/LikeDislike/actions';
+// eslint-disable-next-line
 import '../../styles/scss/components/_likeDislikeArticles.scss';
 
 class LikeDislike extends Component {

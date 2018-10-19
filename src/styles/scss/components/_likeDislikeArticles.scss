@@ -1,24 +1,25 @@
 @import "../base/settings";
 
-.material-icons{
+.material-icons {
   border: none;
   background: none;
-}
-
-.btn-thumb-up{
-  margin-right: 40px;
-  border-radius: 30px;
-  box-shadow: none;
-  padding: 5px 15px;
-  border: 1px solid #aaa;
-
 
 }
-.btn-thumb-down{
-  margin-right: 40px;
+
+.btn-thumb-up {
+  border: 1px solid #aaa;
   border-radius: 30px;
   box-shadow: none;
+  margin-right: 40px;
   padding: 5px 15px;
+
+}
+
+.btn-thumb-down {
   border: 1px solid #aaa;
+  border-radius: 30px;
+  box-shadow: none;
+  margin-right: 40px;
+  padding: 5px 15px;
 
 }
