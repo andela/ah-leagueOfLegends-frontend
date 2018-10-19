@@ -50,6 +50,7 @@ class ReadArticle extends Component {
   render() {
     return (
       <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
+        <Tags />
         <Aside />
         <Tags />
         { this.renderArticleHandler()}
