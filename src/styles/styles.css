@@ -387,3 +387,21 @@ ul#dropdown1.dropdown-content {
 
 .read {
   background-color: #fff; }
+
+.notification-avatar {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin: 10px; }
+
+.notification {
+  font-size: 12px; }
+
+.actor {
+  padding-left: 70px;
+  margin-top: -50px; }
+
+.time {
+  padding-left: 70px;
+  color: #8d8c8c;
+  font-size: 10px; }
