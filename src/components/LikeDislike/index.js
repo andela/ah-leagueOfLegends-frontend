@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import connect from 'react-redux/es/connect/connect';
 import likeDislikeArticleReducer from '../../containers/LikeDislike/reducer';
 import { dislikeArticles, likeArticles } from '../../containers/LikeDislike/actions';
+import '../../styles/scss/components/_likeDislikeArticles.scss';
 
 class LikeDislike extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class LikeDislike extends Component {
       <div>
         <button
           disabled={mainArticle.isFetching}
-          className="icon_btn_thumbup"
+          className="btn-thumb-up"
           type="submit"
           onClick={() => this.handleLikeDislike(true)}
         >
@@ -39,7 +40,7 @@ class LikeDislike extends Component {
         <button
           disabled={mainArticle.isFetching}
           type="submit"
-          className="icon_btn_thumbdown"
+          className="btn-thumb-down"
           onClick={() => this.handleLikeDislike(false)}
         >
           <i className="material-icons" id="dislike">thumb_down</i>
@@ -51,11 +52,9 @@ class LikeDislike extends Component {
 }
 
 LikeDislike.propTypes = {
-  article: PropTypes.shape({}).isRequired,
   like: PropTypes.number.isRequired,
   dislike: PropTypes.number.isRequired,
   mainArticle: PropTypes.objectOf().isRequired,
-
 
 };
 
