@@ -274,3 +274,13 @@ i:hover {
   background-color: #dbebeb;
   text-align: center;
   width: 55%; }
+
+.search {
+  align-items: center;
+  display: flex; }
+  .search i {
+    cursor: pointer; }
+
+.centered {
+  display: flex;
+  justify-content: center; }

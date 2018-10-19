@@ -150,3 +150,17 @@
   text-align: center;
   width: 55%;
 }
+
+.search {
+  align-items: center;
+  display: flex;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
