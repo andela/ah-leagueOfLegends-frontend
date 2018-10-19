@@ -321,7 +321,7 @@ ul#dropdown1.dropdown-content {
   box-shadow: 0 0.5px #e0dfdf; }
 
 .nav-wrapper .brand-logo {
-  font-family: Athelas,'Times New Roman'; }
+  font-family: Athelas, 'Times New Roman'; }
 
 .btn {
   border: 1px solid #aaa;
@@ -392,7 +392,7 @@ ul#dropdown1.dropdown-content {
   .centered .navbar-fixed {
     box-shadow: 0px 0.5px #e0dfdf; }
   .centered .nav-wrapper .brand-logo {
-    font-family: Athelas,'Times New Roman'; }
+    font-family: Athelas, 'Times New Roman'; }
   .centered .btn {
     text-transform: none;
     border-radius: 4px;
