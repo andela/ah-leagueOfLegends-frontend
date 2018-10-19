@@ -9,6 +9,7 @@ import Success from './components/Authentication/Signup/Success';
 import NewArticle from './containers/Articles/Create';
 import MainArticle from './containers/Articles/Article/largArticle';
 import UpdateArticle from './containers/Articles/Update/index';
+import NotFound from './components/NotFound';
 import PrivateRoute from './utils/PrivateRoute';
 import Rating from './components/Rating/Rating';
 import Navbar from './components/Navbar';
@@ -35,6 +36,8 @@ class App extends Component {
               <PrivateRoute exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />
               <PrivateRoute exact path={ROUTE.editArticle} component={UpdateArticle} />
+              <Route path={ROUTE.notFound} component={NotFound} />
+              <Route component={NotFound} />
             </Switch>
           </div>
         </Router>

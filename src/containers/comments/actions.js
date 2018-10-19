@@ -10,7 +10,8 @@ export const commentFailure = error => ({ type: COMMENT_FAILURE, error });
 export const commentFetch = () => ({ type: COMMENT_FETCH });
 
 
-const publishComment = (data, slug, method, update = false, commentId) => (dispatch) => {
+const publishComment = (payloadData, slug, method, update = false, commentId) => (dispatch) => {
+  const data = { comment: { body: payloadData } };
   dispatch(commentFetch());
   let MAIN_URL = `${BACKEND_URL}api/articles/${slug}/comments`;
   const token = localStorage.getItem('access_token');
@@ -28,6 +29,13 @@ const publishComment = (data, slug, method, update = false, commentId) => (dispa
       break;
     case 'PUT':
       axios.put(MAIN_URL, data, slug, commentId)
+        .then((res) => {
+          dispatch(commentSuccess(res));
+        })
+        .catch(err => dispatch(commentFailure(err)));
+      break;
+    case 'DELETE':
+      axios.delete(MAIN_URL)
         .then((res) => {
           dispatch(commentSuccess(res));
         })

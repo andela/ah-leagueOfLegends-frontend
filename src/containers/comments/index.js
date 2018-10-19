@@ -4,24 +4,30 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import publishComment from './actions';
+import getComents from './getComents/actions';
 
 class Comments extends Component {
-  state = { inputData: undefined };
+  state = { inputData: '' };
 
   inputCommentHandler = (e) => {
-    const data = { comment: { body: e.target.value } };
+    e.preventDefault();
+    const data = e.target.value;
     this.setState({ inputData: data });
   }
 
   publishCommentHandler = () => {
-    const { newComment, articleSlug } = this.props;
+    const { newComment, articleSlug, allComments } = this.props;
     const { inputData } = this.state;
     if (articleSlug !== undefined) {
       newComment(inputData, articleSlug, 'POST');
     }
+    allComments(articleSlug);
+    this.setState({ inputData: '' });
+    allComments(articleSlug);
   }
 
   render() {
+    const { inputData } = this.state;
     return (
       <div className="new-comments">
         <div className="card-content author-info">
@@ -44,7 +50,7 @@ class Comments extends Component {
           <form className="col s12">
             <div className="row">
               <div className="input-field col s12">
-                <textarea id="textarea1" onChange={this.inputCommentHandler} className="materialize-textarea" />
+                <textarea id="textarea1" value={inputData} onChange={this.inputCommentHandler} className="materialize-textarea" />
                 {/* eslint-disable-next-line */}
                 <label htmlFor="textarea1">New Comment</label>
               </div>
@@ -63,11 +69,14 @@ Comments.defaultProps = { articleSlug: '' };
 Comments.propTypes = {
   newComment: PropTypes.instanceOf(Object).isRequired,
   articleSlug: PropTypes.string,
+  allComments: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({ commentsReducer: state.commentReducer });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ newComment: publishComment },
-  dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  newComment: publishComment,
+  allComments: getComents,
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comments);

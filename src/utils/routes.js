@@ -5,6 +5,7 @@ const ROUTE = {
   editArticle: '/article/:s/edit',
   searchResults: '/search',
   reset: '/api/users/reset_password/:s/',
+  notFound: '/not-found',
 };
 
 export default ROUTE;

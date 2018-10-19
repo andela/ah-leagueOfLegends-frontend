@@ -34,7 +34,7 @@ class MainArticle extends Component {
   };
 
   render() {
-    const { mainArticle, history } = this.props;
+    const { mainArticle, history, match } = this.props;
     let articleSlug;
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;
@@ -63,7 +63,7 @@ class MainArticle extends Component {
         <div className="main-article">
           {this.renderArticleHandler()}
           <Commnents articleSlug={articleSlug} />
-          <DisplayComents articleSlug={this.props.match.params.s} />
+          <DisplayComents articleSlug={match.params.s} />
         </div>
       </div>
     );
