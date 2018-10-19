@@ -42,34 +42,18 @@
     "toastr": "^2.1.4",
     "yarn": "^1.10.1"
   },
-  // "scripts": {
-  //   "start-js": "react-scripts start",
-  //   "build-js": "react-scripts build",
-  //   "start": "npm-run-all -p watch-css start-js",
-  //   "build": "npm run build-css && react-scripts build",
-  //   "test": "react-scripts test",
-  //   "eject": "react-scripts eject",
-  //   "build-css": "node-sass-chokidar src/ -o src/",
-  //   "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
-  // },
-{
-  "name": "deploy",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "npm": "5.7.1",
-    "node": "9.5.0"
-  },
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start-js": "react-scripts start",
+    "build-js": "react-scripts build",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",
