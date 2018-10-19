@@ -8,6 +8,8 @@ import getArticles from './actions';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
 import { extractDescription } from './filterArticles';
+import Tags from '../../../components/tags/index';
+
 
 class ReadArticle extends Component {
   componentDidMount() {
@@ -48,6 +50,7 @@ class ReadArticle extends Component {
   render() {
     return (
       <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
+        <Tags />
         <Aside />
         { this.renderArticleHandler()}
       </div>
