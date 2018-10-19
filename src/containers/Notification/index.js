@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import M from 'materialize-css';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import getNotifications from './action';
+import getNotifications, { getSingleNotifications } from './action';
 
 class Notifications extends Component {
   componentDidMount() {
@@ -33,23 +33,32 @@ class Notifications extends Component {
     return null;
   }
 
+  readNotification = (e) => {
+    const id = e.target.getAttribute('data-id');
+    console.log(e.target);
+    const { markNotification } = this.props;
+    markNotification(id);
+    // this.renderCount();
+  }
+
   renderNotifications = () => {
     const { notifystate } = this.props;
     if (notifystate.success && notifystate.notifications.notifications) {
       return (
         notifystate.notifications.notifications.map(notification => (
-          <li key={notification.id}>
-            <div className={notification.unread ? 'read' : 'unread'}>
+          <li key={notification.id} onClick={this.readNotification} className="notification">
+            <div className={notification.unread ? 'unread' : 'read'}>
               <img
-                className="avatar-small"
+                className="notification-avatar"
                 alt="profile-pic"
                 src={notification.actor.image}
               />
-              {notification.actor.username}
-              {' '}
-              {notification.verb}
-              {' '}
-              <div>
+              <div className="actor" data-id={notification.id}>
+                {notification.actor.username}
+                {' '}
+                {notification.verb}
+              </div>
+              <div className="time">
                 {notification.timesince}
                 {' ago'}
               </div>
@@ -82,7 +91,8 @@ notifications_none
 
 const mapStateToProps = state => ({ notifystate: state.NotificationReducer });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ InAppNotifications: getNotifications },
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { InAppNotifications: getNotifications, markNotification: getSingleNotifications },
   dispatch);
 
 export default connect(

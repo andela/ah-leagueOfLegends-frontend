@@ -2,6 +2,7 @@ const initialState = {
   notifications: [],
   error: '',
   success: false,
+  message: false,
 };
 
 export default function notificationReducer(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function notificationReducer(state = initialState, action) {
       return {
         ...state,
         error: notificationReducer.error,
+      };
+    case 'NOTIFICATION_READ':
+      return {
+        ...state,
+        message: true,
       };
     default:
       return state;
