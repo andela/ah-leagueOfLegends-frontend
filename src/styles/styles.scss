@@ -239,7 +239,6 @@ ul#dropdown1.dropdown-content{
   // display: none;
 }
 
-
 #notification-counter span{
   color: #fff;
   font-size: 12px;
@@ -248,4 +247,11 @@ ul#dropdown1.dropdown-content{
   margin-top: -25px;
   margin-right:7px;
 
+}
+
+.unread{
+  background-color: $color-pale-green;
+}
+.read{
+  background-color: #fff;
 }
