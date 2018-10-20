@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import M from 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
 import { rateArticle, InitialRate } from './actions/actions';
 
 class ArticleRating extends Component {
@@ -24,14 +23,14 @@ class ArticleRating extends Component {
   };
 
   showError = (err) => {
-    M.toast({ html: err, classes: 'red' });
+    M.toast({ html: err });
   };
 
   render() {
     const { ratingReducer } = this.props;
     return (
       <React.Fragment>
-        <div className="errorMessage ">
+        <div className="errorMessage">
           {ratingReducer.ratingError && this.showError(ratingReducer.ratingError)}
         </div>
         <div className="row" style={{ centerContent: 'flex-end', marginLeft: '20%' }}>
