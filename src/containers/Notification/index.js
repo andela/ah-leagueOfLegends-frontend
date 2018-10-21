@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import M from 'materialize-css';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import getNotifications, { getSingleNotifications } from './action';
 
 class Notifications extends Component {
@@ -14,6 +15,7 @@ class Notifications extends Component {
 
   renderCount = () => {
     const { notifystate } = this.props;
+
     if (notifystate.success && notifystate.notifications.notifications) {
       let count = 0;
       notifystate.notifications.notifications.map((notification) => {
@@ -23,22 +25,25 @@ class Notifications extends Component {
         return count;
       },
       );
-      return (
-        <div id="notification-counter">
-          <span>
-            {count}
-          </span>
-        </div>);
+
+      if (count !== 0) {
+        return (
+          <div id="notification-counter">
+            <span>
+              {count}
+            </span>
+          </div>
+        );
+      }
+      return null;
     }
     return null;
   }
 
   readNotification = (e) => {
     const id = e.target.getAttribute('data-id');
-    console.log(e.target);
     const { markNotification } = this.props;
     markNotification(id);
-    // this.renderCount();
   }
 
   renderNotifications = () => {
@@ -46,28 +51,43 @@ class Notifications extends Component {
     if (notifystate.success && notifystate.notifications.notifications) {
       return (
         notifystate.notifications.notifications.map(notification => (
-          <li key={notification.id} onClick={this.readNotification} className="notification">
+          <li key={notification.id} className="notification">
             <div className={notification.unread ? 'unread' : 'read'}>
+
               <img
                 className="notification-avatar"
                 alt="profile-pic"
+                data-id={notification.id}
                 src={notification.actor.image}
               />
+
               <div className="actor" data-id={notification.id}>
-                {notification.actor.username}
-                {' '}
-                {notification.verb}
+                {`${notification.actor.username}  ${notification.verb}`}
               </div>
+
+              <Link
+                className="notification-descripton"
+                to={`/article/${
+                  (notification.action_object === null) ? null
+                    : notification.action_object.slug}`}
+                onClick={this.readNotification}
+                data-id={(notification.id === null) ? null
+                  : notification.id}
+              >
+                {(notification.action_object === null) ? null
+                  : notification.action_object.title}
+              </Link>
+
               <div className="time">
-                {notification.timesince}
-                {' ago'}
+                {`${notification.timesince} ago`}
               </div>
             </div>
           </li>
         ))
       );
     }
-    return <li> You have no new notifications</li>;
+
+    return <li className="zero-notification">You have no new notifications</li>;
   }
 
   render() {
@@ -92,7 +112,10 @@ notifications_none
 const mapStateToProps = state => ({ notifystate: state.NotificationReducer });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { InAppNotifications: getNotifications, markNotification: getSingleNotifications },
+  {
+    InAppNotifications: getNotifications,
+    markNotification: getSingleNotifications,
+  },
   dispatch);
 
 export default connect(
