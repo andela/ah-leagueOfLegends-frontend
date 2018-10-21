@@ -9,32 +9,12 @@ import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
-import { dislikeArticles, likeArticles } from '../../LikeDislike/actions';
-import likeDislikeArticleReducer from '../../LikeDislike/reducer';
 import LikeDislike from '../../../components/LikeDislike';
 
 class MainArticle extends Component {
   componentDidMount() {
     const { match, fetchOneArticles } = this.props;
     fetchOneArticles(match.params.s);
-  }
-
-  handleLikeDislike(isLike) {
-    if (isLike) {
-      const isLiking = this.props.likeDislikeArticleReducer.isLiking;
-      if (isLiking) {
-        this.setState({ likes_count: this.state.likes_count - 1 });
-      } else this.state.likes_count++;
-    }
-    console.log('slug I need', this.props.mainArticle.payload.slug);
-    console.log('fdfghjdrftghj', localStorage.getItem('access_token'));
-    if (localStorage.getItem('access_token')) {
-      // do the liking or disliking
-      console.log('calling....');
-      this.props.like(this.props.slug);
-    } else {
-    //   return('Please login/sign up');
-    }
   }
 
   editClickedHanlder = () => {
@@ -77,14 +57,16 @@ class MainArticle extends Component {
                     Edit
         </button>
         <Rating
-          slug={this.props.mainArticle.payload.slug}
-          average_rating={this.props.mainArticle.payload.average_ratings}
+          slug={mainArticle.payload.slug}
+          average_rating={mainArticle.payload.average_ratings}
         />
         <div className="main-article">
           {this.renderArticleHandler()}
+          <LikeDislike />
+
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
-          <LikeDislike />
+
         </div>
       </div>
 
@@ -101,17 +83,10 @@ MainArticle.propTypes = {
 };
 
 const mapStateToProps = state => (
-  {
-    mainArticle: state.completeArticle,
-    likeDislikeArticleReducer,
-  });
+  { mainArticle: state.completeArticle });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  {
-    fetchOneArticles: fetchArticles,
-    dislike: dislikeArticles,
-    like: likeArticles,
-  },
+  { fetchOneArticles: fetchArticles },
   dispatch);
 
 export default connect(

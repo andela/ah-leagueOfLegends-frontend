@@ -51,6 +51,7 @@ class LikeDislike extends Component {
           <i className="material-icons" id="dislike">thumb_down</i>
           <span>{mainArticle.payload.dislike}</span>
         </button>
+
       </div>
     );
   }

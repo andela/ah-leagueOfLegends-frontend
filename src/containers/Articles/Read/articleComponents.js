@@ -19,6 +19,7 @@ const articleComponent = (props) => {
               <div className="articale-time">
                 <p>
                   <a href="/">{article.author}</a>
+
                 </p>
                 <div className="article-time--details">
                   <p>{article.created_at_date.substring(0, 17)}</p>
@@ -32,23 +33,14 @@ const articleComponent = (props) => {
               {preview}
               {/* eslint-disable-next-line */}
               ...
-              <Link to={`/article/${article.slug}`}>Read More</Link>
+              <Link to={`/article/${article.slug}`}>Read More </Link>
             </p>
           </div>
-          <div className="card-action">
-            <ul className="grey-text actions">
-              <li>
-                <i className="material-icons teal-text">thumb_up</i>
-2
-              </li>
-              <li>
-                <i className="material-icons">thumb_down</i>
-                329
-              </li>
-              <li>
-                <i className="material-icons">bookmark_border</i>
-              </li>
-            </ul>
+          <div className="like-dislike">
+            <i className="material-icons" id="like">thumb_up</i>
+            <span>{article.like}</span>
+            <i className="material-icons" id="dislike">thumb_down</i>
+            <span>{article.dislike}</span>
           </div>
         </div>
       );
@@ -109,20 +101,11 @@ const articleComponent = (props) => {
               <Link to={`/article/${article.slug}`}>Read More</Link>
             </p>
           </div>
-          <div className="card-action">
-            <ul className="grey-text actions">
-              <li>
-                <i className="material-icons teal-text">thumb_up</i>
-2
-              </li>
-              <li>
-                <i className="material-icons">thumb_down</i>
-                329
-              </li>
-              <li>
-                <i className="material-icons">bookmark_border</i>
-              </li>
-            </ul>
+          <div className="like-dislike">
+            <i className="material-icons" id="like">thumb_up</i>
+            <span>{article.like}</span>
+            <i className="material-icons" id="dislike">thumb_down</i>
+            <span>{article.dislike}</span>
           </div>
         </div>
       );

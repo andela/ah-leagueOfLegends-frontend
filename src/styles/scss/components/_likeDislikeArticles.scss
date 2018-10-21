@@ -12,7 +12,7 @@
   box-shadow: none;
   margin-right: 40px;
   padding: 5px 15px;
-
+  margin-bottom: 60px;
 }
 
 .btn-thumb-down {
@@ -21,5 +21,18 @@
   box-shadow: none;
   margin-right: 40px;
   padding: 5px 15px;
+  margin-bottom: 60px;
 
 }
+
+.like-dislike{
+  margin-right: 30px;
+  margin-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 30px;
+  & i  {
+    margin-right: 4px;
+  }
+
+}
+
