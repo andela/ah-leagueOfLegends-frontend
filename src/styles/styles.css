@@ -1144,6 +1144,15 @@ h6 {
   padding: 1%;
   text-align: center; }
 
+.anotherclass1 {
+  display: block;
+  z-index: 500;
+  width: 300px;
+  position: absolute; }
+
+.close-edit {
+  float: right; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;
