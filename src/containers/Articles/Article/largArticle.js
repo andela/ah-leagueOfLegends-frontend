@@ -9,6 +9,7 @@ import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
+import LikeDislike from '../../../components/LikeDislike';
 
 class MainArticle extends Component {
   componentDidMount() {
@@ -56,15 +57,20 @@ class MainArticle extends Component {
                     Edit
         </button>
         <Rating
-          slug={this.props.mainArticle.payload.slug}
-          average_rating={this.props.mainArticle.payload.average_ratings}
+          slug={mainArticle.payload.slug}
+          average_rating={mainArticle.payload.average_ratings}
         />
         <div className="main-article">
           {this.renderArticleHandler()}
+          <LikeDislike />
+
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
+
         </div>
       </div>
+
+
     );
   }
 }
@@ -76,9 +82,12 @@ MainArticle.propTypes = {
   history: PropTypes.instanceOf(Object).isRequired,
 };
 
-const mapStateToProps = state => ({ mainArticle: state.completeArticle });
+const mapStateToProps = state => (
+  { mainArticle: state.completeArticle });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { fetchOneArticles: fetchArticles },
+  dispatch);
 
 export default connect(
   mapStateToProps,

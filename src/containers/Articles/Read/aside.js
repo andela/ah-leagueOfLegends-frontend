@@ -43,11 +43,6 @@ class Aside extends Component {
       );
     },
     );
-    if (asideDiv === 0) {
-      /* Not Found Component will be added here;
-       Esther's Created it.
-      */
-    }
     return asideDiv;
   }
 

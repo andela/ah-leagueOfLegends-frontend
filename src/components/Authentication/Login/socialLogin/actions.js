@@ -1,5 +1,5 @@
 import LoginConstants from './actiontypes';
-import history from '../../../../History';
+import history from '../../../../history';
 
 const axios = require('axios');
 

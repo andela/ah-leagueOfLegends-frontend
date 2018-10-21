@@ -15,6 +15,7 @@ class ReadArticle extends Component {
     getAllArticles();
   }
 
+
   renderArticleHandler = () => {
     const { articles } = this.props;
     const artcles = articles.map((article, index) => {
@@ -41,13 +42,8 @@ class ReadArticle extends Component {
       );
     },
     );
-    if (artcles === 0) {
-      /* Not Found Component will be added here;
-       Esther's Created it.
-      */
-    }
     return artcles;
-  }
+  };
 
   render() {
     return (

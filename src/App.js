@@ -14,7 +14,7 @@ import PrivateRoute from './utils/PrivateRoute';
 import Rating from './components/Rating/Rating';
 import Navbar from './components/Navbar';
 import SearchResults from './containers/Search/index.';
-import history from './History';
+import history from './history';
 import PasswordReset from './containers/Resetpassword/index';
 
 class App extends Component {
