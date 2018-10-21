@@ -32,10 +32,12 @@ ul#dropdown1.dropdown-content{
   
   .unread{
     background-color: $color-pale-green;
+    border-bottom: 1px solid $navbar-color;
   }
   
   .read{
     background-color: #fff;
+    border-bottom: 1px solid $navbar-color;
   }
   
   .notification-avatar {
@@ -47,7 +49,6 @@ ul#dropdown1.dropdown-content{
   
   .notification {
     font-size: 12px;
-    border-bottom: 1px solid $navbar-color;
   }
   
   .actor{

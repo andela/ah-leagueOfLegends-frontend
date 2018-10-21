@@ -3,6 +3,7 @@ import M from 'materialize-css';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getNotifications, { getSingleNotifications } from './action';
 
 class Notifications extends Component {
@@ -108,6 +109,12 @@ notifications_none
     );
   }
 }
+
+Notifications.propTypes = {
+  InAppNotifications: PropTypes.func.isRequired,
+  notifystate: PropTypes.instanceOf(Object).isRequired,
+  markNotification: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({ notifystate: state.NotificationReducer });
 

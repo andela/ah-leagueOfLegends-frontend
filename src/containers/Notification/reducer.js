@@ -17,6 +17,7 @@ export default function notificationReducer(state = initialState, action) {
       return {
         ...state,
         error: notificationReducer.error,
+        success: false,
       };
     case 'NOTIFICATION_READ':
       return {
