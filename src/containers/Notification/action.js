@@ -16,6 +16,11 @@ const notificationFailiure = error => ({
   error,
 });
 
+const readNotificationSuccess = payload => ({
+  type: NotificationConstants.READ_NOTIFICATION,
+  payload,
+});
+
 function getSingleNotifications(id) {
   const accessToken = localStorage.getItem('access_token');
   return (dispatch) => {
@@ -24,12 +29,9 @@ function getSingleNotifications(id) {
       { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` } },
     )
       .then((response) => {
-        // dispatch((notificationReadSuccess(response.data)));
-        console.log(response.data);
+        dispatch((readNotificationSuccess(response.data)));
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(error => error);
   };
 }
 
@@ -54,3 +56,4 @@ export default getNotifications;
 export { notificationSuccess };
 export { notificationFailiure };
 export { getSingleNotifications };
+export { readNotificationSuccess };
