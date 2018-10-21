@@ -21,7 +21,7 @@ class ReadArticle extends Component {
 
   renderArticleHandler = () => {
     const { articles } = this.props;
-    articles.map((article, index) => {
+    const artcles = articles.map((article, index) => {
       let b;
       try {
         b = JSON.parse(article.body);
@@ -45,6 +45,7 @@ class ReadArticle extends Component {
       );
     },
     );
+      return artcles;
   };
 
   render() {
