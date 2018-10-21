@@ -25,7 +25,7 @@ export default () => (
 
           <Route exact path={ROUTES.getUserProfile} component={ViewProfile} />
 
-          <Route exact path={ROUTES.updateUserProfile} component={UpdateProfile} />
+          <PrivateRoute exact path={ROUTES.updateUserProfile} component={UpdateProfile} />
 
           <PrivateRoute exact path={ROUTES.newArticle} component={NewArticle} />
 
