@@ -24,7 +24,7 @@ class Tags extends Component {
             <li className="tab1"><a data-value="power" onClick={this.handleSearch} href="#powertrip">POWER TRIP</a></li>
             <li className="tab1"><a data-value="culture" onClick={this.handleSearch} href="#culture">CULTURE</a></li>
             <li className="tab1"><a data-value="tech" onClick={this.handleSearch} href="#tech">TECH</a></li>
-            <li className="tab1"><a data-value="start" onClick={this.handleSearch} href="#startups">STARTUPS</a></li>
+            <li className="tab1"><a data-value="entertainment" onClick={this.handleSearch} href="#entertainment">ENTERTAINMENT</a></li>
             <li className="tab1"><a data-value="andela" onClick={this.handleSearch} href="#andela">ANDELA WAY</a></li>
             <li className="tab1"><a data-value="politics" onClick={this.handleSearch} href="#politics">POLITICS</a></li>
             <li className="tab1"><a data-value="design" onClick={this.handleSearch} href="#design">DESIGN</a></li>
