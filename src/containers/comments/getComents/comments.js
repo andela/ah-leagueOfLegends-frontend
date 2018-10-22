@@ -35,10 +35,9 @@ class CommentsComponent extends Component {
 
   render() {
     const {
-      comments, clicked, componentIndex, index, allComment, slug,
+      comments, clicked, componentIndex, index,
     } = this.props;
     const { newComment, edited } = this.state;
-    allComment(slug);
     return (
       <div>
         { (clicked && (componentIndex === index) && edited)

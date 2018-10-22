@@ -43,6 +43,9 @@ class MainArticle extends Component {
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;
     }
+    const user = localStorage.getItem('user');
+    // eslint-disable-next-line
+    const author = mainArticle.payload.author;
     return (
       <div>
         <div className="tag-list">
@@ -56,9 +59,14 @@ class MainArticle extends Component {
             : null}
         </div>
         <UsrInfo />
-        <button type="button" onClick={this.editClickedHanlder} className="button">
-                    Edit
-        </button>
+        {
+          (user === author)
+            ? (
+              <button type="button" onClick={this.editClickedHanlder} className="button">
+                        Edit
+              </button>)
+            : null
+        }
         <Rating
           slug={mainArticle.payload.slug}
           average_rating={mainArticle.payload.average_ratings}
