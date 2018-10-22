@@ -106,7 +106,7 @@ class DisplayComments extends PureComponent {
             <CommentsComponent
               clicked={editComment}
               componentIndex={componentIndex}
-              slug= {articleSlug}
+              slug={articleSlug}
               index={index}
               comments={comment}
             />
