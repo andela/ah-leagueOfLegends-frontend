@@ -14,9 +14,12 @@ export const loginFailure = error => ({
 });
 
 function socialLogin(provider, accessToken) {
-  return dispatch => axios.post('https://ah-leagueoflegends-staging.herokuapp.com/api/users/social_auth/',
-    { provider, access_token: accessToken },
-    { headers: { 'Content-Type': 'application/json' } })
+  return dispatch => axios
+    .post(
+      'https://ah-leagueoflegends-staging.herokuapp.com/api/users/social_auth/',
+      { provider, access_token: accessToken },
+      { headers: { 'Content-Type': 'application/json' } },
+    )
     .then((response) => {
       dispatch(loginSuccess(response.data));
       const { token } = response.data.user;
@@ -25,7 +28,7 @@ function socialLogin(provider, accessToken) {
       window.location.reload();
     })
     .catch((error) => {
-      dispatch(loginFailure(error));
+      dispatch(loginFailure(error.message));
     });
 }
 
