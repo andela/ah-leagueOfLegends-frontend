@@ -14,6 +14,12 @@ class Notifications extends Component {
     M.Dropdown.init(el);
   }
 
+  readNotification = (e) => {
+    const id = e.target.getAttribute('data-id');
+    const { markNotification } = this.props;
+    markNotification(id);
+  }
+
   renderCount = () => {
     const { notifystate } = this.props;
 
@@ -39,12 +45,6 @@ class Notifications extends Component {
       return null;
     }
     return null;
-  }
-
-  readNotification = (e) => {
-    const id = e.target.getAttribute('data-id');
-    const { markNotification } = this.props;
-    markNotification(id);
   }
 
   renderNotifications = () => {
