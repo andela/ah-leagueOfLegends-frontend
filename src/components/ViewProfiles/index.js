@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ViewProfile = ({
-  username, image, bio, onEditClick, avatarUpload, loggedinUsername,
+  username, image, bio, onEditClick, avatarUpload, loggedinUsername, isAuthenticated,
 }) => (
   <main className="conatiner">
     <div className="row">
@@ -10,7 +10,7 @@ const ViewProfile = ({
         <div className="user-info">
           <div className="user-detail">
             <h4 className="username">{username}</h4>
-            {(loggedinUsername === username) ? (
+            {(isAuthenticated && loggedinUsername === username) ? (
               <button
                 data-target="modal1"
                 type="submit"
@@ -38,7 +38,7 @@ const ViewProfile = ({
       </div>
       <div className="col m1  avatar-wrapper">
         <img className="avatar" src={image} alt="header-profile" />
-        {(loggedinUsername === username) ? (
+        {(isAuthenticated && loggedinUsername === username) ? (
           <button onClick={avatarUpload} type="submit">
             <i className="material-icons">add_a_photo</i>
           </button>) : (null)}
@@ -54,6 +54,8 @@ ViewProfile.propTypes = {
   onEditClick: PropTypes.func.isRequired,
   avatarUpload: PropTypes.func.isRequired,
   loggedinUsername: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+
 };
 
 export default ViewProfile;

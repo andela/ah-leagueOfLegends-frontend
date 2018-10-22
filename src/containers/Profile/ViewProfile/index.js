@@ -60,22 +60,26 @@ class ViewProfile extends Component {
     const { viewProfileReducer } = this.props;
     const { payload, isFetching, failure } = viewProfileReducer;
     const loggedinUsername = localStorage.getItem('user');
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (isFetching) {
       return (
         <Loader />
       );
     }
-    const notFoundItem = 'User';
     return (
       <div>
         {failure
           ? (
 
-            <NotFound item={notFoundItem} />
+            <NotFound item="User" />
           )
           : (
             <div>
-              <ProfileHeader username={payload.profile.username} image={payload.profile.image} />
+              <ProfileHeader
+                username={payload.profile.username}
+                image={payload.profile.image}
+                isAuthenticated={isAuthenticated}
+              />
               <ViewProfiles
                 username={payload.profile.username}
                 image={payload.profile.image}
@@ -84,6 +88,7 @@ class ViewProfile extends Component {
                 onEditClick={this.handleEditUser}
                 avatarUpload={this.handleImageUpload}
                 loggedinUsername={loggedinUsername}
+                isAuthenticated={isAuthenticated}
               />
             </div>
           )

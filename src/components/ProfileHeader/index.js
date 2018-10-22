@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ProfileHeader = ({ image }) => (
+const ProfileHeader = ({ image, isAuthenticated }) => (
   <div>
     <header>
       <div className="navbar-fixed ">
@@ -16,7 +16,11 @@ const ProfileHeader = ({ image }) => (
                 <li><i className="material-icons">search</i></li>
                 <li><i className="material-icons">notifications_none</i></li>
                 <li><i className="material-icons">bookmark_border</i></li>
-                <li><img className="small-profile" src={image} alt="header-avatar" /></li>
+                <li>
+                  {(isAuthenticated) ? (
+                    <img className="small-profile" src={image} alt="header-avatar" />
+                  ) : (null)}
+                </li>
               </ul>
             </div>
           </div>
@@ -33,6 +37,10 @@ const ProfileHeader = ({ image }) => (
   </div>
 );
 
-ProfileHeader.propTypes = { image: PropTypes.string.isRequired };
+ProfileHeader.propTypes = {
+  image: PropTypes.string.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+
+};
 
 export default ProfileHeader;
