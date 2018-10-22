@@ -1153,6 +1153,9 @@ h6 {
 .close-edit {
   float: right; }
 
+.btn-edit-comment {
+  width: 90px; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;

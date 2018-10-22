@@ -9,13 +9,24 @@ import publishComment from '../actions';
 import CommentsComponent from './comments';
 
 class DisplayComments extends PureComponent {
-  state={ show: null };
+  state={
+    show: null,
+    editComment: false,
+    componentIndex: null,
+  };
 
   componentDidMount() {
     const { allComment, articleSlug } = this.props;
     if (articleSlug !== undefined) {
       allComment(articleSlug);
     }
+  }
+
+  onClickeditCommentHandler(editComment, index) {
+    this.setState({
+      editComment: true,
+      componentIndex: index,
+    });
   }
 
   handleMouseEnter(index) {
@@ -35,41 +46,6 @@ class DisplayComments extends PureComponent {
     }
   }
 
-  editCommentHandler(index, display, commentId, articleSlug) {
-    const { manipulateComment, allComment } = this.props;
-    // eslint-disable-next-line
-    if (parseInt(document.getElementById(index).id) === parseInt(index)) {
-      const div = document.createElement('div');
-      div.className = 'foo';
-      div.id = index;
-      // eslint-disable-next-line
-      if (parseInt(div.id) === display) {
-        const div1 = document.getElementById(`comment-list${index}`);
-        div.classList.toggle('anotherclass');
-        div1.innerHTML += `
-        <div class="row" id="modal-edit">
-          <form class="col s12">
-          <i class="material-icons close-edit" onClick='{((document.getElementById("modal-edit").style.display="none") && ${allComment(this.articleSlug)} )}'>close</i>
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">Update comment</label>
-              </div>
-            </div>
-          </form>
-        </div>
-        `;
-        // window.location.reload();
-        allComment(articleSlug);
-      }
-      allComment(articleSlug);
-    }
-  }
-
-  close() {
-    console.log("hello world.")
-  }
-
   deleteCommentHandler(commentId, articleSlug) {
     const { manipulateComment, allComment } = this.props;
     manipulateComment('', articleSlug, 'DELETE', true, commentId);
@@ -79,7 +55,7 @@ class DisplayComments extends PureComponent {
 
   render() {
     const { allComments, articleSlug } = this.props;
-    const { show } = this.state;
+    const { editComment, componentIndex } = this.state;
     let allComents;
     if (allComments.success && allComments) {
       try {
@@ -95,7 +71,13 @@ class DisplayComments extends PureComponent {
             </i>
 
             <ul className="comment-dropdown" id={index}>
-              <button type="submit" id="cmt-edit" className="hoverable" style={{ width: '100px' }} onClick={() => this.editCommentHandler(index, show, comment.id, articleSlug)}>
+              <button
+                type="submit"
+                id="cmt-edit"
+                className="hoverable"
+                style={{ width: '100px' }}
+                onClick={() => this.onClickeditCommentHandler(editComment, index)}
+              >
                 <i className="tiny material-icons">edit</i>
                   Edit
               </button>
@@ -121,7 +103,13 @@ class DisplayComments extends PureComponent {
                 </div>
               </div>
             </div>
-            <CommentsComponent comments={comment} />
+            <CommentsComponent
+              clicked={editComment}
+              componentIndex={componentIndex}
+              slug= {articleSlug}
+              index={index}
+              comments={comment}
+            />
             <div id={`comment-list${index}`} />
           </div>
         ));
@@ -152,4 +140,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   allComment: getComents,
   manipulateComment: publishComment,
 }, dispatch);
+
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayComments);
