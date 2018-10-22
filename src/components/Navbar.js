@@ -32,118 +32,118 @@ class Navbar extends Component {
     }
   }
 
-  logout = () => {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('isAuthenticated');
-    window.location.reload(true);
-  };
+    logout = () => {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('isAuthenticated');
+      window.location.reload(true);
+    };
 
-  // eslint-disable-next-line
-  handleprofileView() {
-    const username = localStorage.getItem('user');
-    window.location.replace(`/profile/${username}`);
-  }
+    // eslint-disable-next-line
+    handleprofileView() {
+      const username = localStorage.getItem('user');
+      window.location.replace(`/profile/${username}`);
+    }
 
 
-  handleSearch = () => {
-    const { searchText } = this.state;
-    const { search } = this.props;
-    const filter = document.getElementById('search-filter').value;
-    search(searchText, filter);
-  };
+    handleSearch = () => {
+      const { searchText } = this.state;
+      const { search } = this.props;
+      const filter = document.getElementById('search-filter').value;
+      search(searchText, filter);
+    };
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+    handleChange = (e) => {
+      const { name, value } = e.target;
+      this.setState({ [name]: value });
+    };
 
-  render() {
-    const { state } = this.props;
-    const { isAuthenticated } = state;
-    const username = localStorage.getItem('user');
-    const { viewProfileReducer } = this.props;
-    const { profile } = viewProfileReducer.payload;
-    const { image } = profile;
-    return (
-      <div>
-        <div className="navbar-fixed">
-          <nav className="white z-depth-0">
-            <div className="container">
-              <div className="nav-wrapper">
-                <a href="/" className="brand-logo black-text">Authors Haven</a>
-                <ul className="right hide-on-med-and-down grey-text">
-                  <li>
-                    <form className="search">
-                      {/* eslint-disable-next-line */}
-                        <i className="material-icons" onClick={this.handleSearch}>search</i>
-                      <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
-                      <div className="input-field col s12">
-                        <select id="search-filter">
-                          <option value="" disabled>Search By</option>
-                          <option value="title">Title</option>
-                          <option value="author__username">Author</option>
-                          <option value="tagList">Tag</option>
-                        </select>
-                      </div>
+    render() {
+      const { state } = this.props;
+      const { isAuthenticated } = state;
+      const username = localStorage.getItem('user');
+      const { viewProfileReducer } = this.props;
+      const { profile } = viewProfileReducer.payload;
+      const { image } = profile;
+      return (
+        <div>
+          <div className="navbar-fixed">
+            <nav className="white z-depth-0">
+              <div className="container">
+                <div className="nav-wrapper">
+                  <a href="/" className="brand-logo black-text">Authors Haven</a>
+                  <ul className="right hide-on-med-and-down grey-text">
+                    <li>
+                      <form className="search">
+                        {/* eslint-disable-next-line */}
+                                            <i className="material-icons" onClick={this.handleSearch}>search</i>
+                        <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
+                        <div className="input-field col s12">
+                          <select id="search-filter">
+                            <option value="" disabled>Search By</option>
+                            <option value="title">Title</option>
+                            <option value="author__username">Author</option>
+                            <option value="tagList">Tag</option>
+                          </select>
+                        </div>
 
-                    </form>
-                  </li>
-                  {(isAuthenticated) ? (
-                    <span>
-                      <li><i className="material-icons">notifications_none</i></li>
-                      <li><i className="material-icons">bookmark_border</i></li>
-                      {/* onClick={this.handleprofileView} see profile */ }
-                      <li>
-                        {/* <button className="profile-button" type="submit"> */}
-                        <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
-                        {/* </button> */}
-                      </li>
-                      <li>
-                        {' '}
-                        <p className="navbar-username">
+                      </form>
+                    </li>
+                    {(isAuthenticated) ? (
+                      <span>
+                        <li><i className="material-icons">notifications_none</i></li>
+                        <li><i className="material-icons">bookmark_border</i></li>
+                        {/* onClick={this.handleprofileView} see profile */ }
+                        <li>
+                          {/* <button className="profile-button" type="submit"> */}
+                          <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
+                          {/* </button> */}
+                        </li>
+                        <li>
+                          {' '}
+                          <p className="navbar-username">
                         Welcome
+                            {' '}
+                            {' '}
+                            {username}
+                          </p>
                           {' '}
-                          {' '}
-                          {username}
-                        </p>
-                        {' '}
-                      </li>
-                      <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
+                        </li>
+                        <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
                           logout
-                      </button>
-                    </span>
-                  ) : (
-                    <span>
-                      <li>
-                        <a
-                          className="waves-effect waves-light btn white teal-text
-                                modal-trigger"
-                          href="#modal-social"
-                        >
-                          Sign in
-                        </a>
-
-                      </li>
-                      <li>
-                        <button type="button" className="waves-effect waves-light btn white teal-text modal-trigger" href="#modal2">
-                          Get started
                         </button>
+                      </span>
+                    ) : (
+                      <span>
+                        <li>
+                          <a
+                            className="waves-effect waves-light btn white teal-text
+                                modal-trigger"
+                            href="#modal-social"
+                          >
+                          Sign in
+                          </a>
 
-                      </li>
-                    </span>)}
-                </ul>
+                        </li>
+                        <li>
+                          <button type="button" className="waves-effect waves-light btn white teal-text modal-trigger" href="#modal2">
+                          Get started
+                          </button>
+
+                        </li>
+                      </span>)}
+                  </ul>
+                </div>
               </div>
-            </div>
-          </nav>
+            </nav>
+          </div>
+          <Register />
+          <Login />
+          <SocialLogin />
+          <Forgotpassword />
         </div>
-        <Register />
-        <Login />
-        <SocialLogin />
-        <Forgotpassword />
-      </div>
 
-    );
-  }
+      );
+    }
 }
 
 Navbar.propTypes = {

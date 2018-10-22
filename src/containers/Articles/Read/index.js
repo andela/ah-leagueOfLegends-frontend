@@ -20,34 +20,45 @@ class ReadArticle extends Component {
   }
 
 
-  renderArticleHandler = () => {
-    const { articles } = this.props;
-    const artcles = articles.map((article, index) => {
-      let b;
-      try {
-        b = JSON.parse(article.body);
-      } catch (e) {
-        return false;
-      }
-      const { blocks } = b;
-      if (!blocks) return false;
-      const p = extractDescription(blocks);
-      const prevw = p ? p.text : '';
-      const preview = prevw.slice(0, 220);
-      return (
-        <ArticleComponent
-          key={article.slug}
-          article={article}
-          index={index}
-          preview={preview}
+    renderArticleHandler = () => {
+      const { articles } = this.props;
+      const artcles = articles.map((article, index) => {
+        let b;
+        try {
+          b = JSON.parse(article.body);
+        } catch (e) {
+          return false;
+        }
+        const { blocks } = b;
+        if (!blocks) return false;
+        const p = extractDescription(blocks);
+        const prevw = p ? p.text : '';
+        const preview = prevw.slice(0, 220);
+        return (
+          <ArticleComponent
+            key={article.slug}
+            article={article}
+            index={index}
+            preview={preview}
+          />
 
-        />
-
+        );
+      },
       );
-    },
-    );
-    if (artcles === 0) {
-      return (<NotFound item="Article" />);
+      if (artcles === 0) {
+        return (<NotFound item="Article" />);
+      }
+      return artcles;
+    };
+
+    render() {
+      return (
+        <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
+          <Navbar />
+          <Aside />
+          { this.renderArticleHandler()}
+        </div>
+      );
     }
     return artcles;
   };
