@@ -1,0 +1,15 @@
+@import "../base/settings";
+
+.search {
+  align-items: center;
+  display: flex;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
