@@ -8,6 +8,7 @@ import Register from './Authentication/Signup/Register';
 import Login from '../containers/Authentication/Login/Login';
 import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
 import Forgotpassword from '../containers/Forgotpassword';
+import Notifications from '../containers/Notification';
 
 class Navbar extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class Navbar extends Component {
                   </li>
                   {(isAuthenticated) ? (
                     <span>
-                      <li><i className="material-icons">notifications_none</i></li>
+                      <li><Notifications /></li>
                       <li><i className="material-icons">bookmark_border</i></li>
                       <button type="button" className="waves-effect waves-light white teal-text btn " onClick={this.logout}>
                           logout
@@ -98,8 +99,6 @@ class Navbar extends Component {
                       </li>
                     </span>)}
                 </ul>
-}
-
               </div>
             </div>
           </nav>
