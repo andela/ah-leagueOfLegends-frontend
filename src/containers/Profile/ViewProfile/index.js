@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
 import { bindActionCreators } from 'redux';
-
-import ProfileHeader from '../../../components/ProfileHeader';
 import ViewProfiles from '../../../components/ViewProfiles';
 import Loader from '../../../components/Loader';
 import fetchUserDetails from './actions';
@@ -75,11 +73,6 @@ class ViewProfile extends Component {
           )
           : (
             <div>
-              <ProfileHeader
-                username={payload.profile.username}
-                image={payload.profile.image}
-                isAuthenticated={isAuthenticated}
-              />
               <ViewProfiles
                 username={payload.profile.username}
                 image={payload.profile.image}
