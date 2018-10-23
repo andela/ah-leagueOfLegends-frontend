@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 
 import '../../styles/styles.css';
 import { BACKEND_URL } from '../../utils/config';
-import UserInfo from '../../containers/Articles/Create/userInfo';
-import LoginHeader from '../Header/LogedInHeader';
+import UserInfo from '../Header/UserInfo';
 
 export default class Editor extends Component {
   state = {
-    saving: false,
     tags: [],
     editorState: null,
     article: {},
@@ -97,11 +95,10 @@ export default class Editor extends Component {
   render() {
     const titl = <div style={{ fontSize: 50, fontWeight: 'bold' }}>Enter Title</div>;
     const { edtrState } = this.props;
-    const { saving } = this.state;
     const token = localStorage.getItem('access_token');
     return (
       <div>
-        <LoginHeader
+        <UserInfo
           /* eslint-disable-next-line */
           tagsValue={this.state.tags}
           getTags={this.getTags}
@@ -110,7 +107,6 @@ export default class Editor extends Component {
           removeTag={this.removeTag}
           publishHandler={this.publishArticleHandler}
         />
-        <UserInfo status={saving} />
         <div className="draft-editor">
           <Dante
             body_placeholder={titl}
