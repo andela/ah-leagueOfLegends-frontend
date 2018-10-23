@@ -18,46 +18,33 @@ class ReadArticle extends Component {
     getAllArticles();
   }
 
-
-    renderArticleHandler = () => {
-      const { articles } = this.props;
-      const artcles = articles.map((article, index) => {
-        let b;
-        try {
-          b = JSON.parse(article.body);
-        } catch (e) {
-          return false;
-        }
-        const { blocks } = b;
-        if (!blocks) return false;
-        const p = extractDescription(blocks);
-        const prevw = p ? p.text : '';
-        const preview = prevw.slice(0, 220);
-        return (
-          <ArticleComponent
-            key={article.slug}
-            article={article}
-            index={index}
-            preview={preview}
-          />
-
-        );
-      },
-      );
-      if (artcles === 0) {
-        return (<NotFound item="Article" />);
+  renderArticleHandler = () => {
+    const { articles } = this.props;
+    const artcles = articles.map((article, index) => {
+      let b;
+      try {
+        b = JSON.parse(article.body);
+      } catch (e) {
+        return false;
       }
-      return artcles;
-    };
-
-    render() {
+      const { blocks } = b;
+      if (!blocks) return false;
+      const p = extractDescription(blocks);
+      const prevw = p ? p.text : '';
+      const preview = prevw.slice(0, 220);
       return (
-        <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
-          <Navbar />
-          <Aside />
-          { this.renderArticleHandler()}
-        </div>
+        <ArticleComponent
+          key={article.slug}
+          article={article}
+          index={index}
+          preview={preview}
+        />
+
       );
+    },
+    );
+    if (artcles === 0) {
+      return (<NotFound item="Article" />);
     }
     return artcles;
   };
@@ -80,7 +67,7 @@ ReadArticle.propTypes = {
 
 const mapStateToProps = state => ({
   articles: state.articles.all_articles,
-  loading: '',
+  loading: state.articles.loading,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
