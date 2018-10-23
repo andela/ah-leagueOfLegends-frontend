@@ -104,41 +104,36 @@ ul#nav-dropdown.dropdown-content{
   top: -50px; 
 }
 
-#nav-dropdown li{
+#nav-dropdown li {
   margin-bottom: -10px;
 }
 
-#nav-dropdown li:hover{
+#nav-dropdown li:hover {
  background-color: $white;
 }
 
-#nav-dropdown li a{
+#nav-dropdown li a {
   padding-top: 5px ;
   padding-bottom: 5px ;
   font-size: 14px;
-  color:$color-gray;
+  color: $black;
   border-bottom: 0.5px solid $navbar-color;
 }
  
-#nav-dropdown li a:hover{
-  color: $black;
+#nav-dropdown li a:hover {
   background-color: $white;
 }
 
 .nav-drop-item{
-  color:$color-gray;
+  color: $black;
   border: 2px solid black;
   height: 45px;
 }
 
-li.nav-logout{
-  color: $color-gray !important;
+li.nav-logout {
   font-size: 14px;
   padding-left: 16px;
   height: 20px;
   margin-bottom: -20px !important;
 }
 
-.nav-logout:hover{
-  color: $black !important;
-}
