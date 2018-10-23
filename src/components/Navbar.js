@@ -9,6 +9,7 @@ import Login from '../containers/Authentication/Login/Login';
 import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
 import Forgotpassword from '../containers/Forgotpassword';
 import fetchUserDetails from '../containers/Profile/ViewProfile/actions';
+import { url } from '../utils/config';
 
 class Navbar extends Component {
   constructor(props) {
@@ -23,6 +24,8 @@ class Navbar extends Component {
   componentDidMount() {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
+    const el = document.querySelectorAll('.dropdown-trigger');
+    M.Dropdown.init(el);
     const { fetchUserDetails: fetchUser } = this.props;
     const { state } = this.props;
     const { isAuthenticated } = state;

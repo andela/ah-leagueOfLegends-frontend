@@ -77,6 +77,9 @@
   width: 40px;
   margin: 15px 20px 10px 15px;
 }
+.small-navbar-profile:hover {
+cursor: pointer;
+}
 
 .navbar-username{
   margin-bottom: 30px;
@@ -92,4 +95,50 @@
   margin-top: 10px;
   margin-right: 50px;
 
+}
+
+ul#nav-dropdown.dropdown-content{
+  margin-top: 5px;
+  display: block;
+  width: 115px !important;
+  top: -50px; 
+}
+
+#nav-dropdown li{
+  margin-bottom: -10px;
+}
+
+#nav-dropdown li:hover{
+ background-color: $white;
+}
+
+#nav-dropdown li a{
+  padding-top: 5px ;
+  padding-bottom: 5px ;
+  font-size: 14px;
+  color:$color-gray;
+  border-bottom: 0.5px solid $navbar-color;
+}
+ 
+#nav-dropdown li a:hover{
+  color: $black;
+  background-color: $white;
+}
+
+.nav-drop-item{
+  color:$color-gray;
+  border: 2px solid black;
+  height: 45px;
+}
+
+li.nav-logout{
+  color: $color-gray !important;
+  font-size: 14px;
+  padding-left: 16px;
+  height: 20px;
+  margin-bottom: -20px !important;
+}
+
+.nav-logout:hover{
+  color: $black !important;
 }
