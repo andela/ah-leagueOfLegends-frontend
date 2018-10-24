@@ -101,3 +101,20 @@
   padding: 3%;
 
 }
+
+.publish-article-button {
+  position: relative;
+}
+
+.mdl-publish-article .modal-overlay {
+  opacity: 0 !important;
+}
+
+#modal13.modal.publish-modal.z-depth-0.open {
+  top: 18% !important;
+  left: 50%;
+  width: 20%;
+  padding:5px; 
+  background-color: $white;
+  border: 1px solid $navbar-color;
+}

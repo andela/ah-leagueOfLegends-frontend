@@ -64,20 +64,38 @@ class ArticleHeader extends Component {
             {/* <button type="button" onClick={this.publishClickedHandler} className="button">
                     Ready to Publish?
             </button> */}
-            <a className="modal-trigger btn" href="#modal13" >New Article</a>
+            <a
+              className="modal-trigger btn publish-article-button"
+              href="#modal13"
+              style={{ position: 'absolute', right: '20%' }}
+            >
+            Ready to Publish
+
+            </a>
           </div>
         </div>
-        <div className="modal" id="modal13">
-          <h6><b>Prepare your story for readers</b></h6>
+        <div className="mdl-publish-article">
+          <div
+            className="modal publish-modal z-depth-0"
+            id="modal13"
+            style={{ width: '30%', right: '10%' }}
+          >
+            <div className="container">
+
+              <h6><b>Prepare your story for readers</b></h6>
           Add or change tags (up to 5) so readers know what your story is about.
-          <br />
-          <div className="chips chips-placeholder" />
-          <br />
-          <br />
-          <button type="button" className="publish-button" onClick={publishHandler}>
+              <br />
+              <div className="chips chips-placeholder" />
+              <br />
+              <br />
+              <button type="button" className="publish-button" onClick={publishHandler}>
             Publish Now
-          </button>
+              </button>
+            </div>
+          </div>
         </div>
+
+
       </div>
     );
   }
