@@ -18,7 +18,7 @@ class Tags extends Component {
     return (
       <div>
         <div className="">
-          <ul className="tabs tabs-fixed-width tab-demo z-depth-0">
+          <ul className=" tabs tabs-fixed-width tab-demo z-depth-0">
             <li className="tab1"><a data-value="collections" onClick={this.handleSearch} href="#collections">COLLECTIONS</a></li>
             <li className="tab1"><a data-value="power" onClick={this.handleSearch} href="#powertrip">POWER TRIP</a></li>
             <li className="tab1"><a data-value="culture" onClick={this.handleSearch} href="#culture">CULTURE</a></li>

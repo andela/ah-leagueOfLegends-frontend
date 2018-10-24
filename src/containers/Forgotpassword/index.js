@@ -34,19 +34,13 @@ class Forgotpassword extends React.Component {
       dispatch(forgotPasswordAction(email));
     }
 
-    handleReload = (e) => {
-      e.preventDefault();
-      this.setState({});
-      setTimeout(() => { window.location.reload(); }, 10);
-    }
-
     render() {
       const { payload, forgotPasswordReducer } = this.props;
       return (
         <div id="modal3" className="modal custom-modal">
           <div className="modal-content">
             <h2>Password Recovery</h2>
-            <form onSubmit={this.handleReload}>
+            <form>
               <div className="input-field col s12">
                 <input required name="email" type="email" className="validate" onChange={this.handleChange} />
                 {/* eslint-disable-next-line */}
@@ -54,6 +48,9 @@ class Forgotpassword extends React.Component {
                 {payload}
                 {
                   forgotPasswordReducer.success ? (<div color="$color-green">E-mail sent successfully</div>) : null
+                }
+                {
+                  forgotPasswordReducer.failure ? (<div color="$color-red">E-mail sent unsuccessfully</div>) : null
                 }
               </div>
               <br />
