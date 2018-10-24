@@ -1,7 +1,6 @@
 import React from 'react';
 import M from 'materialize-css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { forgotPasswordAction } from './actions';
 
@@ -29,8 +28,10 @@ class Forgotpassword extends React.Component {
     handleSubmit = (e) => {
       e.preventDefault();
       const { email } = this.state;
+      // eslint-disable-next-line
+      const { dispatch } = this.props;
       if (email === undefined || email === '') { return false; }
-      forgotPasswordAction(email);
+      dispatch(forgotPasswordAction(email));
     }
 
     render() {
@@ -47,6 +48,9 @@ class Forgotpassword extends React.Component {
                 {payload}
                 {
                   forgotPasswordReducer.success ? (<div color="$color-green">E-mail sent successfully</div>) : null
+                }
+                {
+                  forgotPasswordReducer.failure ? (<div color="$color-red">E-mail sent unsuccessfully</div>) : null
                 }
               </div>
               <br />
@@ -74,8 +78,6 @@ Forgotpassword.propTypes = {
 };
 const mapStateToProps = state => ({ forgotPasswordReducer: state.forgotPasswordReducer });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ forgotPasswordAction },
-  dispatch);
 
 export default connect(
-  mapStateToProps, mapDispatchToProps)(Forgotpassword);
+  mapStateToProps)(Forgotpassword);

@@ -1,0 +1,55 @@
+@import "../base/settings";
+
+.rsp {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.fpl {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.modal-content h2 {
+  font: 18px "Robot";
+  margin: 1% 25%;
+  text-align: center;
+  }
+
+.alert-ms p {
+  color: $color-green;
+  justify-content: center;
+}
+
+.myform {
+  color: $color-green;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+}
+
+.tabs {
+  border-bottom: 0.4px solid $t-border-b;
+  position: fixed;
+  right: 2%;
+  top: -45px;
+}
+
+.tabs .tab1 a {
+  color: $color-tabs;
+  display: block;
+  font-size: 14px;
+  height: 100%;
+  overflow: hidden;
+  padding: 10px 25px;
+  text-overflow: ellipsis;
+  transition: color 0.28s ease, background-color 0.28s ease;
+  width: 100%;
+}
+
+.tabs .tab1 a:hover {
+  color: $color-black;
+}
