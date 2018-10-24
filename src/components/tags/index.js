@@ -7,10 +7,9 @@ class Tags extends Component {
   componentDidMount() {}
 
   handleSearch = (e) => {
+    // eslint-disable-next-line
     const { dispatch } = this.props;
-    console.log(this.props);
     const searchText = e.target.getAttribute('data-value');
-    console.log(searchText);
     const filter = 'tagList';
     dispatch(searchItem(searchText, filter));
   }

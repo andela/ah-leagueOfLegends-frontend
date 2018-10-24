@@ -34,13 +34,19 @@ class Forgotpassword extends React.Component {
       dispatch(forgotPasswordAction(email));
     }
 
+    handleReload = (e) => {
+      e.preventDefault();
+      this.setState({});
+      setTimeout(() => { window.location.reload(); }, 10);
+    }
+
     render() {
       const { payload, forgotPasswordReducer } = this.props;
       return (
         <div id="modal3" className="modal custom-modal">
           <div className="modal-content">
             <h2>Password Recovery</h2>
-            <form>
+            <form onSubmit={this.handleReload}>
               <div className="input-field col s12">
                 <input required name="email" type="email" className="validate" onChange={this.handleChange} />
                 {/* eslint-disable-next-line */}
