@@ -1,10 +1,14 @@
 # Hound CI eslint configurations
 eslint:
-  enabled: true
+  enabled: false
   config_file: .eslintrc.json
 scss:
   enabled: false
+scss_files: "**/*.scss"
+plugin_directories: ['.scss-linters']
+
 exclude:
   - "src/styles/*.scss"
-  - "src/styles/styles.scss"
+  - "styles/styles.scss"
   - "src/styles/scss/components/_articles.scss"
+  - "src/styles/scss/components/*.scss"
