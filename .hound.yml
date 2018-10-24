@@ -4,9 +4,7 @@ eslint:
   config_file: .eslintrc.json
 scss:
   enabled: false
-scss_files: "**/*.scss"
-plugin_directories: ['.scss-linters']
-
 exclude:
-  - "styles/*.scss"
-  - "styles/styles.scss"
+  - "src/styles/*.scss"
+  - "src/styles/styles.scss"
+  - "src/styles/scss/components/_articles.scss"
