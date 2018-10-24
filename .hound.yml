@@ -2,8 +2,18 @@
 eslint:
   enabled: true
   config_file: .eslintrc.json
+
+files:
+  ignore:
+    - 'src/styles/*.scss'
+    - 'src/styles/styles.scss'
+
 scss:
   enabled: false
+
+scss:
+  enabled: false
+
 scss_files: "**/*.scss"
 plugin_directories: ['.scss-linters']
 
