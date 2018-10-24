@@ -90,7 +90,6 @@ class UpdateProfile extends Component {
           )
           : (
             <div>
-              <Header username={payload.profile.username} image={payload.profile.image} />
               <EditProfile
                 username={username}
                 bio={bio}
@@ -106,9 +105,9 @@ class UpdateProfile extends Component {
 }
 
 UpdateProfile.propTypes = {
-  viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
-  match: PropTypes.instanceOf(Object).isRequired,
-  history: PropTypes.instanceOf(Object).isRequired,
+  viewProfileReducer: PropTypes.instanceOf().isRequired,
+  match: PropTypes.instanceOf().isRequired,
+  history: PropTypes.instanceOf().isRequired,
 
 };
 

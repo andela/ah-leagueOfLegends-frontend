@@ -36,7 +36,7 @@ class App extends Component {
               <Route exact path={ROUTE.reset} component={PasswordReset} />
               <Route exact path={ROUTE.getUserProfile} component={ViewProfile} />
 
-              <Route exact path={ROUTE.updateUserProfile} component={UpdateProfile} />
+              <PrivateRoute exact path={ROUTE.updateUserProfile} component={UpdateProfile} />
 
               <PrivateRoute exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />
