@@ -6,7 +6,6 @@ import toastr from 'toastr';
 
 import updateUser from './actions';
 import fetchUserDetails from '../ViewProfile/actions';
-import Header from '../../../components/ProfileHeader';
 import EditProfile from '../../../components/EditProfile';
 import Loader from '../../../components/Loader';
 import NotFound from '../../../components/NotFound';
@@ -75,7 +74,7 @@ class UpdateProfile extends Component {
 
   render() {
     const { viewProfileReducer } = this.props;
-    const { payload, isFetching, failure } = viewProfileReducer;
+    const { isFetching, failure } = viewProfileReducer;
     const { username, bio, image } = this.state;
     if (isFetching) {
       return (

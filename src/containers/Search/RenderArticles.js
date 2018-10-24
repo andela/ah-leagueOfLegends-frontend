@@ -12,11 +12,11 @@ const articleComponent = (props) => {
           <img
             className="avatar-small"
             alt="User Profile"
-            src="https://api.adorable.io/avatars/285/abott@adorable.png"
+            src={article.author.image}
           />
           <div className="articale-time">
             <p>
-              <a href="/">{article.author}</a>
+              <a href="/">{article.author.username}</a>
             </p>
             <div className="article-time--details">
               <p>{article.created_at_date.substring(0, 17)}</p>
