@@ -25,6 +25,8 @@ class ArticleHeader extends Component {
       onChipDelete: removeTag,
       data: tags.map(tag => ({ tag })),
     });
+    const el = document.querySelectorAll('.modal13');
+    const instances = M.Modal.init(el);
     fetchUserDetails(username);
   }
 
@@ -38,7 +40,7 @@ class ArticleHeader extends Component {
 
   render() {
     const { publishHandler, viewProfileReducer, username } = this.props;
-    const { publishClicked } = this.state;
+    // const { publishClicked } = this.state;
     const { profile } = viewProfileReducer.loggedInUser;
     return (
       <div>
@@ -59,12 +61,13 @@ class ArticleHeader extends Component {
                 {profile.bio}
               </div>
             </div>
-            <button type="button" onClick={this.publishClickedHandler} className="button">
+            {/* <button type="button" onClick={this.publishClickedHandler} className="button">
                     Ready to Publish?
-            </button>
+            </button> */}
+            <a className="modal-trigger btn" href="#modal13" >New Article</a>
           </div>
         </div>
-        <div className="publish-article-dropdown" style={{ display: (publishClicked ? 'block' : 'none') }}>
+        <div className="modal" id="modal13">
           <h6><b>Prepare your story for readers</b></h6>
           Add or change tags (up to 5) so readers know what your story is about.
           <br />
