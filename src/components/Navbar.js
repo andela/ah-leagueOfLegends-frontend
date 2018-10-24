@@ -26,12 +26,12 @@ class Navbar extends Component {
     M.FormSelect.init(elems);
     const el = document.querySelectorAll('.dropdown-trigger');
     M.Dropdown.init(el);
-    const { fetchUserDetails: fetchUser } = this.props;
+    const { fetchUserDets } = this.props;
     const { state } = this.props;
     const { isAuthenticated } = state;
     if (isAuthenticated) {
       const username = localStorage.getItem('user');
-      fetchUser(username);
+      fetchUserDets(username, 'loggedInUser');
     }
   }
 
@@ -48,54 +48,53 @@ class Navbar extends Component {
     }
 
 
-    handleSearch = () => {
-      const { searchText } = this.state;
-      const { search } = this.props;
-      const filter = document.getElementById('search-filter').value;
-      search(searchText, filter);
-    };
+  render() {
+    const { state } = this.props;
+    const { isAuthenticated } = state;
+    const username = localStorage.getItem('user');
+    const { viewProfileReducer } = this.props;
+    const { profile } = viewProfileReducer.loggedInUser;
+    const { image } = profile;
+    return (
+      <div>
+        <div className="navbar-fixed">
+          <nav className="white z-depth-0">
+            <div className="container">
+              <div className="nav-wrapper">
+                <a href="/" className="brand-logo black-text">Authors Haven</a>
+                <ul className="right hide-on-med-and-down grey-text">
+                  <li>
+                    <form className="search">
+                      <div className="input-field col s12">
+                        <select id="search-filter">
+                          <option value="" disabled>Search By</option>
+                          <option value="title">Title</option>
+                          <option value="author__username">Author</option>
+                          <option value="tagList">Tag</option>
+                        </select>
+                      </div>
+                      <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
+                      {/* eslint-disable-next-line */}
+                      <i className="material-icons" onClick={this.handleSearch}>search</i>
 
-    handleChange = (e) => {
-      const { name, value } = e.target;
-      this.setState({ [name]: value });
-    };
+                    </form>
+                  </li>
+                  {(isAuthenticated) ? (
+                    <span>
+                      <li><i className="material-icons">notifications_none</i></li>
+                      <li><i className="material-icons">bookmark_border</i></li>
 
-    render() {
-      const { state } = this.props;
-      const { isAuthenticated } = state;
-      const username = localStorage.getItem('user');
-      const { viewProfileReducer } = this.props;
-      const { profile } = viewProfileReducer.payload;
-      const { image } = profile;
-      return (
-        <div>
-          <div className="navbar-fixed">
-            <nav className="white z-depth-0">
-              <div className="container">
-                <div className="nav-wrapper">
-                  <a href="/" className="brand-logo black-text">Authors Haven</a>
-                  <ul className="right hide-on-med-and-down grey-text">
-                    <li>
-                      <form className="search">
-                        {/* eslint-disable-next-line */}
-                                            <i className="material-icons" onClick={this.handleSearch}>search</i>
-                        <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
-                        <div className="input-field col s12">
-                          <select id="search-filter">
-                            <option value="" disabled>Search By</option>
-                            <option value="title">Title</option>
-                            <option value="author__username">Author</option>
-                            <option value="tagList">Tag</option>
-                          </select>
-                        </div>
 
-                      </form>
-                    </li>
-                    {(isAuthenticated) ? (
-                      <span>
-                        <li><i className="material-icons">notifications_none</i></li>
-                        <li><i className="material-icons">bookmark_border</i></li>
-                        {/* onClick={this.handleprofileView} see profile */ }
+                      <li>
+                        <img
+                          className="small-navbar-profile dropdown-trigger"
+                          data-target="nav-dropdown"
+                          src={image}
+                          alt={username}
+                        />
+                      </li>
+
+                      <ul id="nav-dropdown" className="dropdown-content">
                         <li>
                           {/* <button className="profile-button" type="submit"> */}
                           <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
@@ -153,7 +152,7 @@ Navbar.propTypes = {
   state: PropTypes.instanceOf(Object).isRequired,
   search: PropTypes.func.isRequired,
   viewProfileReducer: PropTypes.func.isRequired,
-  fetchUserDetails: PropTypes.func.isRequired,
+  fetchUserDets: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -162,7 +161,7 @@ const mapStateToProps = state => ({
 });
 
 const matchDispatchToProps = dispatch => bindActionCreators(
-  { fetchUserDetails, search: searchItem }, dispatch);
+  { fetchUserDets: fetchUserDetails, search: searchItem }, dispatch);
 
 export default connect(
   mapStateToProps,

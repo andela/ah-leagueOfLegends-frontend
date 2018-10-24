@@ -1,11 +1,18 @@
 import {
   VIEW_PROFILE_REQUEST, VIEW_PROFILE_FAILURE,
-  VIEW_PROFILE_SUCCESS,
+  VIEW_PROFILE_SUCCESS, VIEW_LOGGED_IN_PROFILE_SUCCESS,
 } from './ActionTypes';
 
 const initialState = {
   isFetching: false,
   payload: {
+    profile: {
+      username: '',
+      bio: '',
+      image: '',
+    },
+  },
+  loggedInUser: {
     profile: {
       username: '',
       bio: '',
@@ -35,12 +42,21 @@ const viewProfileReducer = (state = initialState, action) => {
       };
     case VIEW_PROFILE_SUCCESS:
       return {
-
+        ...state,
         isFetching: false,
         failure: false,
         success: true,
         errors: null,
         payload,
+      };
+    case VIEW_LOGGED_IN_PROFILE_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        failure: false,
+        success: true,
+        errors: null,
+        loggedInUser: payload,
       };
     default:
       return state;
