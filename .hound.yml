@@ -1,6 +1,6 @@
 # Hound CI eslint configurations
 eslint:
-  enabled: false
+  enabled: true
   config_file: .eslintrc.json
 scss:
   enabled: false
@@ -11,4 +11,4 @@ exclude:
   - "src/styles/*.scss"
   - "styles/styles.scss"
   - "src/styles/scss/components/_articles.scss"
-  - "src/styles/scss/components/*.scss"
+  - "src/styles/scss/components/_.scss"
