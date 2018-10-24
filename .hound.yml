@@ -9,3 +9,4 @@ plugin_directories: ['.scss-linters']
 
 exclude:
   - "styles/*.scss"
+  - "styles/styles.scss"
