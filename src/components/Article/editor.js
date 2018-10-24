@@ -50,7 +50,6 @@ export default class Editor extends Component {
 
 
   handleSave = (state) => {
-    this.setState({ saving: true });
     const editorState = state.editorState();
     const title = editorState.getCurrentContent().getFirstBlock().text;
     let data;
@@ -67,7 +66,6 @@ export default class Editor extends Component {
         },
       };
       localStorage.setItem('article', JSON.stringify(data));
-      this.setState({ saving: false });
       return;
     }
     data = {
@@ -81,7 +79,6 @@ export default class Editor extends Component {
     };
 
     localStorage.setItem('article', JSON.stringify(data));
-    this.setState({ saving: false });
   };
 
   publishArticleHandler = () => {

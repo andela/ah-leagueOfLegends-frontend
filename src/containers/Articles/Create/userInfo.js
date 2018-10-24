@@ -14,7 +14,7 @@ class UsrInfo extends Component {
 
   render() {
     const { viewProfileReducer, username } = this.props;
-    const { payload } = viewProfileReducer;
+    const { profile } = viewProfileReducer.loggedInUser;
 
     return (
       <div style={{ width: '70%', marginLeft: '20%', marginTop: '2%' }}>
@@ -22,7 +22,7 @@ class UsrInfo extends Component {
           <div className="author-info">
             <img
               className="avatar-small"
-              src={payload.profile.image}
+              src={profile.image}
               alt="User Profile Pic"
               style={{ marginTop: 10 }}
             />
@@ -32,7 +32,7 @@ class UsrInfo extends Component {
                 {' '}
               </p>
               <div className="article-time--details" style={{ padding: 1 }}>
-                {payload.profile.bio}
+                {profile.bio}
                 <br />
                 Draft
               </div>

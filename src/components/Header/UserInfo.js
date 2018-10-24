@@ -39,14 +39,14 @@ class ArticleHeader extends Component {
   render() {
     const { publishHandler, viewProfileReducer, username } = this.props;
     const { publishClicked } = this.state;
-    const { payload } = viewProfileReducer;
+    const { profile } = viewProfileReducer.loggedInUser;
     return (
       <div>
         <div style={{ width: '70%', marginLeft: '20%', marginTop: '2%' }}>
           <div className="author-info">
             <img
               className="avatar-small"
-              src={payload.profile.image}
+              src={profile.image}
               alt="User Profile Pic"
               style={{ marginTop: 10 }}
             />
@@ -56,9 +56,7 @@ class ArticleHeader extends Component {
                 {' '}
               </p>
               <div className="article-time--details" style={{ padding: 1 }}>
-                {payload.profile.bio}
-                <br />
-                Draft
+                {profile.bio}
               </div>
             </div>
             <button type="button" onClick={this.publishClickedHandler} className="button">
