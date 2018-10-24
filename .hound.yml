@@ -11,14 +11,3 @@ files:
 scss:
   enabled: false
 
-scss:
-  enabled: false
-
-scss_files: "**/*.scss"
-plugin_directories: ['.scss-linters']
-
-exclude:
-  - "src/styles/*.scss"
-  - "styles/styles.scss"
-  - "src/styles/scss/components/_articles.scss"
-  - "src/styles/scss/components/_.scss"
