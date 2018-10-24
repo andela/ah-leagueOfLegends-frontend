@@ -10,6 +10,7 @@ import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
 import Forgotpassword from '../containers/Forgotpassword';
 import fetchUserDetails from '../containers/Profile/ViewProfile/actions';
 import { url } from '../utils/config';
+import Notification from '../containers/Notification';
 
 class Navbar extends Component {
   constructor(props) {
@@ -35,18 +36,31 @@ class Navbar extends Component {
     }
   }
 
-    logout = () => {
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('isAuthenticated');
-      window.location.reload(true);
-    };
+  logout = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('isAuthenticated');
+    window.location.reload(true);
+  };
 
-    // eslint-disable-next-line
-    handleprofileView() {
-      const username = localStorage.getItem('user');
-      window.location.replace(`/profile/${username}`);
-    }
 
+  handleSearch = () => {
+    const { searchText } = this.state;
+    const { search } = this.props;
+    const filter = document.getElementById('search-filter').value;
+    search(searchText, filter);
+  };
+
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
+  handleprofileView = () => {
+    const username = localStorage.getItem('user');
+    return `${url}profile/${username}`;
+  }
+
+  handleCreateNewArticle = () => `${url}article/new`
 
   render() {
     const { state } = this.props;
@@ -81,7 +95,9 @@ class Navbar extends Component {
                   </li>
                   {(isAuthenticated) ? (
                     <span>
-                      <li><i className="material-icons">notifications_none</i></li>
+                      <li>
+                        <Notification />
+                      </li>
                       <li><i className="material-icons">bookmark_border</i></li>
 
 
@@ -96,56 +112,53 @@ class Navbar extends Component {
 
                       <ul id="nav-dropdown" className="dropdown-content">
                         <li>
-                          {/* <button className="profile-button" type="submit"> */}
-                          <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
-                          {/* </button> */}
+                          <a href={this.handleprofileView()}>Profile</a>
                         </li>
                         <li>
-                          {' '}
-                          <p className="navbar-username">
-                        Welcome
-                            {' '}
-                            {' '}
-                            {username}
-                          </p>
-                          {' '}
+                          <a href={this.handleCreateNewArticle()}>New article</a>
                         </li>
-                        <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
-                          logout
-                        </button>
-                      </span>
-                    ) : (
-                      <span>
-                        <li>
-                          <a
-                            className="waves-effect waves-light btn white teal-text
+                        {/* eslint-disable-next-line */}
+                        <li
+                          onClick={this.logout}
+                          onKeyPress={this.logout}
+                          className="nav-logout"
+                        >
+                            Logout
+                        </li>
+                      </ul>
+                    </span>
+                  ) : (
+                    <span>
+                      <li>
+                        <a
+                          className="waves-effect waves-light btn white teal-text
                                 modal-trigger"
-                            href="#modal-social"
-                          >
+                          href="#modal-social"
+                        >
                           Sign in
-                          </a>
+                        </a>
 
-                        </li>
-                        <li>
-                          <button type="button" className="waves-effect waves-light btn white teal-text modal-trigger" href="#modal2">
+                      </li>
+                      <li>
+                        <button type="button" className="waves-effect waves-light btn white teal-text modal-trigger" href="#modal2">
                           Get started
-                          </button>
+                        </button>
 
-                        </li>
-                      </span>)}
-                  </ul>
-                </div>
+                      </li>
+                    </span>)}
+                </ul>
               </div>
-            </nav>
-          </div>
-          <Register />
-          <Login />
-          <SocialLogin />
-          <Forgotpassword />
+            </div>
+          </nav>
         </div>
+        <Register />
+        <Login />
+        <SocialLogin />
+        <Forgotpassword />
+      </div>
 
-      );
-    }
+    );
+  }
 }
 
 Navbar.propTypes = {
