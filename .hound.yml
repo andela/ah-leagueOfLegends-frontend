@@ -1,3 +1,7 @@
+# Hound CI scss configurations
+scss:
+  enabled: false
+
 # Hound CI eslint configurations
 eslint:
   enabled: true
@@ -7,5 +11,5 @@ eslint:
 #   enabled: true
 #   config_file: .scss-lint.yml
 
-exclude:
-  - "**/*.scss"
+# exclude:
+#   - "**/*.scss"
