@@ -11,15 +11,10 @@ const articleComponent = (props) => {
         <div key={article.slug} className=" card hoverable articles-landing">
           <div className="card-content">
             <div className="card-content author-info">
-              <img
-                className="avatar-small"
-                alt="User Profile"
-                src="https://api.adorable.io/avatars/285/abott@adorable.png"
-              />
+              <img className="avatar-small" alt="User Profile" src={article.author.image} />
               <div className="articale-time">
                 <p>
-                  <a href="/">{article.author}</a>
-
+                  <a href="/">{article.author.username}</a>
                 </p>
                 <div className="article-time--details">
                   <p>{article.created_at_date.substring(0, 17)}</p>
@@ -37,9 +32,13 @@ const articleComponent = (props) => {
             </p>
           </div>
           <div className="like-dislike">
-            <i className="material-icons" id="like">thumb_up</i>
+            <i className="material-icons" id="like">
+              thumb_up
+            </i>
             <span>{article.like}</span>
-            <i className="material-icons" id="dislike">thumb_down</i>
+            <i className="material-icons" id="dislike">
+              thumb_down
+            </i>
             <span>{article.dislike}</span>
           </div>
         </div>
@@ -77,14 +76,10 @@ const articleComponent = (props) => {
         <div key={article.slug} className="card hoverable article-default">
           <div className="card-content">
             <div className="card-content author-info">
-              <img
-                className="avatar-small"
-                alt="User Profile"
-                src="https://api.adorable.io/avatars/285/abott@adorable.png"
-              />
+              <img className="avatar-small" alt="User Profile" src={article.author.image} />
               <div className="articale-time">
                 <p>
-                  <a href="/">{article.author}</a>
+                  <a href="/">{article.author.username}</a>
                 </p>
                 <div className="article-time--details">
                   <p>{article.created_at_date.substring(0, 17)}</p>
@@ -102,9 +97,13 @@ const articleComponent = (props) => {
             </p>
           </div>
           <div className="like-dislike">
-            <i className="material-icons" id="like">thumb_up</i>
+            <i className="material-icons" id="like">
+              thumb_up
+            </i>
             <span>{article.like}</span>
-            <i className="material-icons" id="dislike">thumb_down</i>
+            <i className="material-icons" id="dislike">
+              thumb_down
+            </i>
             <span>{article.dislike}</span>
           </div>
         </div>
