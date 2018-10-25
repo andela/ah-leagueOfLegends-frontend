@@ -10,9 +10,6 @@ import Rating from '../../../components/Rating/Rating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
 import LikeDislike from '../../../components/LikeDislike';
-import ProfileHeader from '../../../components/ProfileHeader';
-import fetchUserDetails from '../../Profile/ViewProfile/actions';
-
 
 class MainArticle extends Component {
   componentDidMount() {

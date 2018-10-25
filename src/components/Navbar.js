@@ -17,9 +17,6 @@ class Navbar extends Component {
     super(props);
 
     this.searchState = { searchText: '' };
-
-    this.handleSearch = this.handleSearch.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
