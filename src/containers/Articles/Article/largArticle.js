@@ -12,7 +12,7 @@ import DisplayComents from '../../comments/getComents/displayComments';
 import LikeDislike from '../../../components/LikeDislike';
 import ProfileHeader from '../../../components/ProfileHeader';
 import fetchUserDetails from '../../Profile/ViewProfile/actions';
-
+import SocialShare from '../../../components/SocialShare/SocialShare';
 
 class MainArticle extends Component {
   componentDidMount() {
@@ -43,6 +43,7 @@ class MainArticle extends Component {
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;
     }
+    const title = this.props;
     const user = localStorage.getItem('user');
     // eslint-disable-next-line
     const author = mainArticle.payload.author;
@@ -59,29 +60,30 @@ class MainArticle extends Component {
             : null}
         </div>
         <UsrInfo />
-        {
-          (user === author)
-            ? (
-              <button type="button" onClick={this.editClickedHanlder} className="button">
-                        Edit
-              </button>)
-            : null
-        }
+        {user === author ? (
+          <button type="button" onClick={this.editClickedHanlder} className="button">
+            Edit
+          </button>
+        ) : null}
         <Rating
           slug={mainArticle.payload.slug}
           average_rating={mainArticle.payload.average_ratings}
         />
         <div className="main-article">
           {this.renderArticleHandler()}
-          <LikeDislike />
-
+          <div className="interacts">
+            <div>
+              {' '}
+              <LikeDislike />
+            </div>
+            <div>
+              <SocialShare slug={articleSlug} title={mainArticle.payload.title} />
+            </div>
+          </div>
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
-
         </div>
       </div>
-
-
     );
   }
 }
@@ -95,8 +97,7 @@ MainArticle.propTypes = {
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles },
-  dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles }, dispatch);
 
 export default connect(
   mapStateToProps,

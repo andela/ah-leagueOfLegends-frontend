@@ -59,7 +59,7 @@ class ArticleRating extends Component {
                   {// eslint-disable-next-line
                   this.props.ratingReducer.average_rating !== undefined
                     ? this.props.ratingReducer.average_rating.toFixed(1)
-                    : this.props.average_rating}
+                    : this.props.average_rating} {' '}/ {' '}5
                 </span>
               </span>
             </div>
