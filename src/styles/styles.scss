@@ -824,14 +824,6 @@ display: flex;
   margin: auto;
   width: 50%;
 }
-ul#dropdown1.dropdown-content{
-  margin-top: 20px;
-  display: block;
-  width: 300px !important;
-  top: -65px; 
-  overflow-y: scroll;
-  left: 200px;
-}
 
 #notification-counter{
   background-color: $google-red;

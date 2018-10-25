@@ -363,7 +363,7 @@ li.nav-logout {
 
 ul#dropdown1.dropdown-content {
   margin-top: 20px;
-  display: block;
+  display: none;
   width: 300px !important;
   top: -65px;
   overflow-y: scroll;
@@ -1118,14 +1118,6 @@ h6 {
   justify-content: center;
   margin: auto;
   width: 50%; }
-
-ul#dropdown1.dropdown-content {
-  margin-top: 20px;
-  display: block;
-  width: 300px !important;
-  top: -65px;
-  overflow-y: scroll;
-  left: 200px; }
 
 #notification-counter {
   background-color: #dd4b39;
