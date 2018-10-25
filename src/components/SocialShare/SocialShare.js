@@ -31,6 +31,7 @@ class SocialShare extends Component {
         <ul id="dropdown-share" className="dropdown-content social-share ">
           <li>
             <WhatsappShareButton
+              className="watsap"
               url={`https://authorshavenlegends.herokuapp.com/article/${slug}`}
               title={title}
               windowWidth={650}
@@ -41,6 +42,7 @@ class SocialShare extends Component {
           </li>
           <li>
             <GooglePlusShareButton
+              className="google"
               url={`https://authorshavenlegends.herokuapp.com/article/${slug}`}
               title={title}
               windowWidth={700}
@@ -51,6 +53,7 @@ class SocialShare extends Component {
           </li>
           <li>
             <TwitterShareButton
+              className=" twitter"
               url={`https://authorshavenlegends.herokuapp.com/article/${slug}`}
               title={title}
               windowWidth={700}
@@ -61,6 +64,7 @@ class SocialShare extends Component {
           </li>
           <li>
             <FacebookShareButton
+              className="fb"
               url={`https://authorshavenlegends.herokuapp.com/article/${slug}`}
               title={title}
               windowWidth={700}
@@ -71,6 +75,7 @@ class SocialShare extends Component {
           </li>
           <li>
             <EmailShareButton
+              className="email"
               windowWidth={700}
               windowHeight={550}
               url={`https://authorshavenlegends.herokuapp.com/article/${slug}`}
