@@ -9,27 +9,26 @@ import Login from '../containers/Authentication/Login/Login';
 import SocialLogin from './Authentication/Login/socialLogin/SocialLogin';
 import Forgotpassword from '../containers/Forgotpassword';
 import fetchUserDetails from '../containers/Profile/ViewProfile/actions';
-import { url } from '../utils/config';
-import Notification from '../containers/Notification';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
 
     this.searchState = { searchText: '' };
+
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     const elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
-    const el = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(el);
-    const { fetchUserDets } = this.props;
+    const { fetchUserDetails: fetchUser } = this.props;
     const { state } = this.props;
     const { isAuthenticated } = state;
     if (isAuthenticated) {
       const username = localStorage.getItem('user');
-      fetchUserDets(username, 'loggedInUser');
+      fetchUser(username);
     }
   }
 
@@ -38,6 +37,12 @@ class Navbar extends Component {
     localStorage.removeItem('isAuthenticated');
     window.location.reload(true);
   };
+
+  // eslint-disable-next-line
+  handleprofileView() {
+    const username = localStorage.getItem('user');
+    window.location.replace(`/profile/${username}`);
+  }
 
 
   handleSearch = () => {
@@ -52,19 +57,12 @@ class Navbar extends Component {
     this.setState({ [name]: value });
   };
 
-  handleprofileView = () => {
-    const username = localStorage.getItem('user');
-    return `${url}profile/${username}`;
-  }
-
-  handleCreateNewArticle = () => `${url}article/new`
-
   render() {
     const { state } = this.props;
     const { isAuthenticated } = state;
     const username = localStorage.getItem('user');
     const { viewProfileReducer } = this.props;
-    const { profile } = viewProfileReducer.loggedInUser;
+    const { profile } = viewProfileReducer.payload;
     const { image } = profile;
     return (
       <div>
@@ -76,6 +74,9 @@ class Navbar extends Component {
                 <ul className="right hide-on-med-and-down grey-text">
                   <li>
                     <form className="search">
+                      {/* eslint-disable-next-line */}
+                        <i className="material-icons" onClick={this.handleSearch}>search</i>
+                      <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
                       <div className="input-field col s12">
                         <select id="search-filter">
                           <option value="" disabled>Search By</option>
@@ -84,45 +85,29 @@ class Navbar extends Component {
                           <option value="tagList">Tag</option>
                         </select>
                       </div>
-                      <input name="searchText" type="search" placeholder="search" onChange={this.handleChange} />
-                      {/* eslint-disable-next-line */}
-                      <i className="material-icons" onClick={this.handleSearch}>search</i>
 
                     </form>
                   </li>
                   {(isAuthenticated) ? (
                     <span>
-                      <li>
-                        <Notification />
-                      </li>
+                      <li><i className="material-icons">notifications_none</i></li>
                       <li><i className="material-icons">bookmark_border</i></li>
-
-
                       <li>
-                        <img
-                          className="small-navbar-profile dropdown-trigger"
-                          data-target="nav-dropdown"
-                          src={image}
-                          alt={username}
-                        />
+                        <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
                       </li>
-
-                      <ul id="nav-dropdown" className="dropdown-content">
-                        <li>
-                          <a href={this.handleprofileView()}>Profile</a>
-                        </li>
-                        <li>
-                          <a href={this.handleCreateNewArticle()}>New article</a>
-                        </li>
-                        {/* eslint-disable-next-line */}
-                        <li
-                          onClick={this.logout}
-                          onKeyPress={this.logout}
-                          className="nav-logout"
-                        >
-                            Logout
-                        </li>
-                      </ul>
+                      <li>
+                        {' '}
+                        <p className="navbar-username">
+                        Welcome
+                          {' '}
+                          {' '}
+                          {username}
+                        </p>
+                        {' '}
+                      </li>
+                      <button type="button" className="waves-effect waves-light btn white teal-text" onClick={this.logout}>
+                          logout
+                      </button>
                     </span>
                   ) : (
                     <span>
@@ -162,7 +147,7 @@ Navbar.propTypes = {
   state: PropTypes.instanceOf(Object).isRequired,
   search: PropTypes.func.isRequired,
   viewProfileReducer: PropTypes.func.isRequired,
-  fetchUserDets: PropTypes.func.isRequired,
+  fetchUserDetails: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -171,7 +156,7 @@ const mapStateToProps = state => ({
 });
 
 const matchDispatchToProps = dispatch => bindActionCreators(
-  { fetchUserDets: fetchUserDetails, search: searchItem }, dispatch);
+  { fetchUserDetails, search: searchItem }, dispatch);
 
 export default connect(
   mapStateToProps,

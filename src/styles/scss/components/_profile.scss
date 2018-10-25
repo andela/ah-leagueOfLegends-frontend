@@ -1,0 +1,110 @@
+.small-profile {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.profile {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin-top: 40px;
+ }
+
+ .user-detail {
+   align-items: center;
+   display: flex;
+ }
+
+ .avatar {
+   height: 120px;
+   width: 120px;
+   border-radius: 50%;
+   margin-top: 45px;
+ }
+
+ .edit-avatar{
+   height: 120px;
+   width: 120px;
+   border-radius: 50%;
+   margin-top: 20px;
+ }
+
+ .user-detail {
+   align-items: center;
+   display: flex;
+ }
+
+ .avatar {
+   height: 120px;
+   width: 120px;
+   border-radius: 50%;
+   margin-top: 45px;
+ }
+
+ .edit-avatar{
+   height: 120px;
+   width: 120px;
+   border-radius: 50%;
+   margin-top: 20px;
+ }
+
+.btn {
+  text-transform: none;
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid #aaa;
+}
+
+.btn:hover {
+  text-transform: none;
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid teal;
+  background-color: teal !important;
+  color: #fff !important;
+
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+ }
+
+.followers-link li {
+  display: inline;
+
+  & hover{
+    text-decoration: underline;
+  }
+}
+  //eslint-disable-next-line
+.user-detail > button {
+  margin-left: 30px;
+}
+
+.username{
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+}
+
+.materialize-textarea{
+  overflow: auto;
+  outline: none;
+  border: 1px solid #888;
+}
+
+.avatar-wrapper {
+  position: relative;
+
+  button {
+    background: none;
+    border: 0;
+    color: #ffffff;
+    left: 55px;
+    position: absolute;
+    top: 90px;
+  }
+
+}

@@ -20,7 +20,7 @@
 }
 
 .comment-dropdown {
- float: right; 
+ float: right;
  display: none;
 }
 .anotherclass {
@@ -33,5 +33,17 @@
   text-align: center;
 }
 
+.anotherclass1 {
+  display: block;
+  z-index: 500;
+  width: 300px;
+  position: absolute;
+}
 
+.close-edit{
+  float: right;
+}
 
+.btn-edit-comment {
+  width: 90px;
+}

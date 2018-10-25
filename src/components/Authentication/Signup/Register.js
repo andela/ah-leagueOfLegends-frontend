@@ -44,6 +44,8 @@ class Register extends Component {
   }
 
   render() {
+    const { username, email, password } = this.state;
+    const { authReducer } = this.props;
     return (
       <React.Fragment>
         <div className="container" style={{ marginTop: '50px', width: '700px' }}>
@@ -61,10 +63,10 @@ class Register extends Component {
                         name="username"
                         id="username"
                         onChange={this.handleInputChange}
-                        value={this.state.username}
+                        value={username}
                       />
-                      {this.props.authReducer.error.username !== undefined ? (
-                        <span className="alert-error">{this.props.authReducer.error.username}</span>
+                      {authReducer.error.username !== undefined ? (
+                        <span className="alert-error">{authReducer.error.username}</span>
                       ) : null}
                     </div>
                   </div>
@@ -76,10 +78,10 @@ class Register extends Component {
                         name="email"
                         id="email"
                         onChange={this.handleInputChange}
-                        value={this.state.email}
+                        value={email}
                       />
-                      {this.props.authReducer.error.email !== undefined ? (
-                        <span className="alert-error">{this.props.authReducer.error.email}</span>
+                      {authReducer.error.email !== undefined ? (
+                        <span className="alert-error">{authReducer.error.email}</span>
                       ) : null}
                     </div>
                   </div>
@@ -91,10 +93,10 @@ class Register extends Component {
                         name="password"
                         id="password"
                         onChange={this.handleInputChange}
-                        value={this.state.password}
+                        value={password}
                       />
-                      {this.props.authReducer.error.password !== undefined ? (
-                        <span className="alert-error">{this.props.authReducer.error.password}</span>
+                      {authReducer.error.password !== undefined ? (
+                        <span className="alert-error">{authReducer.error.password}</span>
                       ) : null}
                     </div>
                   </div>

@@ -3,22 +3,30 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import M from 'materialize-css';
 
 import getComents from './actions';
 import publishComment from '../actions';
 import CommentsComponent from './comments';
 
 class DisplayComments extends PureComponent {
-  state={ show: null };
+  state={
+    show: null,
+    editComment: false,
+    componentIndex: null,
+  };
 
   componentDidMount() {
     const { allComment, articleSlug } = this.props;
     if (articleSlug !== undefined) {
       allComment(articleSlug);
     }
-    const el = document.querySelectorAll('.dropdown-trigger');
-    M.Dropdown.init(el);
+  }
+
+  onClickeditCommentHandler(editComment, index) {
+    this.setState({
+      editComment: true,
+      componentIndex: index,
+    });
   }
 
   handleMouseEnter(index) {
@@ -27,7 +35,9 @@ class DisplayComments extends PureComponent {
     if (parseInt(document.getElementById(index).id) === parseInt(index)) {
       if (typeof show === 'number' && show !== index) {
         const div = document.getElementById(show);
-        div.classList.remove('anotherclass');
+        if (div) {
+          div.classList.remove('anotherclass');
+        }
       }
       const div = document.getElementById(index);
       this.setState({ show: index });
@@ -45,27 +55,43 @@ class DisplayComments extends PureComponent {
 
   render() {
     const { allComments, articleSlug } = this.props;
+    const { editComment, componentIndex } = this.state;
+    const user = localStorage.getItem('user');
     let allComents;
     if (allComments.success && allComments) {
       try {
         allComents = allComments.payload.data.comments.map((comment, index) => (
           <div key={comment.id} className="comment-list cards hoverable">
-            {/* eslint-disable-next-line */}
-            <i
-              role="button"
-              className="small material-icons more-comments-icon dropdown-trigger"
-              onClick={() => this.handleMouseEnter(index)}
-            >
+            {/* eslint-disable */}
+            {
+              (user === comment.author.username)
+                ? (
+                  <i
+                    role="button"
+                    className="small material-icons more-comments-icon dropdown-trigger"
+                    onClick={() => this.handleMouseEnter(index)}
+                  >
               expand_more
-            </i>
+                  </i>)
+                : null
+            }
 
             <ul className="comment-dropdown" id={index}>
-              <li>
-                <a href="#!" className="hoverable" onClick={() => this.deleteCommentHandler(comment.id, articleSlug)}>
-                  <i className="tiny material-icons">delete</i>
+              <button
+                type="submit"
+                id="cmt-edit"
+                className="hoverable"
+                style={{ width: '100px' }}
+                onClick={() => this.onClickeditCommentHandler(editComment, index)}
+              >
+                <i className="tiny material-icons">edit</i>
+                  Edit
+              </button>
+              <button type="submit" className="hoverable" onClick={() => this.deleteCommentHandler(comment.id, articleSlug)} style={{ width: '100px' }}>
+                <i className="tiny material-icons">delete</i>
                     Delete
-                </a>
-              </li>
+              </button>
+
             </ul>
             <div className="card-content author-info">
               <img
@@ -83,7 +109,14 @@ class DisplayComments extends PureComponent {
                 </div>
               </div>
             </div>
-            <CommentsComponent comments={comment} />
+            <CommentsComponent
+              clicked={editComment}
+              componentIndex={componentIndex}
+              slug={articleSlug}
+              index={index}
+              comments={comment}
+            />
+            <div id={`comment-list${index}`} />
           </div>
         ));
       } catch (e) {
@@ -113,4 +146,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   allComment: getComents,
   manipulateComment: publishComment,
 }, dispatch);
+
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayComments);

@@ -10,13 +10,13 @@ import ArticleComponent from './articleComponents';
 import { extractDescription } from './filterArticles';
 import Tags from '../../../components/tags/index';
 
+import NotFound from '../../../components/NotFound';
 
 class ReadArticle extends Component {
   componentDidMount() {
     const { getAllArticles } = this.props;
     getAllArticles();
   }
-
 
   renderArticleHandler = () => {
     const { articles } = this.props;
@@ -38,12 +38,14 @@ class ReadArticle extends Component {
           article={article}
           index={index}
           preview={preview}
-
         />
 
       );
     },
     );
+    if (artcles === 0) {
+      return (<NotFound item="Article" />);
+    }
     return artcles;
   };
 
@@ -65,7 +67,7 @@ ReadArticle.propTypes = {
 
 const mapStateToProps = state => ({
   articles: state.articles.all_articles,
-  loading: '',
+  loading: state.articles.loading,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

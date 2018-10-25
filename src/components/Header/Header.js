@@ -7,7 +7,7 @@ import '../../styles/styles.css';
 
 
 class ArticleHeader extends Component {
-  state = { profileClicked: false }
+  state = { profileClicked: false };
 
   profileDropDownhandler = () => (
     this.setState(prevState => ({ profileClicked: !prevState.profileClicked }))
@@ -41,7 +41,6 @@ class ArticleHeader extends Component {
                   <li>
                     {/* eslint-disable-next-line */}
                     <div onClick={this.profileDropDownhandler} role="link">
-                      <img className="small-profile" alt="User Profile" src="https://api.adorable.io/avatars/285/abott@adorable.png" />
                     </div>
                   </li>
                 </ul>

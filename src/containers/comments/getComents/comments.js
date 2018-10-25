@@ -1,18 +1,93 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-const commentsComponent = (props) => {
-  const { comments } = props;
-  return (
-    <div>
-      <div>{ comments.body }</div>
-    </div>
-  );
+import publishComment from '../actions';
+import getComents from './actions';
+
+class CommentsComponent extends Component {
+  state = {
+    // eslint-disable-next-line
+    newComment: this.props.comments.body,
+    edited: true,
+  }
+
+  componentDidMount() {
+    const { allComment, slug } = this.props;
+    allComment(slug);
+  }
+
+  newCommentsHandler(e) {
+    const val = e.target.value;
+    this.setState({ newComment: val });
+  }
+
+  publishNewCommentHandler() {
+    const {
+      allComment, manipulateComment, slug, comments,
+    } = this.props;
+    const { newComment } = this.state;
+    manipulateComment(newComment, slug, 'PUT', true, comments.id);
+    this.setState({ edited: false });
+    allComment(slug);
+  }
+
+  render() {
+    const {
+      comments, clicked, componentIndex, index,
+    } = this.props;
+    const { newComment, edited } = this.state;
+    return (
+      <div>
+        { (clicked && (componentIndex === index) && edited)
+          ? (
+            <div className="row">
+              <form className="col s12">
+                <div className="row">
+                  <div className="input-field col s12">
+                    <textarea
+                      id="textarea1"
+                      value={newComment}
+                      onChange={e => this.newCommentsHandler(e)}
+                      className="materialize-textarea"
+                    />
+                    {/* eslint-disable-next-line */}
+                  </div>
+                </div>
+              </form>
+              <button type="button" className="button btn-edit-comment" onClick={() => this.publishNewCommentHandler()}>
+                <i className="tiny material-icons" style={{ marginTop: 3 }}>edit</i>
+                edit
+              </button>
+            </div>)
+          : <div>{ comments.body }</div>
+        }
+      </div>
+    );
+  }
+}
+
+CommentsComponent.defaultProps = {
+  comments: null,
+  componentIndex: null,
 };
 
-commentsComponent.defaultProps = { comments: null };
+CommentsComponent.propTypes = {
+  allComment: PropTypes.func.isRequired,
+  manipulateComment: PropTypes.instanceOf(Object).isRequired,
+  comments: PropTypes.instanceOf(Object),
+  clicked: PropTypes.bool.isRequired,
+  componentIndex: PropTypes.number,
+  index: PropTypes.number.isRequired,
+  slug: PropTypes.string.isRequired,
+};
 
-commentsComponent.propTypes = { comments: PropTypes.instanceOf(Object) };
+const mapStateToProps = state => ({ allComments: state.getAllComment });
 
+const mapDispatchToProps = dispatch => bindActionCreators({
+  allComment: getComents,
+  manipulateComment: publishComment,
+}, dispatch);
 
-export default commentsComponent;
+export default connect(mapStateToProps, mapDispatchToProps)(CommentsComponent);

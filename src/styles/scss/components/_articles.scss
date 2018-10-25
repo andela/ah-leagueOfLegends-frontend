@@ -1,10 +1,5 @@
 @import "../base/settings";
 
-.articles-landing-page {
-  margin-left: 50px;
-
-}
-
 .articles-landing {
   float: left;
 
@@ -15,19 +10,15 @@
 }
 
 .article-aside {
-  float: left;
-  margin-left: 45px !important;
-  width: 40%;
+  float: right;
+  margin: 20px 2%;
+  width: 35%;
 }
 
 .article-default {
   float: left;
 
-  margin-bottom: 5px;
-  margin-left: 50px;
-  margin-right: 0;
-
-  margin-top: 50px;
+  margin: 50px 0 5px 50px;
 
   width: 55%;
 
@@ -96,7 +87,7 @@
 
 }
 
-.card-action li {
+.card-action  li {
   display: inline;
 
   font-family: Lato;
@@ -108,4 +99,22 @@
   margin-left: 20%;
   margin-right: 20%;
   padding: 3%;
+
+}
+
+.publish-article-button {
+  position: relative;
+}
+
+.mdl-publish-article .modal-overlay {
+  opacity: 0 !important;
+}
+
+#modal13.modal.publish-modal.z-depth-0.open {
+  top: 18% !important;
+  left: 50%;
+  width: 20%;
+  padding:5px; 
+  background-color: $white;
+  border: 1px solid $navbar-color;
 }

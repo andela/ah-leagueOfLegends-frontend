@@ -1,13 +1,20 @@
-import { BACKEND_URL } from '../../../utils/config';
+import axios from 'axios';
 
-export default function getArticles() {
-  return async (dispatch) => {
-    const apiUrl = ` ${BACKEND_URL}api/articles`;
-    const res = await fetch(apiUrl);
-    const articles = await res.json();
-    return dispatch({
-      type: 'GET_ARTICLES',
-      payload: articles.articles.results,
-    });
-  };
-}
+import { BACKEND_URL } from '../../../utils/config';
+import { ARTICLE_SUCCESS, ARTICLE_FAILURE, GET_ARTICLES } from './constants';
+
+export const articleSuccess = payload => ({ type: ARTICLE_SUCCESS, payload });
+
+export const articleFailure = errors => ({ type: ARTICLE_FAILURE, errors });
+
+export const articleFetch = () => ({ type: GET_ARTICLES });
+
+const getArticles = () => (dispatch) => {
+  dispatch(articleFetch());
+  const MAIN_URL = ` ${BACKEND_URL}api/articles`;
+  axios.get(MAIN_URL)
+    .then(res => dispatch(articleSuccess(res)))
+    .catch(err => dispatch(articleFailure(err)));
+};
+
+export default getArticles;

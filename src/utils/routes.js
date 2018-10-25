@@ -1,4 +1,4 @@
-const ROUTE = {
+const ROUTES = {
   home: '/',
   newArticle: '/article/new',
   article: '/article/:s',
@@ -6,6 +6,10 @@ const ROUTE = {
   searchResults: '/search',
   reset: '/api/users/reset_password/:s/',
   notFound: '/not-found',
+  profile: '/profile',
+  getUserProfile: '/profile/:username',
+  updateUserProfile: '/profile/:username/edit',
+  success: '/Success',
 };
 
-export default ROUTE;
+export default ROUTES;

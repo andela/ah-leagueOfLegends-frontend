@@ -28,6 +28,7 @@ class Comments extends Component {
 
   render() {
     const { inputData } = this.state;
+    const userName = localStorage.getItem('user');
     return (
       <div className="new-comments">
         <div className="card-content author-info">
@@ -39,7 +40,7 @@ class Comments extends Component {
           />
           <div className="articale-time">
             <p>
-              <a href="/">Gilbert Ngeywo</a>
+              <a href="/">{userName}</a>
             </p>
             <div className="article-time--details">
               Time Created

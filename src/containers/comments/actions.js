@@ -11,7 +11,10 @@ export const commentFetch = () => ({ type: COMMENT_FETCH });
 
 
 const publishComment = (payloadData, slug, method, update = false, commentId) => (dispatch) => {
-  const data = { comment: { body: payloadData } };
+  let data = { comment: { body: payloadData } };
+  if (method === 'PUT') {
+    data = { body: payloadData };
+  }
   dispatch(commentFetch());
   let MAIN_URL = `${BACKEND_URL}api/articles/${slug}/comments`;
   const token = localStorage.getItem('access_token');
