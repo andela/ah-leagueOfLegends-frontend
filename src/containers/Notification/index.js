@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import getNotifications, { getSingleNotifications } from './action';
+import ToggleNotifications from '../ToggleNotifications';
 
 class Notifications extends Component {
   componentDidMount() {
@@ -103,6 +104,7 @@ class Notifications extends Component {
 notifications_none
         </i>
         <ul id="dropdown1" className="dropdown-content ">
+          <ToggleNotifications />
           {this.renderNotifications()}
         </ul>
       </div>
