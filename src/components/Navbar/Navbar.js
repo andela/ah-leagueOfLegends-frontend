@@ -92,11 +92,8 @@ class Navbar extends Component {
                     <span>
                       <li><i className="material-icons">notifications_none</i></li>
                       <li><i className="material-icons">bookmark_border</i></li>
-                      {/* onClick={this.handleprofileView} see profile */ }
                       <li>
-                        {/* <button className="profile-button" type="submit"> */}
                         <img role="image" className="small-navbar-profile" onClick={this.handleprofileView} src={image} alt={username} />
-                        {/* </button> */}
                       </li>
                       <li>
                         {' '}

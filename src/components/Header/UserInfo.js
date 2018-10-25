@@ -26,6 +26,7 @@ class ArticleHeader extends Component {
       data: tags.map(tag => ({ tag })),
     });
     const el = document.querySelectorAll('.modal13');
+    /* eslint-disable-next-line */
     const instances = M.Modal.init(el);
     fetchUserDetails(username);
   }
@@ -40,7 +41,6 @@ class ArticleHeader extends Component {
 
   render() {
     const { publishHandler, viewProfileReducer, username } = this.props;
-    // const { publishClicked } = this.state;
     const { profile } = viewProfileReducer.loggedInUser;
     return (
       <div>
@@ -61,9 +61,6 @@ class ArticleHeader extends Component {
                 {profile.bio}
               </div>
             </div>
-            {/* <button type="button" onClick={this.publishClickedHandler} className="button">
-                    Ready to Publish?
-            </button> */}
             <a
               className="modal-trigger btn publish-article-button"
               href="#modal13"
