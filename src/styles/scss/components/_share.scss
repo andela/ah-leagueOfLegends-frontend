@@ -1,0 +1,21 @@
+ul#dropdown-share.dropdown-content.social-share {
+  display: inline-flex !important;
+  width: 250px !important;
+  box-shadow: none;
+  left: 577px !important;
+  top: 1111px !important;
+  margin-left: 5px;
+
+}
+
+ul#dropdown-share.dropdown-content.social-share li:hover {
+  background-color: white;
+}
+
+.interact {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+i.dropdown-trigger.material-icons.small {}
