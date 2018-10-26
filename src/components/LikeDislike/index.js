@@ -9,7 +9,7 @@ import { dislikeArticles, likeArticles } from '../../containers/LikeDislike/acti
 // eslint-disable-next-line
 import '../../styles/scss/components/_likeDislikeArticles.scss';
 
-class LikeDislike extends Component {
+export class LikeDislike extends Component {
   constructor(props) {
     super(props);
     this.handleLikeDislike = this.handleLikeDislike.bind(this);

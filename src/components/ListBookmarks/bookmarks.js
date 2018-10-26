@@ -17,6 +17,6 @@ const Bookmarks = ({ bookmarkList }) => (
   </div>
 );
 
-Bookmarks.propTypes = { bookmarkList: PropTypes.objectOf().isRequired };
+Bookmarks.propTypes = { bookmarkList: PropTypes.shape([]).isRequired };
 
 export default Bookmarks;

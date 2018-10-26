@@ -24,6 +24,7 @@ const EditProfile = ({
       <div className="row">
         <div className="col m4 s12 offset-m3">
           <button
+            id="save"
             data-target="modal1"
             type="submit"
             className="btn  btn-flat white grey-text"
@@ -33,6 +34,7 @@ const EditProfile = ({
           Apply
           </button>
           <button
+            id="cancel"
             data-target="modal1"
             type="submit"
             className="btn  btn-flat white grey-text"

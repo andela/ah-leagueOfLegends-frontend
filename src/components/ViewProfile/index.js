@@ -16,6 +16,7 @@ const ViewProfile = ({
             </h4>
             {(isAuthenticated && loggedinUsername === username) ? (
               <button
+                id="edit"
                 data-target="modal1"
                 type="submit"
                 className="waves-effect waves-light btn  btn-flat white grey-text"

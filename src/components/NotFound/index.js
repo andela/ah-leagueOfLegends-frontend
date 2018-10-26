@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ViewProfile from '../ViewProfiles';
+import ViewProfile from '../ViewProfile';
 
 const NotFound = item => (
   <main className="conatiner">

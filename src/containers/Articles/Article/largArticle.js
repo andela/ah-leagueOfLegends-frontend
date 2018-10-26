@@ -10,8 +10,9 @@ import Rating from '../../../components/Rating/Rating';
 import UserRating from '../../../components/Rating/UserRating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
-import LikeDislike from '../../../components/LikeDislike';
+import { LikeDislike } from '../../../components/LikeDislike';
 import SocialShare from '../../../components/SocialShare/SocialShare';
+import BookmarkArticles from '../../../components/BookmarkArticle';
 
 class MainArticle extends Component {
   componentDidMount() {
@@ -42,6 +43,7 @@ class MainArticle extends Component {
     if (mainArticle.payload.slug) {
       articleSlug = mainArticle.payload.slug;
     }
+
     const user = localStorage.getItem('user');
     // eslint-disable-next-line
     let author;
@@ -91,8 +93,8 @@ class MainArticle extends Component {
           <div className="interact">
             <LikeDislike />
             <SocialShare slug={mainArticle.payload.slug} title={mainArticle.payload.title} />
+            <BookmarkArticles article={mainArticle.payload} />
           </div>
-
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
         </div>
