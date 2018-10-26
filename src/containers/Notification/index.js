@@ -104,7 +104,7 @@ class Notifications extends Component {
 notifications_none
         </i>
         <ul id="dropdown1" className="dropdown-content ">
-          <ToggleNotifications />
+          <ToggleNotifications onChange={this.onChange} />
           {this.renderNotifications()}
         </ul>
       </div>
