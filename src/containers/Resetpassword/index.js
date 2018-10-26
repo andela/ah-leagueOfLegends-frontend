@@ -54,12 +54,12 @@ class Resetpassword extends React.Component {
             {
                   resetPasswordReducer.failure ? (<div color="$error-red">Password reset unsuccessfully</div>) : null
                 }
-            <div className="input-field col s12">
-              <input name="email" id="email1" type="email" className="validate" onChange={this.handleChange} required="True" />
-              {/* eslint-disable-next-line */}
-              <label htmlFor="email">Email</label>
-            </div>
             <div className="row">
+              <div className="input-field col s12">
+                <input name="email" id="email1" type="email" className="validate" onChange={this.handleChange} required="True" />
+                {/* eslint-disable-next-line */}
+              <label htmlFor="email">Email</label>
+              </div>
               <div className="input-field col s12">
                 <input name="newPassword" id="password2" type="password" className="validate" onChange={this.handleChange} required="True" />
                 {/* eslint-disable-next-line */}
@@ -82,7 +82,15 @@ class Resetpassword extends React.Component {
             <div>
               {payload}
               {
-              resetPasswordReducer.success ? (<div color="$color-green"><a href="http://localhost:3000/">Back to Home</a></div>) : null
+              resetPasswordReducer.success
+                ? (setTimeout(() => { window.location.reload(); }, 20)) : null
+                }
+            </div>
+            <div>
+              {payload}
+              {
+              resetPasswordReducer.success
+                ? (setTimeout(() => { window.location.href = 'http://localhost:3000/'; }, 30)) : null
                 }
             </div>
 
