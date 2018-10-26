@@ -29,9 +29,9 @@ class ReadArticle extends Component {
     axios.get(`${BACKEND_URL}api/articles`)
       .then((res) => {
         const pageCount = Math.ceil(res.data.articles.count / res.data.articles.results.length);
-        console.log(res.data.articles.results.length);
         this.setState({ pageCount });
       })
+      // eslint-disable-next-line
       .catch(err => console.log(err));
   }
 

@@ -13,11 +13,8 @@
     "coveralls": "^3.0.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
-<<<<<<< HEAD
     "expect": "^23.6.0",
-=======
     "fetch-mock": "^7.2.0",
->>>>>>> [Feature #159965445] Add pagination support for articles
     "history": "^4.7.2",
     "materialize-css": "^1.0.0",
     "moment-timezone": "^0.5.21",
