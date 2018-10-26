@@ -60,6 +60,13 @@ class Forgotpassword extends React.Component {
                   <i className="material-icons right">send</i>
                 </button>
               </div>
+              <div>
+                {payload}
+                {
+                  forgotPasswordReducer.success
+                    ? (setTimeout(() => { window.location.reload(); }, 20)) : null
+                }
+              </div>
             </form>
           </div>
         </div>
