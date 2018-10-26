@@ -6,7 +6,7 @@ const ROUTES = {
   searchResults: '/search',
   reset: '/api/users/reset_password/:s/',
   notFound: '/not-found',
-  profile: '/profile',
+  bookmarks: '/bookmarks',
   getUserProfile: '/profile/:username',
   updateUserProfile: '/profile/:username/edit',
   success: '/Success',

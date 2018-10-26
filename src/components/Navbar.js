@@ -95,8 +95,11 @@ class Navbar extends Component {
                       <li>
                         <Notification />
                       </li>
-                      <li><i className="material-icons">bookmark_border</i></li>
-
+                      <li>
+                        <a href={`${url}bookmarks/`} className="bookmark-link">
+                          <i className="material-icons">bookmark_border</i>
+                        </a>
+                      </li>
 
                       <li>
                         <img

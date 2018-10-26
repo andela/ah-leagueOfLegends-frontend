@@ -9,6 +9,7 @@
 @import "./scss/components/search";
 @import "./scss/components/share";
 
+@import "./scss/components/listBookmarks";
 
 .alert-error {
   color: $error-red;
@@ -956,13 +957,12 @@ ul#dropdown1.dropdown-content {
   font-size: 12px;
 }
 
-.actor {
-  padding-left: 70px;
-  margin-top: -50px;
+.actor{
+  padding-left:70px;
+  margin-top:-50px;
 }
-
-.time {
-  padding-left: 70px;
+.time{
+  padding-left:70px;
   color: #8d8c8c;
   font-size: 10px;
 }

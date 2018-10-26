@@ -18,6 +18,7 @@ import history from './history';
 import PasswordReset from './containers/Resetpassword/index';
 import ViewProfile from './containers/Profile/ViewProfile/index';
 import UpdateProfile from './containers/Profile/UpdateProfile/index';
+import ListBookmarks from './components/ListBookmarks';
 
 class App extends Component {
   componentDidMount() {}
@@ -37,7 +38,7 @@ class App extends Component {
               <Route exact path={ROUTE.getUserProfile} component={ViewProfile} />
 
               <PrivateRoute exact path={ROUTE.updateUserProfile} component={UpdateProfile} />
-
+              <PrivateRoute exact path={ROUTE.bookmarks} component={ListBookmarks} />
               <PrivateRoute exact path={ROUTE.newArticle} component={NewArticle} />
               <Route exact path={ROUTE.article} component={MainArticle} />
               <PrivateRoute exact path={ROUTE.editArticle} component={UpdateArticle} />
