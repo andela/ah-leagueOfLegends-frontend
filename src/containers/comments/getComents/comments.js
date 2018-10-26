@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import publishComment from '../actions';
 import getComents from './actions';
+import LikeDislikeComments from '../../../components/LikeDislikeComments';
 
 class CommentsComponent extends Component {
   state = {
@@ -61,7 +62,14 @@ class CommentsComponent extends Component {
                 edit
               </button>
             </div>)
-          : <div>{ comments.body }</div>
+          : (
+            <div>
+              { comments.body }
+              <br />
+              <br />
+              <LikeDislikeComments />
+            </div>
+          )
         }
       </div>
     );
