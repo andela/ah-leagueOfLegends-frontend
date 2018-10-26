@@ -2,20 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import ReactPaginate from 'react-paginate';
+import axios from 'axios';
 
 import '../../../styles/styles.css';
-import getArticles from './actions';
+import { getArticles } from './actions';
 import Aside from './aside';
 import ArticleComponent from './articleComponents';
 import { extractDescription } from './filterArticles';
 import Tags from '../../../components/tags/index';
-
+import { BACKEND_URL } from '../../../utils/config';
 import NotFound from '../../../components/NotFound';
 
 class ReadArticle extends Component {
+  state = {
+    offset: 0,
+    perPage: 10,
+    pageCount: 1,
+  }
+
   componentDidMount() {
     const { getAllArticles } = this.props;
-    getAllArticles();
+    const { perPage, offset } = this.state;
+    getAllArticles(perPage, offset);
+    getAllArticles(perPage, offset);
+    axios.get(`${BACKEND_URL}api/articles`)
+      .then((res) => {
+        const pageCount = Math.ceil(res.data.articles.count / res.data.articles.results.length);
+        console.log(res.data.articles.results.length);
+        this.setState({ pageCount });
+      })
+      .catch(err => console.log(err));
+  }
+
+  handlePageClick = (data) => {
+    const { selected } = data;
+    const { perPage } = this.state;
+    const { getAllArticles } = this.props;
+    const offset = Math.ceil(selected * perPage);
+    this.setState({ offset }, () => {
+      getAllArticles(perPage, offset);
+    });
   }
 
   renderArticleHandler = () => {
@@ -50,11 +77,31 @@ class ReadArticle extends Component {
   };
 
   render() {
+    const { pageCount } = this.state;
     return (
-      <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
-        <Aside />
-        <Tags />
-        { this.renderArticleHandler()}
+      <div>
+        <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
+          <Aside />
+          <Tags />
+          { this.renderArticleHandler()}
+        </div>
+        <div className="pagination-lable">
+          <ReactPaginate
+            previousLabel="previous"
+            nextLabel="next"
+            breakLabel={<a href="">...</a>}
+            breakClassName="break-me"
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={this.handlePageClick}
+            containerClassName="pagination"
+            activeClassName="page-item active"
+            disabledClassName="page-item disabled"
+            pageClassName="page-item"
+            extraAriaContext="Page navigation example"
+          />
+        </div>
       </div>
     );
   }

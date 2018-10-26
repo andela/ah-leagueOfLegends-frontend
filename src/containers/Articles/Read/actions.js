@@ -9,12 +9,10 @@ export const articleFailure = errors => ({ type: ARTICLE_FAILURE, errors });
 
 export const articleFetch = () => ({ type: GET_ARTICLES });
 
-const getArticles = () => (dispatch) => {
+export const getArticles = (limit, offset) => (dispatch) => {
   dispatch(articleFetch());
-  const MAIN_URL = ` ${BACKEND_URL}api/articles`;
+  const MAIN_URL = ` ${BACKEND_URL}api/articles?limit=${limit}&offset=${offset}`;
   axios.get(MAIN_URL)
     .then(res => dispatch(articleSuccess(res)))
     .catch(err => dispatch(articleFailure(err)));
 };
-
-export default getArticles;

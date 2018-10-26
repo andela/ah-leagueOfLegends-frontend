@@ -36,30 +36,25 @@ class Comments extends Component {
             className="avatar-small"
             alt="User Profile"
             style={{ marginTop: 15 }}
-            src="https://api.adorable.io/avatars/285/abott@adorable.png"
+            src={localStorage.getItem('user_img')}
           />
           <div className="articale-time">
             <p>
               <a href="/">{userName}</a>
             </p>
-            <div className="article-time--details">
-              Time Created
-            </div>
           </div>
         </div>
         <div className="row">
           <form className="col s12">
             <div className="row">
-              <div className="input-field col s12">
-                <textarea id="textarea1" value={inputData} onChange={this.inputCommentHandler} className="materialize-textarea" />
-                {/* eslint-disable-next-line */}
-                <label htmlFor="textarea1">New Comment</label>
+              <div className="input-field col s12 text-area-input-text">
+                <textarea id="textarea1" placeholder="New Comment" value={inputData} onChange={this.inputCommentHandler} className="materialize-textarea" />
               </div>
             </div>
           </form>
         </div>
         {/* eslint-disable-next-line */}
-        <a className="waves-effect waves-light btn" onClick={this.publishCommentHandler}>Publish</a>
+        <a className="waves-effect waves-light btn comment-publish-btn" onClick={this.publishCommentHandler}>Publish</a>
       </div>
     );
   }

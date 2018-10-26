@@ -15,6 +15,7 @@ class UsrInfo extends Component {
   render() {
     const { viewProfileReducer, username } = this.props;
     const { profile } = viewProfileReducer.loggedInUser;
+    localStorage.setItem('user_img', profile.image);
 
     return (
       <div style={{ width: '70%', marginLeft: '20%', marginTop: '2%' }}>

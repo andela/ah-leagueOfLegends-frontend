@@ -1,8 +1,17 @@
 @import "../base/settings";
 
 .new-comments {
-  border: 1px solid $comment-grey;
   padding: 2%;
+}
+
+.text-area-input-text {
+  border: 1px solid $comment-grey;
+  border-radius: 2%;
+  padding: 40px;
+}
+
+.comment-publish-btn {
+  float: right;
 }
 
 .display-comments {
