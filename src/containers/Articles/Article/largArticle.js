@@ -10,6 +10,7 @@ import Rating from '../../../components/Rating/Rating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
 import LikeDislike from '../../../components/LikeDislike';
+import SocialShare from '../../../components/SocialShare/SocialShare';
 
 class MainArticle extends Component {
   componentDidMount() {
@@ -64,21 +65,25 @@ class MainArticle extends Component {
               </button>)
             : null
         }
+        <button type="button" onClick={this.editClickedHanlder} className="button">
+          Edit
+        </button>
+
         <Rating
           slug={mainArticle.payload.slug}
           average_rating={mainArticle.payload.average_ratings}
         />
         <div className="main-article">
           {this.renderArticleHandler()}
-          <LikeDislike />
+          <div className="interact">
+            <LikeDislike />
+            <SocialShare slug={mainArticle.payload.slug} title={mainArticle.payload.title} />
+          </div>
 
           <Commnents articleSlug={articleSlug} />
           <DisplayComents articleSlug={match.params.s} />
-
         </div>
       </div>
-
-
     );
   }
 }
@@ -91,7 +96,6 @@ MainArticle.propTypes = {
 };
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
-
 const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles },
   dispatch);
 
