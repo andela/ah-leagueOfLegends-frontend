@@ -161,7 +161,7 @@ class Navbar extends Component {
 Navbar.propTypes = {
   state: PropTypes.instanceOf(Object).isRequired,
   search: PropTypes.func.isRequired,
-  viewProfileReducer: PropTypes.func.isRequired,
+  viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
   fetchUserDets: PropTypes.func.isRequired,
 };
 

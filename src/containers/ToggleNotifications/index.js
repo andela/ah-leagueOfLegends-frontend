@@ -20,6 +20,7 @@ class ToggleNotifications extends Component {
   render() {
     return (
       <div className="switch">
+        {/* eslint-disable-next-line */}
         <label>
           Disable/Enable Notifications
           <input type="checkbox" onChange={this.onChange} />
@@ -30,7 +31,12 @@ class ToggleNotifications extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+ToggleNotifications.propTypes = {
+  subscribe: PropTypes.func.isRequired,
+  unsubscribe: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({ viewProfileReducer: state.viewProfileReducer });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
