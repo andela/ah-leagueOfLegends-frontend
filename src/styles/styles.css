@@ -627,6 +627,21 @@ h1 {
 .pagination a:first-child {
   margin-right: 0.5em; }
 
+.btn-following {
+  color: #008080;
+  border-radius: 4px;
+  width: 97px;
+  height: 32px;
+  border: 1px solid #008080; }
+
+.btn-following:hover {
+  border: 1px solid #008080;
+  color: #008080; }
+
+.btn-following:focus {
+  background-color: #ffffff;
+  cursor: pointer; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;

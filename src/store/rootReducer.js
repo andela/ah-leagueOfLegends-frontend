@@ -18,6 +18,7 @@ import NotificationReducer from '../containers/Notification/reducer';
 import viewProfileReducer from '../containers/Profile/ViewProfile/reducer';
 import editProfileReducer from '../containers/Profile/UpdateProfile/reducer';
 import likeDislikeCommentReducer from '../containers/LikeDislikeComments/reducer';
+import followReducer from '../containers/FollowUnfollow/reducer';
 
 import toggleNotificationReducer from '../containers/ToggleNotifications/reducer';
 
@@ -40,4 +41,5 @@ export default combineReducers({
   viewProfileReducer,
   toggleNotificationReducer,
   likeDislikeCommentReducer,
+  followReducer,
 });

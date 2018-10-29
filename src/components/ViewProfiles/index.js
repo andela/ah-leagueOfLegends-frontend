@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FollowUnfollow from '../../containers/FollowUnfollow';
 
 const ViewProfile = ({
   username, image, bio, onEditClick, avatarUpload, loggedinUsername, isAuthenticated,
@@ -19,7 +20,7 @@ const ViewProfile = ({
               >
               Edit profile
               </button>
-            ) : (null)}
+            ) : <FollowUnfollow username={username} />}
           </div>
           <p className="bio offset-s2">{bio}</p>
           <ul className="followers-link">
