@@ -30,9 +30,7 @@ class ReadArticle extends Component {
       .then((res) => {
         const pageCount = Math.ceil(res.data.articles.count / res.data.articles.results.length);
         this.setState({ pageCount });
-      })
-      // eslint-disable-next-line
-      .catch(err => console.log(err));
+      });
   }
 
   handlePageClick = (data) => {
