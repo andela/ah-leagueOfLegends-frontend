@@ -25,7 +25,6 @@ class ReadArticle extends Component {
     const { getAllArticles } = this.props;
     const { perPage, offset } = this.state;
     getAllArticles(perPage, offset);
-    getAllArticles(perPage, offset);
     axios.get(`${BACKEND_URL}api/articles`)
       .then((res) => {
         const pageCount = Math.ceil(res.data.articles.count / res.data.articles.results.length);
