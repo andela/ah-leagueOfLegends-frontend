@@ -518,6 +518,44 @@ ul#dropdown-share.dropdown-content.social-share li:hover {
   justify-content: flex-start;
   margin-top: 10px; }
 
+.bookmark-articles {
+  font-family: Athelas,'Times New Roman';
+  font-size: 1.3rem; }
+
+.bookmark-title {
+  font-family: Lato;
+  font-weight: bolder; }
+
+.bookmark-articles .row .card-action ul {
+  padding: 0px;
+  margin: 0px; }
+
+.bookmark-articles .row .card-action ul li {
+  display: inline;
+  font-family: Lato;
+  font-size: 0.8em;
+  padding: 0px 10px; }
+
+.bookmark-header {
+  color: red;
+  text-align: center;
+  text-transform: capitalize; }
+
+.bookmark-header-none {
+  color: black;
+  text-align: center;
+  text-transform: capitalize; }
+
+h1 {
+  font-weight: bold; }
+
+.bookmark-link {
+  color: #aaa; }
+
+.bookmark-link:hover {
+  background-color: #ffffff;
+  color: #000000; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;

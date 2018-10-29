@@ -1,0 +1,43 @@
+@import "../base/settings";
+.bookmark-articles{
+  font-family: Athelas,'Times New Roman';
+  font-size: 1.3rem
+}
+.bookmark-title{
+  font-family: Lato;
+  font-weight: bolder;
+}
+.bookmark-articles .row .card-action ul{
+  padding:0px;
+  margin: 0px;
+}
+
+.bookmark-articles .row .card-action ul li {
+  display: inline;
+  font-family: Lato;
+  font-size: 0.8em;
+  padding: 0px 10px;
+}
+
+.bookmark-header{
+  color: red;
+  text-align: center;
+  text-transform: capitalize;
+}
+.bookmark-header-none{
+  color: black;
+  text-align: center;
+  text-transform: capitalize;
+}
+h1{
+  font-weight: bold;
+}
+
+.bookmark-link{
+color:$color-gray;
+}
+
+.bookmark-link:hover{
+  background-color: $white;
+  color: $black;
+}
