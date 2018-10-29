@@ -438,6 +438,10 @@ ul#dropdown1.dropdown-content {
   padding-top: 10px;
   padding-left: 50px; }
 
+.notify {
+  transform: scale(0.7);
+  margin-top: -10px !important; }
+
 .rsp {
   display: flex;
   justify-content: center;
@@ -503,7 +507,7 @@ ul#dropdown-share.dropdown-content.social-share {
   width: 250px !important;
   box-shadow: none;
   left: 615px !important;
-  top: 1071px !important;
+  margin-top: 1380px !important;
   margin-left: 5px; }
 
 ul#dropdown-share.dropdown-content.social-share li:hover {

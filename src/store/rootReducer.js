@@ -18,6 +18,8 @@ import NotificationReducer from '../containers/Notification/reducer';
 import viewProfileReducer from '../containers/Profile/ViewProfile/reducer';
 import editProfileReducer from '../containers/Profile/UpdateProfile/reducer';
 
+import toggleNotificationReducer from '../containers/ToggleNotifications/reducer';
+
 export default combineReducers({
   completeArticle,
   articles,
@@ -35,4 +37,5 @@ export default combineReducers({
   NotificationReducer,
   editProfileReducer,
   viewProfileReducer,
+  toggleNotificationReducer,
 });
