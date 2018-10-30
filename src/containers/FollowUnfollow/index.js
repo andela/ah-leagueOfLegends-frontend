@@ -9,7 +9,6 @@ class FollowUnfollow extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.following !== this.state.following) {
       this.setState({ following: nextProps.following });
-      console.log('STATE', this.state);
     }
   }
 

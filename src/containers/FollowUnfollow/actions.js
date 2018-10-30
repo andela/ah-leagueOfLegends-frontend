@@ -14,6 +14,21 @@ const followFailiure = payload => ({
   payload,
 });
 
+const getfollowersSucess = payload => ({
+  type: FollowConstants.GET_FOLLOWERS_SUCCESS,
+  payload,
+});
+
+const getfollowingSucess = payload => ({
+  type: FollowConstants.GET_FOLLOWING_SUCCESS,
+  payload,
+});
+
+const getfollowFailiure = payload => ({
+  type: FollowConstants.GET_FOLLOW_FAILIURE,
+  payload,
+});
+
 function followUser(username) {
   const accessToken = localStorage.getItem('access_token');
   return (dispatch) => {
@@ -35,5 +50,39 @@ function followUser(username) {
   };
 }
 
+function getfollowers(username) {
+  const accessToken = localStorage.getItem('access_token');
+  return (dispatch) => {
+    dispatch(fetchBegin());
+    return axios.get(`${BACKEND_URL}api/profiles/${username}/followers`,
+      { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` } },
+    )
+      .then((response) => {
+        dispatch((getfollowersSucess(response.data)));
+      })
+      .catch((error) => {
+        dispatch(getfollowFailiure(error));
+      });
+  };
+}
+
+function getfollowing(username) {
+  const accessToken = localStorage.getItem('access_token');
+  return (dispatch) => {
+    dispatch(fetchBegin());
+    return axios.get(`${BACKEND_URL}api/profiles/${username}/following`,
+      { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` } },
+    )
+      .then((response) => {
+        dispatch((getfollowingSucess(response.data)));
+      })
+      .catch((error) => {
+        dispatch(getfollowFailiure(error));
+      });
+  };
+}
+
 
 export default followUser;
+export { getfollowers };
+export { getfollowing };
