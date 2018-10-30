@@ -82,6 +82,7 @@ class ViewProfile extends Component {
                 avatarUpload={this.handleImageUpload}
                 loggedinUsername={loggedinUsername}
                 isAuthenticated={isAuthenticated}
+                following={payload.profile.following}
               />
             </div>
           )

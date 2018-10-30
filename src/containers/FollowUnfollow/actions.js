@@ -4,31 +4,36 @@ import { BACKEND_URL } from '../../utils/config';
 
 const fetchBegin = () => ({ type: FollowConstants.REQUEST_SENT });
 
-const getfollowingStatusSucess = payload => ({
-  type: FollowConstants.GET_FOLLOW_STATUS_SUCCESS,
+const followSuccess = payload => ({
+  type: FollowConstants.FOLLOW_SUCCESS,
   payload,
 });
 
-const getfollowingStatusFailiure = payload => ({
-  type: FollowConstants.GET_FOLLOW_STATUS_FAILIURE,
+const followFailiure = payload => ({
+  type: FollowConstants.FOLLOW_FAILIURE,
   payload,
 });
 
-function followingStatus(username) {
+function followUser(username) {
   const accessToken = localStorage.getItem('access_token');
   return (dispatch) => {
     dispatch(fetchBegin());
-    return axios.get(`${BACKEND_URL}api/profiles/${username}`,
-      { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` } },
-    )
+    axios({
+      method: 'put',
+      url: `${BACKEND_URL}api/profiles/${username}/follow`,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
       .then((response) => {
-        dispatch((getfollowingStatusSucess(response.data)));
+        dispatch((followSuccess(response.data)));
       })
       .catch((error) => {
-        dispatch(getfollowingStatusFailiure(error));
+        dispatch(followFailiure(error));
       });
   };
 }
 
 
-export default followingStatus;
+export default followUser;

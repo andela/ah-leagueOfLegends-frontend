@@ -6,14 +6,13 @@ const initialState = {
 
 export default function followReducer(state = initialState, action) {
   switch (action.type) {
-    case 'GET_FOLLOWING_STATUS_SUCCESSFUL':
+    case 'FOLLOW_SUCCESSFUL':
       return {
         ...state,
         isfollowing: action.payload.profile.following,
         success: true,
       };
-
-    case 'GET_FOLLOWING_STATUS_UNSUCCESSFUL':
+    case 'FOLLOW_UNSUCCESSFUL':
       return {
         ...state,
         error: followReducer.error,

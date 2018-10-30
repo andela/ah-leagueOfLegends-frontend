@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import FollowUnfollow from '../../containers/FollowUnfollow';
 
 const ViewProfile = ({
-  username, image, bio, onEditClick, avatarUpload, loggedinUsername, isAuthenticated,
+  username, image, bio, onEditClick, avatarUpload, loggedinUsername, isAuthenticated, following,
 }) => (
   <main className="conatiner">
     <div className="row">
@@ -20,7 +20,7 @@ const ViewProfile = ({
               >
               Edit profile
               </button>
-            ) : <FollowUnfollow username={username} />}
+            ) : <FollowUnfollow following={following} username={username} />}
           </div>
           <p className="bio offset-s2">{bio}</p>
           <ul className="followers-link">

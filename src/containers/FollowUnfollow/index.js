@@ -1,30 +1,40 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import followingStatus from './actions';
+import PropTypes from 'prop-types';
+import followUser from './actions';
 
 class FollowUnfollow extends Component {
-  componentDidMount() {
-    const { followStatus } = this.props;
-    followStatus(this.props.username);
+  state={ following: false }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.following !== this.state.following) {
+      this.setState({ following: nextProps.following });
+      console.log('STATE', this.state);
+    }
+  }
+
+  handlefollow = () => {
+    const { followUnfollow } = this.props;
+    followUnfollow(this.props.username);
   }
 
   render() {
     return (
-      <button type="submit" className="btn-following" />
-
+      <button
+        type="submit"
+        className="btn-following"
+        onClick={this.handlefollow}
+      >
+        {this.state.following ? 'following' : 'follow'}
+      </button>
     );
   }
 }
 
-FollowUnfollow.propTypes = {};
+FollowUnfollow.propTypes = { followUnfollow: PropTypes.func.isRequired };
 
 const mapStateToProps = state => ({ followstate: state.followReducer });
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-  { followStatus: followingStatus },
-  dispatch);
-
 export default connect(
-  mapStateToProps, mapDispatchToProps,
+  mapStateToProps, { followUnfollow: followUser },
 )(FollowUnfollow);

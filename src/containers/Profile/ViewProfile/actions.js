@@ -24,10 +24,11 @@ export const fetchUserProfileFailure = errors => ({
 
 // fetch user details
 const fetchUserDetails = (username, type = null) => {
+  const accessToken = localStorage.getItem('access_token');
   const url = `${BACKEND_URL}api/profiles/${username}`;
   return (dispatch) => {
     dispatch(fetchUserProfile());
-    return axios.get(url).then(
+    return axios.get(url, { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${accessToken}` } }).then(
       (response) => {
         const userData = response.data;
         if (type === 'loggedInUser') {

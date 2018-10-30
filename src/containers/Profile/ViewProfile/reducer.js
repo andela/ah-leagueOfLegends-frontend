@@ -10,6 +10,7 @@ const initialState = {
       username: '',
       bio: '',
       image: '',
+      following: '',
     },
   },
   loggedInUser: {
