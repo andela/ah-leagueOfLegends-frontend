@@ -7,11 +7,6 @@ import M from 'materialize-css';
 import { rateArticle, InitialRate } from './actions/actions';
 
 class ArticleRating extends Component {
-  constructor() {
-    super();
-    this.handleStarClick = this.handleStarClick.bind(this);
-  }
-
   async componentDidMount() {
     // eslint-disable-next-line
     if (this.props.slug !== undefined) await this.props.InitialRate(this.props.slug);
@@ -19,7 +14,7 @@ class ArticleRating extends Component {
 
   handleStarClick = (nextValue) => {
     // eslint-disable-next-line
-    this.props.rateArticle(this.props.slug, nextValue);
+    this.props.rateArticle(this.props.slug, nextValue.toFixed(1));
   };
 
   showError = (err) => {
@@ -46,7 +41,6 @@ class ArticleRating extends Component {
           <div className="col s12 m6">
             <span>My Rating: </span>
             {' '}
-            {/* {console.log('Current rate', this.props.ratingReducer)} */}
             <StarRatings
               name="rateArticle"
               starHoverColor="green"

@@ -50,7 +50,6 @@ class Rating extends Component {
                     ? this.props.ratingReducer.average_rating
                     : 0
                 }
-                // changeRating={this.handleStarClick}
               />
             </div>
           </div>
@@ -63,7 +62,6 @@ class Rating extends Component {
 const mapStateToProps = state => ({ ratingReducer: state.ratingReducer });
 
 Rating.propTypes = {
-  // InitialRate: PropTypes.func.isRequired,
   AverageRate: PropTypes.func.isRequired,
   rateArticle: PropTypes.func.isRequired,
   average_rating: PropTypes.number.isRequired,
