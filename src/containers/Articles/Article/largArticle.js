@@ -109,7 +109,8 @@ MainArticle.propTypes = {
 };
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { fetchOneArticles: fetchArticles }, dispatch);
 
 export default connect(
   mapStateToProps,
