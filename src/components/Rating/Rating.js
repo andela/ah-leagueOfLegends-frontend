@@ -18,18 +18,13 @@ class Rating extends Component {
     this.props.rateArticle(this.props.slug, nextValue);
   };
 
-  showError = (err) => {
-    M.toast({ html: err, classes: 'red' });
-  };
+  // showError = (err) => {
+  //   M.toast({ html: err, classes: 'red' });
+  // };
 
   render() {
-    const { ratingReducer } = this.props;
     return (
       <React.Fragment>
-        <div className="errorMessage">
-          {ratingReducer.ratingError && this.showError(ratingReducer.ratingError)}
-        </div>
-
         <div className="row" style={{ centerContent: 'flex-end', marginLeft: '20%' }}>
           <div className="col s12 m6">
             <div>
