@@ -7,10 +7,6 @@ import M from 'materialize-css';
 import { rateArticle, AverageRate } from './actions/actions';
 
 class Rating extends Component {
-  constructor() {
-    super();
-    this.handleStarClick = this.handleStarClick.bind(this);
-  }
 
   async componentDidMount() {
     // eslint-disable-next-line

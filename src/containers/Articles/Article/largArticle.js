@@ -65,19 +65,19 @@ class MainArticle extends Component {
             : null}
         </div>
         <UsrInfo />
-        {
-          (showEditbutton)
-            ? (
-              <button type="button" onClick={this.editClickedHanlder} className="button">
-                        Edit
-              </button>)
-            : null
-        }
-
-        <Rating
-          slug={mainArticle.payload.slug}
-          average_rating={mainArticle.payload.average_ratings}
-        />
+        {showEditbutton ? (
+          <button type="button" onClick={this.editClickedHanlder} className="button">
+            Edit
+          </button>
+        ) : null}
+        <div>
+          {mainArticle.payload.slug !== undefined && (
+            <Rating
+              slug={mainArticle.payload.slug}
+              average_rating={mainArticle.payload.average_ratings}
+            />
+          )}
+        </div>
         <div className="main-article">
           {this.renderArticleHandler()}
           <div>
@@ -110,9 +110,7 @@ MainArticle.propTypes = {
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { fetchOneArticles: fetchArticles },
-  dispatch,
-);
+  { fetchOneArticles: fetchArticles }, dispatch);
 
 export default connect(
   mapStateToProps,
