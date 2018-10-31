@@ -14,7 +14,7 @@ class ArticleRating extends Component {
 
   handleStarClick = (nextValue) => {
     // eslint-disable-next-line
-    this.props.rateArticle(this.props.slug, nextValue.toFixed(1));
+    this.props.rateArticle(this.props.slug, nextValue);
   };
 
   showError = (err) => {
