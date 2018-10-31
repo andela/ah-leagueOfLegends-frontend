@@ -322,8 +322,15 @@ li.nav-logout {
     top: 90px; }
 
 .new-comments {
-  border: 1px solid #cccccc;
   padding: 2%; }
+
+.text-area-input-text {
+  border: 1px solid #cccccc;
+  border-radius: 2%;
+  padding: 40px; }
+
+.comment-publish-btn {
+  float: right; }
 
 .display-comments {
   margin-top: 6%;
@@ -555,6 +562,70 @@ h1 {
 .bookmark-link:hover {
   background-color: #ffffff;
   color: #000000; }
+
+.pagination-lable {
+  position: absolute;
+  top: 292%;
+  left: 30%;
+  margin-top: 5%; }
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.previous > a {
+  text-transform: capitalize;
+  text-decoration: none; }
+
+.previous {
+  border-radius: 0.2em;
+  padding: 2px;
+  margin-right: 0.5em;
+  border: 0.04em solid #aaaaaa; }
+
+.previous:hover {
+  cursor: pointer;
+  background-color: #aaa; }
+
+.next > a {
+  text-transform: capitalize;
+  text-decoration: none; }
+
+.next {
+  border: 0.04em solid #aaaaaa;
+  border-radius: 0.2em;
+  padding: 2px; }
+
+.next:hover {
+  cursor: pointer; }
+
+.page-item > a {
+  color: #353333;
+  text-decoration: none;
+  font-min-size: 2em;
+  margin: 0 !important;
+  padding: 2px; }
+
+.page-item {
+  margin-right: 0.5em;
+  border: 0.04em solid #aaaaaa;
+  border-radius: 2px;
+  padding: 2px;
+  cursor: pointer; }
+
+.page-item:hover {
+  cursor: pointer; }
+
+.active {
+  background-color: #007bff;
+  border-radius: 0.2em !important; }
+
+.active > a {
+  color: white; }
+
+.pagination a:first-child {
+  margin-right: 0.5em; }
 
 .alert-error {
   color: #a94442;

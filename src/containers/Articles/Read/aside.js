@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import getArticles from './actions';
+import { getArticles } from './actions';
 import '../../../styles/styles.css';
 import { extractDescription } from './filterArticles';
 
