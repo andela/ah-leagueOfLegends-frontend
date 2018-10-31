@@ -1,6 +1,7 @@
 import {
   VIEW_PROFILE_REQUEST, VIEW_PROFILE_FAILURE,
   VIEW_PROFILE_SUCCESS, VIEW_LOGGED_IN_PROFILE_SUCCESS,
+  VIEW_PROFILE_FOLLOW_SUCCESSFUL,
 } from './ActionTypes';
 
 const initialState = {
@@ -58,6 +59,16 @@ const viewProfileReducer = (state = initialState, action) => {
         success: true,
         errors: null,
         loggedInUser: payload,
+      };
+    case VIEW_PROFILE_FOLLOW_SUCCESSFUL:
+      return {
+        ...state,
+        payload: {
+          profile: {
+            ...state.payload.profile,
+            following: action.payload.profile.following,
+          },
+        },
       };
     default:
       return state;

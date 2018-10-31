@@ -1,6 +1,7 @@
 import axios from 'axios';
 import FollowConstants from './actionTypes';
 import { BACKEND_URL } from '../../utils/config';
+import { viewProfileFollowSuccess } from '../Profile/ViewProfile/actions';
 
 const fetchBegin = () => ({ type: FollowConstants.REQUEST_SENT });
 
@@ -43,6 +44,7 @@ function followUser(username) {
     })
       .then((response) => {
         dispatch((followSuccess(response.data)));
+        dispatch(viewProfileFollowSuccess(response.data));
       })
       .catch((error) => {
         dispatch(followFailiure(error));

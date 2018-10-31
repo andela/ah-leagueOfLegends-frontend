@@ -1,60 +1,104 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import M from 'materialize-css';
 import { getfollowers, getfollowing } from './actions';
+import FollowUnfollow from '.';
 
 class Followers extends React.Component {
-  // componentWillMount() {
-  //   const { followers } = this.props;
-  //   console.log(followers(this.props.username), 'UYUYUYUUYUUUYUYU');
-  // }
+  constructor(props) {
+    super(props);
+    // eslint-disable-next-line
+    this.state = { username: '' };
+  }
 
-  // state = { following: false, followers: false }
+  componentDidMount() {
+    const el = document.querySelectorAll('.modal');
+    M.Modal.init(el);
+  }
 
-  // static getDerivedStateFromProps(props) {
-  //   const { followers } = props;
-  //   const { following } = props;
-  //   if (props.username) {
-  //     if (!this.state.followers !== props.followers && this.state.following !== props.following) {
-  //       followers(props.username);
-  //       this.setState({ followers: props.profile.followers });
-  //       following(props.username);
-  //       this.setState({ following: props.profile.followers });
-  //     }
-  //   }
-  // }
-
-  static getDerivedStateFromProps(props) {
-    const { followers } = props;
-    const { following } = props;
-    if (props.username) {
+  static getDerivedStateFromProps(props, state) {
+    const { username } = state;
+    if (props.username && props.username !== username) {
+      const { followers } = props;
+      const { following } = props;
       followers(props.username);
       following(props.username);
+      return { username: props.username };
     }
+    return null;
   }
-  // handlefollowing = () => {
-  //   const { followers } = this.props;
-  //   console.log(followers(this.props.username), '-------');
-  // }
+
 
   render() {
     return (
-      <div className="">
+      <div className="followers">
         <li>
-          <a className="grey-text p-r-30" href="#/">
-           followers
+          <a className="p-r-30 modal-trigger" href="#followers-modal">
+            {`${this.props.followstate.followers.length} followers`}
           </a>
         </li>
         <li>
-          <a className="grey-text" href="#/">
-          following
+          <a className="modal-trigger" href="#following-modal">
+            {`${this.props.followstate.following.length} following`}
           </a>
         </li>
+
+        <div className="users-list">
+
+          <div className="modal z-depth-0 white " id="following-modal">
+            {this.props.followstate.following.map(user => (
+              <div key={user.id} className="follower-detail">
+                <img
+                  className="notification-avatar"
+                  alt="profile-pic"
+                  data-id={user.id}
+                  src={user.image}
+                />
+                <div className="follow-username">
+                  {`${user.username}`}
+                </div>
+
+                {(localStorage.getItem('user') !== user.username)
+                  ? (
+                    <div className="follow-button">
+                      <FollowUnfollow username={user.username} />
+                    </div>
+                  )
+                  : null
+                  }
+              </div>
+            ))}
+          </div>
+
+          <div className="modal z-depth-0 white" id="followers-modal">
+            {this.props.followstate.followers.map(user => (
+              <div key={user.id} className="follower-detail">
+                <img
+                  className="notification-avatar"
+                  alt="profile-pic"
+                  data-id={user.id}
+                  src={user.image}
+                />
+                <div className="follow-username">
+                  {`${user.username}`}
+                </div>
+                {(localStorage.getItem('user') !== user.username)
+                  ? (
+                    <div className="follow-button">
+                      <FollowUnfollow username={user.username} following={user.following} />
+                    </div>
+                  )
+                  : null
+                }
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     );
   }
 }
-
-// Followers.propTypes = { followUnfollow: PropTypes.func.isRequired };
 
 const mapStateToProps = state => ({ followstate: state.followReducer });
 

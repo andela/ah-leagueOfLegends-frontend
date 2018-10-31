@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   VIEW_PROFILE_REQUEST, VIEW_PROFILE_FAILURE,
   VIEW_PROFILE_SUCCESS, VIEW_LOGGED_IN_PROFILE_SUCCESS,
+  VIEW_PROFILE_FOLLOW_SUCCESSFUL,
 } from './ActionTypes';
 import { BACKEND_URL } from '../../../utils/config';
 
@@ -20,6 +21,10 @@ export const fetchloggedINUserProfileSuccess = payload => ({
 export const fetchUserProfileFailure = errors => ({
   type: VIEW_PROFILE_FAILURE,
   errors,
+});
+export const viewProfileFollowSuccess = payload => ({
+  type: VIEW_PROFILE_FOLLOW_SUCCESSFUL,
+  payload,
 });
 
 // fetch user details

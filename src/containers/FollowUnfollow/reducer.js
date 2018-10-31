@@ -1,5 +1,5 @@
 const initialState = {
-  isfollowing: '',
+  isfollowing: false,
   error: '',
   success: false,
   following: [],
@@ -29,7 +29,7 @@ export default function followReducer(state = initialState, action) {
     case 'GET_FOLLOWING_SUCCESSFUL':
       return {
         ...state,
-        followers: action.payload.profile.followers,
+        following: action.payload.profile.followers,
         success: true,
       };
     case 'GET_USERS_UNSUCCESFUL':

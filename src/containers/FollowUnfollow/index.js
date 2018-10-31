@@ -4,27 +4,20 @@ import PropTypes from 'prop-types';
 import followUser from './actions';
 
 class FollowUnfollow extends Component {
-  state={ following: false }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.following !== this.state.following) {
-      this.setState({ following: nextProps.following });
-    }
-  }
-
   handlefollow = () => {
     const { followUnfollow } = this.props;
     followUnfollow(this.props.username);
   }
 
   render() {
+    // console.log(this.props, '*****');
     return (
       <button
         type="submit"
         className="btn-following"
         onClick={this.handlefollow}
       >
-        {this.state.following ? 'following' : 'follow'}
+        {this.props.following ? 'following' : 'follow'}
       </button>
     );
   }

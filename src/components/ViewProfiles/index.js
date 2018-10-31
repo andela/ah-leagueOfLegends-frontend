@@ -11,7 +11,9 @@ const ViewProfile = ({
       <div className="col m5 s12 offset-m3 profile">
         <div className="user-info">
           <div className="user-detail">
-            <h4 className="username">{username}</h4>
+            <h4 className="username">
+              {username}
+            </h4>
             {(isAuthenticated && loggedinUsername === username) ? (
               <button
                 data-target="modal1"

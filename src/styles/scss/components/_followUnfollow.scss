@@ -18,3 +18,49 @@
   cursor: pointer;
 }
 
+.followers li a{
+  color: $color-gray;
+}
+
+.followers li a:focus-visible{
+  color: $color-black;
+}
+
+.users-list .modal-overlay{
+  opacity: 0 !important;
+}
+
+.follower-detail{
+  border-bottom: 0.4px solid $navbar-color;
+  display: flex;
+}
+
+.follower-detail img{
+  transform: scale(1.2);
+  margin-bottom:25px; 
+  margin-right:35px; 
+}
+
+.follow-username{
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+.follow-button{
+  margin-top: 15px;
+  margin-left:254px;
+  position: fixed;
+}
+
+#following-modal.modal {
+  top: 45% !important; 
+  height: 44%;
+  width: 50%;
+}
+
+#followers-modal.modal {
+  top: 45% !important; 
+  height: 44%;
+  width: 50%;
+}
+

@@ -16,11 +16,11 @@ class ViewProfile extends Component {
     this.handleImageUpload = this.handleImageUpload.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { props } = this;
     const { match } = this.props;
     const { username } = match.params;
-    props.fetchUserDetails(username);
+    await props.fetchUserDetails(username);
   }
 
   handleImageUpload() {
@@ -57,6 +57,7 @@ class ViewProfile extends Component {
   render() {
     const { viewProfileReducer } = this.props;
     const { payload, isFetching, failure } = viewProfileReducer;
+
     const loggedinUsername = localStorage.getItem('user');
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (isFetching) {
@@ -84,6 +85,7 @@ class ViewProfile extends Component {
                 isAuthenticated={isAuthenticated}
                 following={payload.profile.following}
               />
+
             </div>
           )
           }
