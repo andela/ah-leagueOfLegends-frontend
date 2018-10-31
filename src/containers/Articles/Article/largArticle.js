@@ -7,6 +7,7 @@ import Dante from 'Dante2';
 import fetchArticles from './actions';
 import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
+import UserRating from '../../../components/Rating/UserRating';
 import Commnents from '../../comments';
 import DisplayComents from '../../comments/getComents/displayComments';
 import LikeDislike from '../../../components/LikeDislike';
@@ -57,24 +58,30 @@ class MainArticle extends Component {
             : null}
         </div>
         <UsrInfo />
-        {
-          (user === author)
-            ? (
-              <button type="button" onClick={this.editClickedHanlder} className="button">
-                        Edit
-              </button>)
-            : null
-        }
+        {user === author ? (
+          <button type="button" onClick={this.editClickedHanlder} className="button">
+            Edit
+          </button>
+        ) : null}
         <button type="button" onClick={this.editClickedHanlder} className="button">
           Edit
         </button>
-
-        <Rating
-          slug={mainArticle.payload.slug}
-          average_rating={mainArticle.payload.average_ratings}
-        />
+        {mainArticle.payload.slug !== undefined && (
+          <Rating
+            slug={mainArticle.payload.slug}
+            average_rating={mainArticle.payload.average_ratings}
+          />
+        )}
         <div className="main-article">
           {this.renderArticleHandler()}
+          <div>
+            {mainArticle.payload.slug !== undefined && (
+              <UserRating
+                slug={mainArticle.payload.slug}
+                average_rating={mainArticle.payload.average_ratings}
+              />
+            )}
+          </div>
           <div className="interact">
             <LikeDislike />
             <SocialShare slug={mainArticle.payload.slug} title={mainArticle.payload.title} />
@@ -96,8 +103,10 @@ MainArticle.propTypes = {
 };
 
 const mapStateToProps = state => ({ mainArticle: state.completeArticle });
-const mapDispatchToProps = dispatch => bindActionCreators({ fetchOneArticles: fetchArticles },
-  dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { fetchOneArticles: fetchArticles },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,

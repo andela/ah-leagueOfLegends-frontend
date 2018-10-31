@@ -27,7 +27,6 @@ export const ratingError = err => ({
 // Returns initial rating
 export const InitialRate = slug => (dispatch) => {
   const token = localStorage.getItem('access_token');
-
   axios({
     method: 'get',
     url: `${BACKEND_URL}api/articles/${slug}/rate/`,
@@ -36,14 +35,17 @@ export const InitialRate = slug => (dispatch) => {
       // eslint-disable-next-line
       Authorization: 'Bearer ' + token,
     },
-  }).then((response) => {
-    const data = response.data.rate.rating;
-    dispatch(currentRate(data));
-  });
+  })
+    .then((response) => {
+      const data = response.data.rate.rating;
+
+      dispatch(currentRate(data));
+    })
+    .catch(err => err);
 };
 // Gets an article slug and dispatches currentAVG to the API
 // Returns an article's current rating
-export const avarageRate = slug => (dispatch) => {
+export const AverageRate = slug => (dispatch) => {
   const token = localStorage.getItem('access_token');
   axios({
     method: 'get',
@@ -54,7 +56,7 @@ export const avarageRate = slug => (dispatch) => {
       Authorization: 'Bearer ' + token,
     },
   }).then((response) => {
-    const data = response.data.article.article.avarage_ratings;
+    const data = response.data.article.article.average_ratings;
     dispatch(currentAVG(data));
   });
 };
