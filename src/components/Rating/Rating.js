@@ -7,7 +7,6 @@ import M from 'materialize-css';
 import { rateArticle, AverageRate } from './actions/actions';
 
 class Rating extends Component {
-
   async componentDidMount() {
     // eslint-disable-next-line
     if (this.props.slug !== undefined) await this.props.AverageRate(this.props.slug);
@@ -17,10 +16,6 @@ class Rating extends Component {
     // eslint-disable-next-line
     this.props.rateArticle(this.props.slug, nextValue);
   };
-
-  // showError = (err) => {
-  //   M.toast({ html: err, classes: 'red' });
-  // };
 
   render() {
     return (
