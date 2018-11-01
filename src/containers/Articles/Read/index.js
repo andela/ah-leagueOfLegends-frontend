@@ -14,7 +14,7 @@ import Tags from '../../../components/tags/index';
 import { BACKEND_URL } from '../../../utils/config';
 import NotFound from '../../../components/NotFound';
 
-class ReadArticle extends Component {
+export class ReadArticle extends Component {
   state = {
     offset: 0,
     perPage: 10,

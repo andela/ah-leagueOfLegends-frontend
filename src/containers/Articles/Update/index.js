@@ -7,7 +7,7 @@ import { fetchArticles } from '../Article/actions';
 import { publishArticle as newArticle } from '../Create/actions';
 import Editor from '../../../components/Article/editor';
 
-class UpdateArticle extends Component {
+export class UpdateArticle extends Component {
   componentDidMount() {
     const { fetchOneArticles, match } = this.props;
     fetchOneArticles(match.params.s);

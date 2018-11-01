@@ -16,6 +16,7 @@ class Aside extends Component {
 
   renderAsideArticlehandler = () => {
     const { articles } = this.props;
+    console.log(articles);
 
     const asideComp = articles.sort((a, b) => a.like < b.like).slice(0, 3);
     const asideDiv = asideComp.map((aside, index) => {

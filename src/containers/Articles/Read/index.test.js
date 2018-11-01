@@ -1,18 +1,26 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ReadArticle from '.';
-import store from '../../../store/store';
-import Aside from './aside';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { ReadArticle } from '.';
+
+const middleware = [thunk];
+const mockStore = configureStore(middleware);
+const store = mockStore({});
 
 describe('<ReadArticle />', () => {
+  const props = {
+    articles: [
+      { author: 'quabt', bookmarked: true },
+      { author: 'quantum', bookmarked: true },
+    ],
+    history: '',
+    getAllArticles: jest.fn(),
+  };
   it('renders without crushing', () => {
     const wrapper = shallow(
-      <ReadArticle store={store} />,
+      <ReadArticle store={store} {...props} />,
     );
     expect(wrapper.find('.article-landing-page')).toBeDefined();
-  });
-  it('Renders aside without crashing', () => {
-    const wrapper = shallow(<Aside store={store} />);
-    expect(wrapper.find('.asideArticle')).toBeDefined();
   });
 });
