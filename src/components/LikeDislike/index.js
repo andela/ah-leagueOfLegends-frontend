@@ -15,6 +15,7 @@ class LikeDislike extends Component {
     this.handleLikeDislike = this.handleLikeDislike.bind(this);
   }
 
+
   handleLikeDislike(isLike) {
     if (localStorage.getItem('access_token')) {
       const { like, dislike, mainArticle } = this.props;

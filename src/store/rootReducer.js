@@ -17,6 +17,7 @@ import { SocialLoginReducer } from '../components/Authentication/Login/socialLog
 import NotificationReducer from '../containers/Notification/reducer';
 import viewProfileReducer from '../containers/Profile/ViewProfile/reducer';
 import editProfileReducer from '../containers/Profile/UpdateProfile/reducer';
+import likeDislikeCommentReducer from '../containers/LikeDislikeComments/reducer';
 
 import toggleNotificationReducer from '../containers/ToggleNotifications/reducer';
 
@@ -38,4 +39,5 @@ export default combineReducers({
   editProfileReducer,
   viewProfileReducer,
   toggleNotificationReducer,
+  likeDislikeCommentReducer,
 });

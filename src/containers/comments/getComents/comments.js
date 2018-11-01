@@ -67,7 +67,8 @@ class CommentsComponent extends Component {
               { comments.body }
               <br />
               <br />
-              <LikeDislikeComments />
+              {/* eslint-disable-next-line */}
+              <LikeDislikeComments id={this.props.comments.id} likes={this.props.comments.likes} dislikes={this.props.comments.dislikes} />
             </div>
           )
         }
