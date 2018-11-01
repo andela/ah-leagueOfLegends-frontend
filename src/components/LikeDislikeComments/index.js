@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 
 import { dislikeComments, likeComments } from '../../containers/LikeDislikeComments/actions';
@@ -68,7 +69,11 @@ const mapStateToProps = state => (
     likeDislikeCommentReducer: state.likeDislikeCommentReducer,
   });
 
-export default connect(mapStateToProps, {
-  dislike: dislikeComments,
-  like: likeComments,
-})(LikeDislikeComments);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    dislike: dislikeComments,
+    like: likeComments,
+  },
+  dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(LikeDislikeComments);
