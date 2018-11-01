@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { DISLIKE_ARTICLE, LIKE_ARTICLE, LIKE_DISLIKE_FAILURE } from './ActionTypes';
 import { BACKEND_URL } from '../../utils/config';
-import fetchArticles from '../Articles/Article/actions';
+import { fetchArticles } from '../Articles/Article/actions';
 
 export const likeArticle = () => ({ type: LIKE_ARTICLE });
 

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import publishComment from '../actions';
-import getComents from './actions';
 import LikeDislikeComments from '../../../components/LikeDislikeComments';
+import { publishComment } from '../actions';
+import { getComments as getComents } from './actions';
 
 class CommentsComponent extends Component {
   state = {

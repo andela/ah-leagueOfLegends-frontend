@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import fetchArticles from '../Article/actions';
-import newArticle from '../Create/actions';
+import { fetchArticles } from '../Article/actions';
+import { publishArticle as newArticle } from '../Create/actions';
 import Editor from '../../../components/Article/editor';
 
 class UpdateArticle extends Component {
@@ -23,7 +23,7 @@ class UpdateArticle extends Component {
     const { payload, success } = this.props.mainArticle;
     const { publishing, history } = this.props;
     return (
-      <div>
+      <div className="update-editor">
         { success
         && (
           <Editor

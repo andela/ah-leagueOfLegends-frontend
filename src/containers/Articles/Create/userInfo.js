@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import '../../../styles/styles.css';
 import fetchUserDetailsAction from '../../Profile/ViewProfile/actions';
 
@@ -15,6 +15,7 @@ class UsrInfo extends Component {
   render() {
     const { viewProfileReducer, username } = this.props;
     const { profile } = viewProfileReducer.loggedInUser;
+
     localStorage.setItem('user_img', profile.image);
 
     return (

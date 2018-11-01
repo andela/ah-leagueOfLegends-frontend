@@ -5,4 +5,17 @@ export default {
     body: 'Article Body',
     articleDescription: 'Article Desc',
   },
+  singleArticle: {
+    data: {
+      article: {
+        article: {
+          title: 'this is the title',
+          body: 'Article body',
+          articleDescription: 'Article Description',
+        },
+      },
+    },
+  },
+  comments: { message: 'commenys' },
+  commentError: { errors: { message: 'Error comment' } },
 };

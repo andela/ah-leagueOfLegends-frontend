@@ -8,6 +8,7 @@
     "Dante2": "^0.5.0-rc4",
     "add": "^2.0.6",
     "axios": "^0.18.0",
+    "axios-mock-adapter": "^1.15.0",
     "cloudinary-core": "^2.5.0",
     "cloudinary-react": "^1.0.6",
     "coveralls": "^3.0.2",
@@ -85,7 +86,10 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
-      "!node_modules/"
+      "!node_modules/",
+      "!src/serviceWorker.js",
+      "!src/index.js",
+      "!src/App.js"
     ]
   }
 }

@@ -3,11 +3,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import publishComment from './actions';
-import getComents from './getComents/actions';
+import { publishComment } from './actions';
+import { getComments as getComents } from './getComents/actions';
 
-class Comments extends Component {
-  state = { inputData: '' };
+export class Comments extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { inputData: '' };
+    this.publishCommentHandler = this.publishCommentHandler.bind(this);
+  }
+
 
   inputCommentHandler = (e) => {
     e.preventDefault();
@@ -15,7 +20,7 @@ class Comments extends Component {
     this.setState({ inputData: data });
   }
 
-  publishCommentHandler = () => {
+  publishCommentHandler() {
     const { newComment, articleSlug, allComments } = this.props;
     const { inputData } = this.state;
     if (articleSlug !== undefined) {
@@ -63,7 +68,7 @@ class Comments extends Component {
 Comments.defaultProps = { articleSlug: '' };
 
 Comments.propTypes = {
-  newComment: PropTypes.instanceOf(Object).isRequired,
+  newComment: PropTypes.func.isRequired,
   articleSlug: PropTypes.string,
   allComments: PropTypes.func.isRequired,
 };
