@@ -627,6 +627,58 @@ h1 {
 .pagination a:first-child {
   margin-right: 0.5em; }
 
+.btn-following {
+  color: #008080;
+  border-radius: 4px;
+  width: 97px;
+  height: 32px;
+  border: 1px solid #008080; }
+
+.btn-following:hover {
+  border: 1px solid #008080;
+  color: #008080; }
+
+.btn-following:focus {
+  background-color: #ffffff;
+  cursor: pointer; }
+
+.followers li a {
+  color: #aaa; }
+
+.followers li a:focus-visible {
+  color: #000000; }
+
+.users-list .modal-overlay {
+  opacity: 0 !important; }
+
+.follower-detail {
+  border-bottom: 0.4px solid #e0dfdf;
+  display: flex; }
+
+.follower-detail img {
+  transform: scale(1.2);
+  margin-bottom: 25px;
+  margin-right: 35px; }
+
+.follow-username {
+  padding-top: 10px;
+  font-size: 16px; }
+
+.follow-button {
+  margin-top: 15px;
+  margin-left: 254px;
+  position: fixed; }
+
+#following-modal.modal {
+  top: 45% !important;
+  height: 44%;
+  width: 50%; }
+
+#followers-modal.modal {
+  top: 45% !important;
+  height: 44%;
+  width: 50%; }
+
 .alert-error {
   color: #a94442;
   font-style: oblique;
@@ -1287,7 +1339,7 @@ h6 {
 
 ul#dropdown1.dropdown-content {
   margin-top: 20px;
-  display: block;
+  display: none;
   width: 300px !important;
   top: -65px;
   overflow-y: scroll;
