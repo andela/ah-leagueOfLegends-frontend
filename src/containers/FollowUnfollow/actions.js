@@ -5,27 +5,27 @@ import { viewProfileFollowSuccess } from '../Profile/ViewProfile/actions';
 
 const fetchBegin = () => ({ type: FollowConstants.REQUEST_SENT });
 
-const followSuccess = payload => ({
+export const followSuccess = payload => ({
   type: FollowConstants.FOLLOW_SUCCESS,
   payload,
 });
 
-const followFailiure = payload => ({
+export const followFailiure = payload => ({
   type: FollowConstants.FOLLOW_FAILIURE,
   payload,
 });
 
-const getfollowersSucess = payload => ({
+export const getfollowersSucess = payload => ({
   type: FollowConstants.GET_FOLLOWERS_SUCCESS,
   payload,
 });
 
-const getfollowingSucess = payload => ({
+export const getfollowingSucess = payload => ({
   type: FollowConstants.GET_FOLLOWING_SUCCESS,
   payload,
 });
 
-const getfollowFailiure = payload => ({
+export const getfollowFailiure = payload => ({
   type: FollowConstants.GET_FOLLOW_FAILIURE,
   payload,
 });
