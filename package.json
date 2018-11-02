@@ -89,7 +89,8 @@
       "!node_modules/",
       "!src/serviceWorker.js",
       "!src/index.js",
-      "!src/App.js"
+      "!src/App.js",
+      "!src/containers/Articles/Read/filterArticles.js"
     ]
   }
 }

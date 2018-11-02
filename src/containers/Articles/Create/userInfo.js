@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import '../../../styles/styles.css';
 import fetchUserDetailsAction from '../../Profile/ViewProfile/actions';
 
-class UsrInfo extends Component {
+export class UsrInfo extends Component {
   componentDidMount() {
     const { fetchUserDetails, username } = this.props;
     fetchUserDetails(username);
@@ -48,7 +48,7 @@ class UsrInfo extends Component {
 
 UsrInfo.propTypes = {
   viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
-  username: PropTypes.instanceOf(Object).isRequired,
+  username: PropTypes.string.isRequired,
   fetchUserDetails: PropTypes.func.isRequired,
 
 };

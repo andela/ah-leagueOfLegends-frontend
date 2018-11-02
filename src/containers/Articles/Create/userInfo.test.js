@@ -1,22 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import UserInfo from './userInfo';
-import store from '../../../store/store';
+// import store from '../../../store/store';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { UsrInfo } from './userInfo';
+
+const middleware = [thunk];
+const mockStore = configureStore(middleware);
+const store = mockStore({});
 
 describe('Editor state', () => {
-  let wrapper;
-  beforeEach(() => {
-    const props = {
-      viewProfileReducer: {},
-      username: {},
-      fetchUserDetails: jest.fn(),
-    };
-    wrapper = shallow(
-      <UserInfo store={store} {...props} />,
-    );
-  });
+  const props = {
+    fetchUserDetails: jest.fn(),
+    username: 'quantum',
+    viewProfileReducer: { loggedInUser: { profile: { image: 'hello' } } },
+  };
 
   it('should render Editor component', () => {
-    expect(wrapper.find('.author-info')).toBeDefined();
+    const wrapper = shallow(
+      <UsrInfo store={store} {...props} />,
+    );
+    expect(wrapper.find('.author-info').exists()).toBe(true);
   });
 });
