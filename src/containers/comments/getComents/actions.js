@@ -16,5 +16,3 @@ export const getComments = slug => (dispatch) => {
     .then(res => dispatch(commentSuccess(res)))
     .catch(err => dispatch(commentFailure(err)));
 };
-
-// export default getComments;
