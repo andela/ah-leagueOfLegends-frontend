@@ -50,6 +50,7 @@ ViewProfile.propTypes = {
   avatarUpload: PropTypes.func.isRequired,
   loggedinUsername: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
+  following: PropTypes.bool.isRequired,
 
 };
 

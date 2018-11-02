@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import M from 'materialize-css';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getfollowers, getfollowing } from './actions';
-import FollowUnfollow from '.';
 
 class Followers extends React.Component {
   constructor(props) {
@@ -30,23 +31,24 @@ class Followers extends React.Component {
 
 
   render() {
+    const { followstate } = this.props;
     return (
       <div className="followers">
         <li>
           <a className="p-r-30 modal-trigger" href="#followers-modal">
-            {`${this.props.followstate.followers.length} followers`}
+            {`${followstate.followers.length} followers`}
           </a>
         </li>
         <li>
           <a className="modal-trigger" href="#following-modal">
-            {`${this.props.followstate.following.length} following`}
+            {`${followstate.following.length} following`}
           </a>
         </li>
 
         <div className="users-list">
 
           <div className="modal z-depth-0 white " id="following-modal">
-            {this.props.followstate.following.map(user => (
+            {followstate.following.map(user => (
               <div key={user.id} className="follower-detail">
                 <img
                   className="notification-avatar"
@@ -54,24 +56,22 @@ class Followers extends React.Component {
                   data-id={user.id}
                   src={user.image}
                 />
-                <div className="follow-username">
+                <Link
+                  className="follow-username black-text"
+                  to={`/profile/${user.username}`}
+                  data-id={user.id}
+                  onClick={window.location.reload}
+                >
                   {`${user.username}`}
-                </div>
+                </Link>
 
-                {(localStorage.getItem('user') !== user.username)
-                  ? (
-                    <div className="follow-button">
-                      <FollowUnfollow username={user.username} />
-                    </div>
-                  )
-                  : null
-                  }
+
               </div>
             ))}
           </div>
 
           <div className="modal z-depth-0 white" id="followers-modal">
-            {this.props.followstate.followers.map(user => (
+            {followstate.followers.map(user => (
               <div key={user.id} className="follower-detail">
                 <img
                   className="notification-avatar"
@@ -79,17 +79,14 @@ class Followers extends React.Component {
                   data-id={user.id}
                   src={user.image}
                 />
-                <div className="follow-username">
+                <Link
+                  className="follow-username black-text"
+                  data-id={user.id}
+                  to={`/profile/${user.username}`}
+                  onClick={window.location.reload}
+                >
                   {`${user.username}`}
-                </div>
-                {(localStorage.getItem('user') !== user.username)
-                  ? (
-                    <div className="follow-button">
-                      <FollowUnfollow username={user.username} following={user.following} />
-                    </div>
-                  )
-                  : null
-                }
+                </Link>
               </div>
             ))}
           </div>
@@ -99,6 +96,8 @@ class Followers extends React.Component {
     );
   }
 }
+
+Followers.propTypes = { followstate: PropTypes.instanceOf(Object).isRequired };
 
 const mapStateToProps = state => ({ followstate: state.followReducer });
 

@@ -5,25 +5,29 @@ import followUser from './actions';
 
 class FollowUnfollow extends Component {
   handlefollow = () => {
-    const { followUnfollow } = this.props;
-    followUnfollow(this.props.username);
+    const { followUnfollow, username } = this.props;
+    followUnfollow(username);
   }
 
   render() {
-    // console.log(this.props, '*****');
+    const { following } = this.props;
     return (
       <button
         type="submit"
         className="btn-following"
         onClick={this.handlefollow}
       >
-        {this.props.following ? 'following' : 'follow'}
+        {following ? 'following' : 'follow'}
       </button>
     );
   }
 }
 
-FollowUnfollow.propTypes = { followUnfollow: PropTypes.func.isRequired };
+FollowUnfollow.propTypes = {
+  followUnfollow: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  following: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = state => ({ followstate: state.followReducer });
 
