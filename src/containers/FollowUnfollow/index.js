@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import followUser from './actions';
+import followUser, { getfollowers } from './actions';
 
 class FollowUnfollow extends Component {
   handlefollow = () => {
-    const { followUnfollow, username } = this.props;
+    const { followUnfollow, username, updatefollowers } = this.props;
     followUnfollow(username);
+    updatefollowers(username);
   }
 
   render() {
@@ -27,10 +28,11 @@ FollowUnfollow.propTypes = {
   followUnfollow: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired,
   following: PropTypes.bool.isRequired,
+  updatefollowers: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({ followstate: state.followReducer });
 
 export default connect(
-  mapStateToProps, { followUnfollow: followUser },
+  mapStateToProps, { followUnfollow: followUser, updatefollowers: getfollowers },
 )(FollowUnfollow);
