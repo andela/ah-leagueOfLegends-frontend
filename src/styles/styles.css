@@ -626,6 +626,14 @@ h1 {
 
 .pagination a:first-child {
   margin-right: 0.5em; }
+.btn-bookmark {
+  border: 1px solid #aaa;
+  border-radius: 30px;
+  box-shadow: none;
+  margin-right: 40px;
+  padding: 5px 15px;
+  margin-bottom: 60px;
+  margin-left: 40px; }
 
 .btn-following {
   color: #008080;

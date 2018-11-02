@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ViewProfiles from '../../../components/ViewProfiles';
+import ViewProfiles from '../../../components/ViewProfile';
 import Loader from '../../../components/Loader';
 import fetchUserDetails from './actions';
 import updateUser from '../UpdateProfile/actions';
 import NotFound from '../../../components/NotFound';
 
-class ViewProfile extends Component {
+export class ViewProfile extends Component {
   constructor(props) {
     super(props);
     this.state = { image: '' };
@@ -95,7 +95,7 @@ class ViewProfile extends Component {
 }
 
 ViewProfile.propTypes = {
-  viewProfileReducer: PropTypes.func.isRequired,
+  viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
   match: PropTypes.instanceOf(Object).isRequired,
 };

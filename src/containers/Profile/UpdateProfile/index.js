@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 
@@ -10,7 +10,7 @@ import EditProfile from '../../../components/EditProfile';
 import Loader from '../../../components/Loader';
 import NotFound from '../../../components/NotFound';
 
-class UpdateProfile extends Component {
+export class UpdateProfile extends Component {
   constructor() {
     super();
     this.state = {

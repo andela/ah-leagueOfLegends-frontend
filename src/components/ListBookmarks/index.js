@@ -8,7 +8,7 @@ import NotFound from '../NotFound';
 /**
  * @return {string}
  */
-function ListBookmarks(props) {
+export function ListBookmarks(props) {
   const { viewProfileReducer } = props;
   const { isFetching } = viewProfileReducer;
   const { profile } = viewProfileReducer.loggedInUser;
@@ -56,7 +56,6 @@ function ListBookmarks(props) {
     </div>
   );
 }
-
 ListBookmarks.propTypes = { viewProfileReducer: PropTypes.func.isRequired };
 
 const mapStateToProps = state => ({ viewProfileReducer: state.viewProfileReducer });
