@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { getArticles } from './actions';
+import { allArticles } from './popular/actions';
 import '../../../styles/styles.css';
 import { extractDescription } from './filterArticles';
 
-class Aside extends Component {
+export class Aside extends Component {
   componentDidMount() {
     const { getAllArticles } = this.props;
     getAllArticles();
@@ -16,7 +16,6 @@ class Aside extends Component {
 
   renderAsideArticlehandler = () => {
     const { articles } = this.props;
-
     const asideComp = articles.sort((a, b) => a.like < b.like).slice(0, 3);
     const asideDiv = asideComp.map((aside, index) => {
       let b;
@@ -64,13 +63,13 @@ Aside.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  articles: state.articles.all_articles,
+  articles: state.popularArticles.all_articles,
   loading: '',
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    getAllArticles: getArticles,
+    getAllArticles: allArticles,
     loading: '',
   },
   dispatch,

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import '../../../styles/styles.css';
 import fetchUserDetailsAction from '../../Profile/ViewProfile/actions';
 
-class UsrInfo extends Component {
+export class UsrInfo extends Component {
   componentDidMount() {
     const { fetchUserDetails, username } = this.props;
     fetchUserDetails(username);
@@ -15,6 +15,7 @@ class UsrInfo extends Component {
   render() {
     const { viewProfileReducer, username } = this.props;
     const { profile } = viewProfileReducer.loggedInUser;
+
     localStorage.setItem('user_img', profile.image);
 
     return (
@@ -47,7 +48,7 @@ class UsrInfo extends Component {
 
 UsrInfo.propTypes = {
   viewProfileReducer: PropTypes.instanceOf(Object).isRequired,
-  username: PropTypes.instanceOf(Object).isRequired,
+  username: PropTypes.string.isRequired,
   fetchUserDetails: PropTypes.func.isRequired,
 
 };

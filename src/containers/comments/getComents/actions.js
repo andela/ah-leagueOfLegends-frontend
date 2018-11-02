@@ -10,11 +10,9 @@ export const commentFailure = error => ({ type: FETCH_COMMENT_FAIL, error });
 
 export const commentFetch = () => ({ type: FETCH_COMMENT });
 
-const getComments = slug => (dispatch) => {
+export const getComments = slug => (dispatch) => {
   const MAIN_URL = `${BACKEND_URL}api/articles/${slug}/comments`;
   axios.get(MAIN_URL)
     .then(res => dispatch(commentSuccess(res)))
     .catch(err => dispatch(commentFailure(err)));
 };
-
-export default getComments;

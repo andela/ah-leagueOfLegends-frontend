@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import EditorState from './editorState';
 import Editor from '../../../components/Article/editor';
-import newArticle from './actions';
+import { publishArticle as newArticle } from './actions';
 
 class CreateArticle extends Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class CreateArticle extends Component {
   render() {
     const { history, publishing, publishNewArticle } = this.props;
     return (
-      <div>
+      <div className="editor">
         <Editor
           edtrState={EditorState}
           history={history}

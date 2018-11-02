@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Dante from 'Dante2';
 
-import fetchArticles from './actions';
+import { fetchArticles } from './actions';
 import UsrInfo from '../Create/userInfo';
 import Rating from '../../../components/Rating/Rating';
 import UserRating from '../../../components/Rating/UserRating';

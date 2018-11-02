@@ -5,6 +5,7 @@ import forgotPasswordReducer from '../containers/Forgotpassword/reducer';
 import resetPasswordReducer from '../containers/Resetpassword/reducer';
 
 import articles from '../containers/Articles/Read/reducer';
+import popularArticles from '../containers/Articles/Read/popular/reducer';
 import authReducer from '../components/Authentication/Signup/reducers/authReducer';
 import newArticle from '../containers/Articles/Create/reducer';
 import completeArticle from '../containers/Articles/Article/reducer';
@@ -25,6 +26,7 @@ import toggleNotificationReducer from '../containers/ToggleNotifications/reducer
 export default combineReducers({
   completeArticle,
   articles,
+  popularArticles,
   authReducer,
   ratingReducer,
   newArticle,

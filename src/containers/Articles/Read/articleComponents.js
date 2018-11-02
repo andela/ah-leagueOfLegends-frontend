@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../../../styles/styles.css';
 
-const articleComponent = (props) => {
+export const articleComponent = (props) => {
   const { article, preview } = props;
   switch (props.index) {
     case 0:

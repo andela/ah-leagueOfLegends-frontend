@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import connect from 'react-redux/es/connect/connect';
+import { connect } from 'react-redux';
 import toastr from 'toastr';
 
 import likeDislikeArticleReducer from '../../containers/LikeDislike/reducer';

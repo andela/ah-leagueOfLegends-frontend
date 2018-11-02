@@ -7,14 +7,14 @@ import axios from 'axios';
 
 import '../../../styles/styles.css';
 import { getArticles } from './actions';
-import Aside from './aside';
+import Asidee from './aside';
 import ArticleComponent from './articleComponents';
 import { extractDescription } from './filterArticles';
 import Tags from '../../../components/tags/index';
 import { BACKEND_URL } from '../../../utils/config';
 import NotFound from '../../../components/NotFound';
 
-class ReadArticle extends Component {
+export class ReadArticle extends Component {
   state = {
     offset: 0,
     perPage: 10,
@@ -78,7 +78,7 @@ class ReadArticle extends Component {
     return (
       <div>
         <div className="article-landing-page" style={{ marginLeft: 50, marginBottom: '50%' }}>
-          <Aside />
+          <Asidee />
           <Tags />
           { this.renderArticleHandler()}
         </div>

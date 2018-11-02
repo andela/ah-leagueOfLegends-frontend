@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import publishComment from '../actions';
-import getComents from './actions';
 import LikeDislikeComments from '../../../components/LikeDislikeComments';
+import { publishComment } from '../actions';
+import { getComments as getComents } from './actions';
 
-class CommentsComponent extends Component {
+export class CommentsComponent extends Component {
   state = {
     // eslint-disable-next-line
     newComment: this.props.comments.body,
@@ -40,7 +40,7 @@ class CommentsComponent extends Component {
     } = this.props;
     const { newComment, edited } = this.state;
     return (
-      <div>
+      <div className="comment-component">
         { (clicked && (componentIndex === index) && edited)
           ? (
             <div className="row">

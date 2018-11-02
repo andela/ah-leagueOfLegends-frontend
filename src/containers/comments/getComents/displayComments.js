@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-import getComents from './actions';
-import publishComment from '../actions';
+import { getComments as getComents } from './actions';
+import { publishComment } from '../actions';
 import CommentsComponent from './comments';
 
-class DisplayComments extends PureComponent {
+export class DisplayComments extends PureComponent {
   state={
     show: null,
     editComment: false,

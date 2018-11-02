@@ -9,8 +9,8 @@ export const commentFailure = error => ({ type: COMMENT_FAILURE, error });
 
 export const commentFetch = () => ({ type: COMMENT_FETCH });
 
-
-const publishComment = (payloadData, slug, method, update = false, commentId) => (dispatch) => {
+// eslint-disable-next-line
+export const publishComment = (payloadData, slug, method, update = false, commentId) => (dispatch) => {
   let data = { comment: { body: payloadData } };
   if (method === 'PUT') {
     data = { body: payloadData };
@@ -53,4 +53,4 @@ const publishComment = (payloadData, slug, method, update = false, commentId) =>
   }
 };
 
-export default publishComment;
+// export default publishComment;

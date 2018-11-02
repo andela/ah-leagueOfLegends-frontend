@@ -9,7 +9,7 @@ export const articleFailure = errors => ({ type: ARTICLE_FAILURE, errors });
 
 export const articleFetch = () => ({ type: PUBLISH_ARTICLE });
 
-const publishArticle = (data, history, update = false, slug) => (dispatch) => {
+export const publishArticle = (data, history, update = false, slug) => (dispatch) => {
   dispatch(articleFetch());
   let MAIN_URL = `${BACKEND_URL}api/articles`;
   if (update) {
@@ -33,5 +33,3 @@ const publishArticle = (data, history, update = false, slug) => (dispatch) => {
     })
     .catch(err => dispatch(articleFailure(err)));
 };
-
-export default publishArticle;
