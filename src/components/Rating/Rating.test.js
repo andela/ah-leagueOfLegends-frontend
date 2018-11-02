@@ -25,4 +25,9 @@ describe('Article Rating Component', () => {
     expect(wrapper.exists()).toBe(true);
     expect(wrapper.find('StarRatings')).toBeDefined();
   });
+
+  test('Render', () => {
+    const wrapper = shallow(<Rating store={store} {...props} />);
+    expect(wrapper.exists()).toBe(true);
+  });
 });
