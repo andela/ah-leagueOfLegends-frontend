@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
 import { rateArticle, AverageRate } from './actions/actions';
 
 class Rating extends Component {
@@ -32,7 +31,7 @@ class Rating extends Component {
                 starDimension="15px"
                 rating={
                   // eslint-disable-next-line
-                  this.props.ratingReducer.average_rating !== undefined
+                  (ratingReducer && this.props.ratingReducer.average_rating) !== undefined
                     ? this.props.ratingReducer.average_rating
                     : 0
                 }
@@ -50,9 +49,7 @@ const mapStateToProps = state => ({ ratingReducer: state.ratingReducer });
 Rating.propTypes = {
   AverageRate: PropTypes.func.isRequired,
   rateArticle: PropTypes.func.isRequired,
-  average_rating: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
-  ratingReducer: PropTypes.func.isRequired,
 };
 export default connect(
   mapStateToProps,
