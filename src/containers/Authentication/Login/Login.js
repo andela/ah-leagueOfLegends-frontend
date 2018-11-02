@@ -4,7 +4,7 @@ import M from 'materialize-css';
 import PropTypes from 'prop-types';
 import login from './actions';
 
-class Login extends React.Component {
+export class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -56,7 +56,7 @@ class Login extends React.Component {
             </p>
           </div>
           {
-          errors !== undefined
+          (errors && errors.error) !== undefined
             ? (
               <p className="error">
                 {errors}
@@ -131,6 +131,6 @@ Login.propTypes = { errors: PropTypes.string, dispatch: PropTypes.func.isRequire
 Login.defaultProps = { errors: undefined };
 
 
-const mapStateToProps = state => ({ errors: state.Login.error });
+const mapStateToProps = state => ({ errors: state.Login });
 
 export default connect(mapStateToProps)(Login);

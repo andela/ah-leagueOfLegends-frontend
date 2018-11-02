@@ -5,7 +5,7 @@ import { extractDescription } from '../Articles/Read/filterArticles';
 import ArticleComponent from './RenderArticles';
 
 
-class SearchResults extends Component {
+export class SearchResults extends Component {
   componentDidMount() {}
 
   renderArticleHandler = () => {
