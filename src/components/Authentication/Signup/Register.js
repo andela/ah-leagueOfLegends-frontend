@@ -20,9 +20,9 @@ class Register extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const el = document.querySelectorAll('.modal');
-    M.Modal.init(el);
+    await M.Modal.init(el);
   }
 
   handleInputChange(e) {
@@ -65,7 +65,7 @@ class Register extends Component {
                         onChange={this.handleInputChange}
                         value={username}
                       />
-                      {authReducer.error.username !== undefined ? (
+                      {(authReducer && authReducer.error.username) !== undefined ? (
                         <span className="alert-error">{authReducer.error.username}</span>
                       ) : null}
                     </div>
@@ -80,7 +80,7 @@ class Register extends Component {
                         onChange={this.handleInputChange}
                         value={email}
                       />
-                      {authReducer.error.email !== undefined ? (
+                      {(authReducer && authReducer.error.email) !== undefined ? (
                         <span className="alert-error">{authReducer.error.email}</span>
                       ) : null}
                     </div>
@@ -95,7 +95,7 @@ class Register extends Component {
                         onChange={this.handleInputChange}
                         value={password}
                       />
-                      {authReducer.error.password !== undefined ? (
+                      {(authReducer && authReducer.error.password) !== undefined ? (
                         <span className="alert-error">{authReducer.error.password}</span>
                       ) : null}
                     </div>
@@ -124,7 +124,6 @@ class Register extends Component {
 
 Register.propTypes = {
   registerNewUser: PropTypes.func.isRequired,
-  authReducer: PropTypes.instanceOf(Object).isRequired,
   history: PropTypes.shape({ push: PropTypes.func.isRequired }),
 };
 

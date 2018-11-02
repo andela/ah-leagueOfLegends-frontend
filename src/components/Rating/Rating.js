@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css';
 import { rateArticle, AverageRate } from './actions/actions';
 
 class Rating extends Component {
-
   async componentDidMount() {
     // eslint-disable-next-line
     if (this.props.slug !== undefined) await this.props.AverageRate(this.props.slug);
@@ -18,18 +16,10 @@ class Rating extends Component {
     this.props.rateArticle(this.props.slug, nextValue);
   };
 
-  showError = (err) => {
-    M.toast({ html: err, classes: 'red' });
-  };
-
   render() {
     const { ratingReducer } = this.props;
     return (
       <React.Fragment>
-        <div className="errorMessage">
-          {ratingReducer.ratingError && this.showError(ratingReducer.ratingError)}
-        </div>
-
         <div className="row" style={{ centerContent: 'flex-end', marginLeft: '20%' }}>
           <div className="col s12 m6">
             <div>
@@ -42,7 +32,7 @@ class Rating extends Component {
                 starDimension="15px"
                 rating={
                   // eslint-disable-next-line
-                  this.props.ratingReducer.average_rating !== undefined
+                  (ratingReducer && this.props.ratingReducer.average_rating) !== undefined
                     ? this.props.ratingReducer.average_rating
                     : 0
                 }
@@ -60,9 +50,7 @@ const mapStateToProps = state => ({ ratingReducer: state.ratingReducer });
 Rating.propTypes = {
   AverageRate: PropTypes.func.isRequired,
   rateArticle: PropTypes.func.isRequired,
-  average_rating: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
-  ratingReducer: PropTypes.func.isRequired,
 };
 export default connect(
   mapStateToProps,

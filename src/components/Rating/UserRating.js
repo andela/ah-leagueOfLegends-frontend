@@ -26,7 +26,7 @@ class ArticleRating extends Component {
     return (
       <React.Fragment>
         <div className="errorMessage">
-          {ratingReducer.ratingError && this.showError(ratingReducer.ratingError)}
+          {ratingReducer && ratingReducer.ratingError && this.showError(ratingReducer.ratingError)}
         </div>
 
         <div
@@ -48,7 +48,7 @@ class ArticleRating extends Component {
               starDimension="15px"
               rating={
                 // eslint-disable-next-line
-                this.props.ratingReducer.rating !== undefined ? this.props.ratingReducer.rating : 0
+              (ratingReducer &&  this.props.ratingReducer.rating )!== undefined ? this.props.ratingReducer.rating : 0
               }
               changeRating={this.handleStarClick}
             />
@@ -65,7 +65,8 @@ ArticleRating.propTypes = {
   InitialRate: PropTypes.func.isRequired,
   rateArticle: PropTypes.func.isRequired,
   slug: PropTypes.string.isRequired,
-  ratingReducer: PropTypes.func.isRequired,
+  // ratingReducer: PropTypes.func.isRequired,
+  // ratingError: PropTypes.string.isRequired,
 };
 export default connect(
   mapStateToProps,

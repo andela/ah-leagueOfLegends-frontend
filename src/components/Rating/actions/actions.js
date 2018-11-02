@@ -11,12 +11,12 @@ export const rateAction = rate => ({
 // action creator: takes a response and returns type CURRENT_RATE
 export const currentRate = response => ({
   type: CURRENT_RATE,
-  payload: { userRating: response === undefined ? 0 : response },
+  payload: { userRating: response === null ? 0 : response },
 });
 // action creator: takes response and returns type CURRENT_AVG
 export const currentAVG = response => ({
   type: CURRENT_AVG,
-  payload: { average_rating: response === undefined ? 0 : response },
+  payload: { average_rating: response === null ? 0 : response },
 });
 // action creator: takes an err and returns type RATING_FAILURE
 export const ratingError = err => ({
