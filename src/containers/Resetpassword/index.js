@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { resetPasswordAction } from './actions';
+import { BACKEND_URL } from '../../utils/config';
 
 class Resetpassword extends React.Component {
   constructor(props) {
@@ -90,7 +91,7 @@ class Resetpassword extends React.Component {
               {payload}
               {
               resetPasswordReducer.success
-                ? (setTimeout(() => { window.location.href = 'http://localhost:3000/'; }, 30)) : null
+                ? (setTimeout(() => { window.location.href = `${BACKEND_URL}`; }, 30)) : null
                 }
             </div>
 
