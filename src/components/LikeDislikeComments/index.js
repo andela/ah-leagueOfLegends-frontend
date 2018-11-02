@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import connect from 'react-redux/es/connect/connect';
 import toastr from 'toastr';
 
-import likeDislikeArticleReducer from '../../containers/LikeDislike/reducer';
-import { dislikeArticles, likeArticles } from '../../containers/LikeDislike/actions';
-// eslint-disable-next-line
+import { dislikeComments, likeComments } from '../../containers/LikeDislikeComments/actions';
+
 import '../../styles/scss/components/_likeDislikeArticles.scss';
 
-class LikeDislike extends Component {
+class LikeDislikeComments extends Component {
   constructor(props) {
     super(props);
-    this.handleLikeDislike = this.handleLikeDislike.bind(this);
+    this.handleLikeDislikeComment = this.handleLikeDislikeComment.bind(this);
   }
 
-
-  handleLikeDislike(isLike) {
+  handleLikeDislikeComment(isLike) {
     if (localStorage.getItem('access_token')) {
       const { like, dislike, mainArticle } = this.props;
       const { slug } = mainArticle.payload;
+      const { id } = this.props;
       if (isLike) {
-        like(slug);
+        like(slug, id);
       } else {
-        dislike(slug);
+        dislike(slug, id);
       }
     } else {
       toastr.error('Please Login/Register.');
@@ -31,51 +30,50 @@ class LikeDislike extends Component {
   }
 
   render() {
-    const { mainArticle } = this.props;
+    const { likes, dislikes } = this.props;
     return (
       <div>
         <button
-          disabled={mainArticle.isFetching}
           className="btn-thumb-up"
           type="submit"
-          onClick={() => this.handleLikeDislike(true)}
+          onClick={() => this.handleLikeDislikeComment(true)}
         >
           <i className="material-icons" id="like">thumb_up</i>
-          <span>{mainArticle.payload.like}</span>
+          <span>{likes}</span>
         </button>
         <button
-          disabled={mainArticle.isFetching}
           type="submit"
           className="btn-thumb-down"
-          onClick={() => this.handleLikeDislike(false)}
+          onClick={() => this.handleLikeDislikeComment(false)}
         >
           <i className="material-icons" id="dislike">thumb_down</i>
-          <span>{mainArticle.payload.dislike}</span>
+          <span>{dislikes}</span>
         </button>
-
       </div>
     );
   }
 }
 
-LikeDislike.propTypes = {
-  like: PropTypes.number.isRequired,
-  dislike: PropTypes.number.isRequired,
-  mainArticle: PropTypes.objectOf().isRequired,
-
+LikeDislikeComments.propTypes = {
+  like: PropTypes.func.isRequired,
+  dislike: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  mainArticle: PropTypes.shape().isRequired,
+  likes: PropTypes.number.isRequired,
+  dislikes: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => (
   {
     mainArticle: state.completeArticle,
-    likeDislikeArticleReducer,
+    likeDislikeCommentReducer: state.likeDislikeCommentReducer,
   });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    dislike: dislikeArticles,
-    like: likeArticles,
+    dislike: dislikeComments,
+    like: likeComments,
   },
   dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(LikeDislike);
+export default connect(mapStateToProps, mapDispatchToProps)(LikeDislikeComments);
