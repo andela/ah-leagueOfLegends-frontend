@@ -12,7 +12,7 @@ import fetchUserDetails from '../containers/Profile/ViewProfile/actions';
 import { url } from '../utils/config';
 import Notification from '../containers/Notification';
 
-class Navbar extends Component {
+export class Navbar extends Component {
   constructor(props) {
     super(props);
 

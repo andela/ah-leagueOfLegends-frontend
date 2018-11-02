@@ -56,7 +56,7 @@ class Login extends React.Component {
             </p>
           </div>
           {
-          errors !== undefined
+          (errors && errors.error) !== undefined
             ? (
               <p className="error">
                 {errors}
@@ -131,6 +131,8 @@ Login.propTypes = { errors: PropTypes.string, dispatch: PropTypes.func.isRequire
 Login.defaultProps = { errors: undefined };
 
 
-const mapStateToProps = state => ({ errors: state.Login.error });
+const mapStateToProps = state => ({ errors: state.Login });
+
+export { Login as loginComponent };
 
 export default connect(mapStateToProps)(Login);
